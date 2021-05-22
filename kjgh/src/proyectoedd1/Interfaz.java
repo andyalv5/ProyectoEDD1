@@ -1,4 +1,4 @@
-package organizedchaos;
+package proyectoedd1;
 
 import java.io.File;
 import javax.swing.JFileChooser;

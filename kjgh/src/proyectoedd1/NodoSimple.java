@@ -1,4 +1,4 @@
-package organizedchaos;
+package proyectoedd1;
 
 public class NodoSimple {
     NodoSimple pNext;

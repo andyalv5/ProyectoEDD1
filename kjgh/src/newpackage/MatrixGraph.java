@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoedd1;
+package newpackage;
 
 //Los comentarios servirán para luego hacer los DocStrings
 
@@ -57,21 +57,22 @@ public class MatrixGraph {
                 Founded = vertexarray[i].equals(newVertex);
                 if (!Founded){
                     i++;
-            }
                 }
+            }
         }
         return (i<numNodo)? i:-1;
     }
     
-    public void newArc(String firstChain, String secondChain){
+    public void newArc(String firstChain, String secondChain,ListaSimple weightList){
         int firstVar= returnIfVxFounded(firstChain);
         int secondVar = returnIfVxFounded(secondChain);
         if(firstVar<0||secondVar<0){
             JOptionPane.showMessageDialog(null,"No existe el vértice");
         }
         else{
-            adjacent[firstVar][secondVar]=1;
+            int var = weightList.searchWeight(firstChain, secondChain);
+            adjacent[firstVar][secondVar] = var;
+            }
         }
-    }
     
 }

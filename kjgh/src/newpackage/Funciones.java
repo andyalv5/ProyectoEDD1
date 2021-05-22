@@ -1,4 +1,4 @@
-package proyectoedd1;
+package newpackage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,20 +42,21 @@ public class Funciones
             } else {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
-                while((line = br.readLine()) != null){
+                br.readLine();
+                while((line = br.readLine())!=null && !line.endsWith("Rutas;")){
+                    
                     if (!line.isEmpty()) {
                         info += line +"\n";
                     }
                 }
                 if (!"".equals(info)) {
-                    String[] aux = info.split("\n");
-                    for (int i = 0; i < aux.length; i++) {
-                        lista.InsertarEnd(aux[i]);
-                    }
+                    
+                    
+                    
                     
                 }
                 br.close();
-                JOptionPane.showMessageDialog(null, "ÉXITO AL LEER! ");
+                JOptionPane.showMessageDialog(null, info);
             }
             
         }catch(Exception e){

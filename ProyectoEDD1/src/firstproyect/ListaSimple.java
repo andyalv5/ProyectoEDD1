@@ -1,4 +1,5 @@
-package firstproyect.interfaces;
+package firstproyect;
+import firstproyect.NodoSimple;
 public class ListaSimple 
 {
     private NodoSimple pFirst;

@@ -1,4 +1,4 @@
-package firstproyect.interfaces;
+package firstproyect;
 
 public class NodoSimple {
     NodoSimple pNext;

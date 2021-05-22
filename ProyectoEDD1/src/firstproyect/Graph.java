@@ -1,4 +1,6 @@
-package firstproyect.interfaces;
+package firstproyect;
+
+import firstproyect.Nodo;
 
 
 public class Graph {

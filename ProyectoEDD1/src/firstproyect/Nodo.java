@@ -1,6 +1,4 @@
-package firstproyect.interfaces;
-
-import firstproyect.interfaces.ListaSimple;
+package firstproyect;
 
 public class Nodo 
 {

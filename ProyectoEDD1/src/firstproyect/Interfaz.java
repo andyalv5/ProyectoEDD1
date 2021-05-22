@@ -1,6 +1,5 @@
-package firstproyect.interfaces;
+package firstproyect;
 
-import firstproyect.interfaces.Funciones;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;

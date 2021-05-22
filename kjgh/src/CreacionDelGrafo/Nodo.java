@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoedd1;
+package CreacionDelGrafo;
 
 /**
  *
  * @author andynet
  */
-public class Vertex {
+public class Nodo {
     private String name;
     private int vertexNum;
     
-    public Vertex(String x){
+    public Nodo(String x){
         name=x;
         vertexNum = -1;
     }
@@ -25,17 +25,17 @@ public class Vertex {
         return name;
     }
     
-    public boolean vertexEquals(Vertex i){
+    public boolean equals(Nodo i){
         return getName().equals(i.getName());
     }
     
     public void assingVtx(int n){
         this.vertexNum =n;
-    }
-    
+
     /**
      * @param name the name to set
      */
+    }
     public void setName(String name) {
         this.name = name;
     }

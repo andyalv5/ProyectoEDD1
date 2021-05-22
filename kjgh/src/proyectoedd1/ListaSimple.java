@@ -1,3 +1,4 @@
+/*
 package proyectoedd1;
 
 public class ListaSimple 
@@ -287,3 +288,4 @@ public class ListaSimple
     }
     
 }
+*/

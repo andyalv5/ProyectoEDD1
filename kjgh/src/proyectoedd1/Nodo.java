@@ -1,4 +1,4 @@
-package proyectoedd1;
+/*package proyectoedd1;
 
 public class Nodo 
 {
@@ -75,7 +75,7 @@ public class Nodo
     public String ObtenerInfo()//retorna string con la info del vertice
     {
         return "ID: "+this.getIndiceV()+"Nombre: "+this.nombre+"\n"+"Info: "+this.data;        
-    }*/
+    }
         
     
-}
+}*/

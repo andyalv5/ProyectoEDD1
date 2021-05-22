@@ -1,31 +1,39 @@
-package proyectoedd1;
+/*package proyectoedd1;
 
 public class NodoSimple {
-    NodoSimple pNext;
     String element;
+    String name;
+    int nodoNum;
+    int weight;
     
     
-    public NodoSimple(String el){
-        
-        this.pNext = null;
-        this.element = el;
-        
+    public NodoSimple(String x){
+        this.name=x;
+        this.nodoNum = -1;
+        this.element = null;
+        this.weight =0;
     }
 
-    public NodoSimple getpNext() {
-        return pNext;
+    public NodoSimple(){
+        this.element = null;
+        this.name = null;
+        this.nodoNum = -1;
     }
-
-    public void setpNext(NodoSimple pNext) {
-        this.pNext = pNext;
-    }
-
+    
     public String getElement() {
         return element;
     }
 
-    public void setElement(String element) {
+    public void setpNext(String element) {
         this.element = element;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
-}
+}*/

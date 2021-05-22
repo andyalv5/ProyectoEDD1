@@ -25,7 +25,7 @@ public class Vertex {
         return name;
     }
     
-    public boolean equals(Vertex i){
+    public boolean vertexEquals(Vertex i){
         return getName().equals(i.getName());
     }
     
@@ -33,10 +33,6 @@ public class Vertex {
         this.vertexNum =n;
     }
     
-    public String toString(){
-        return getName()+ " ("+ getVertexNum()+")";
-    }
-
     /**
      * @param name the name to set
      */

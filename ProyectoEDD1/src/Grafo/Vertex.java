@@ -23,7 +23,6 @@ public class Vertex {
      */
     public String getName() {
         return name;
-        "sd"
     }
     
     public boolean equals(Vertex i){

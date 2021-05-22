@@ -1,4 +1,4 @@
-package organizedchaos;
+package firstproyect.interfaces;
 
 public class NodoSimple {
     NodoSimple pNext;

@@ -1,4 +1,6 @@
-package organizedchaos;
+package firstproyect.interfaces;
+
+import firstproyect.interfaces.ListaSimple;
 
 public class Nodo 
 {

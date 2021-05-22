@@ -1,5 +1,4 @@
-package organizedchaos;
-
+package firstproyect.interfaces;
 public class ListaSimple 
 {
     private NodoSimple pFirst;

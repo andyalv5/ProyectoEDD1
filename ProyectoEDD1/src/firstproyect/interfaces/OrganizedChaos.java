@@ -1,4 +1,7 @@
-package organizedchaos;
+package firstproyect.interfaces;
+
+import firstproyect.interfaces.ListaSimple;
+import firstproyect.interfaces.Funciones;
 
 public class OrganizedChaos {
 

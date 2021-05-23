@@ -1,13 +1,13 @@
 package organizedchaos;
 
-public class Nodo 
+public class Vertice 
 {
     private ListaSimple data; //atributo para guardar lo que contiene el almacén
     private int stock; //atributo para saber cuántos productos contiene
     private String nombre; //nombre del vertice
     private int indiceV; //indice del vertice
     
-    public Nodo(ListaSimple info, String nom)
+    public Vertice(ListaSimple info, String nom)
     {
         this.data = info;
         this.nombre = nom;
@@ -62,7 +62,7 @@ public class Nodo
     }
     
     //retorna true si dos vertices son iguales
-    public boolean Equals(Nodo n)
+    public boolean Equals(Vertice n)
     {
         return this.nombre.equals(n.getNombre());
     }

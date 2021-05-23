@@ -277,7 +277,7 @@ public class ListaSimple
     
     //ORDENAR LISTA, SI TIENE DIFERENTES TIPOS DE DATOS QUE HAGO?
     //USAR ORDENAMIENTO BINARIO
-    public void OrdenarLista(Nodo pValue)
+    public void OrdenarLista(Vertice pValue)
     {
         if (!IsEmpty()) 
         {

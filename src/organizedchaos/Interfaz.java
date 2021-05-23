@@ -11,11 +11,13 @@ public class Interfaz extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     static Funciones fc;
-    static ListaSimple lista;
+    static ListaSimple listaArcos;
+    static ListaSimple listaVertices;
     
     public Interfaz() {
         fc = new Funciones();
-        lista = new ListaSimple();
+        listaArcos = new ListaSimple();
+        listaVertices = new ListaSimple();
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -131,9 +133,13 @@ public class Interfaz extends javax.swing.JFrame {
             
             File fichero = fx.getSelectedFile();
             
-            lista = fc.Leer_txt(fichero.getAbsolutePath());
+            String info = fc.Leer_txt(fichero.getAbsolutePath());
             
-            jTextArea1.setText(lista.printList());
+            listaArcos = fc.ExtraerArcos(info);
+            
+            listaVertices =fc.ExtraerVertices(info);
+            
+            //jTextArea1.setText(lista.printList());
         }
         
         try{

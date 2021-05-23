@@ -6,9 +6,13 @@ public class OrganizedChaos {
         
         Funciones fc = new Funciones();
         
-        ListaSimple prueba = fc.Leer_txt("test\\Archivo.txt");
+        String prueba = fc.Leer_txt("test\\Archivo.txt");
         
-        System.out.println(prueba.printList());
+        System.out.println(prueba);
+        
+        ListaSimple lista = fc.ExtraerVertices(prueba);
+        
+        System.out.println(lista.printList());
         /*Interfaz ventana = new Interfaz();
         
         ventana.setVisible(true);*/

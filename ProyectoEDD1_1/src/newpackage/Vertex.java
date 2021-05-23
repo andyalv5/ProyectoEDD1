@@ -12,6 +12,7 @@ package newpackage;
 public class Vertex {
     private String name;
     private int vertexNum;
+    private Vertex Proximo_vertex;
     
     
     public Vertex(String x){
@@ -46,6 +47,20 @@ public class Vertex {
      */
     public int getVertexNum() {
         return vertexNum;
+    }
+
+    /**
+     * @return the Proximo_vertex
+     */
+    public Vertex getProximo_vertex() {
+        return Proximo_vertex;
+    }
+
+    /**
+     * @param Proximo_vertex the Proximo_vertex to set
+     */
+    public void setProximo_vertex(Vertex Proximo_vertex) {
+        this.Proximo_vertex = Proximo_vertex;
     }
     
 }

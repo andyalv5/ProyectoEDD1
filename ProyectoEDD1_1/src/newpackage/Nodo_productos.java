@@ -13,6 +13,14 @@ public class Nodo_productos {
     private String nombre;
     private int cantidad;
     private Nodo_productos proximo;
+    
+    public Nodo_productos(){
+        
+        this.nombre = nombre;
+        this.cantidad = 0;
+        this.proximo = null;
+        
+    }
 
     /**
      * @return the nombre
@@ -55,7 +63,6 @@ public class Nodo_productos {
     public void setProximo(Nodo_productos proximo) {
         this.proximo = proximo;
     }
-    
     
     
 }

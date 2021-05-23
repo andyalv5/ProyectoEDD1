@@ -64,4 +64,32 @@ public class Lista_productos {
         this.size = size;
     }
     
+    public boolean EsVacio(){
+        return primer_producto == null;
+    }
+    
+    public void InsertarFinal(String nombre){
+        
+       Nodo_productos nuevo = new Nodo_productos();
+       
+       if(EsVacio()){
+           primer_producto = nuevo;
+           ultimo_producto = nuevo;
+       }else{
+           Nodo_productos aux = ultimo_producto;
+           aux.setProximo(nuevo);
+           ultimo_producto = nuevo;
+       }
+       
+    }
+    
+    public Nodo_productos Proximo (Nodo_productos posicion){
+        if(posicion.getProximo()!= null){
+            posicion = posicion.getProximo();
+            return posicion;
+        }else{
+            return null;
+        }
+    }
+    
 }

@@ -74,6 +74,7 @@ public class Funciones
             for (int i = 1; i < aux.length; i++) {
                 if(aux[i].equals("Rutas;"))
                 {
+                    System.out.println("Llego a rutas");
                     break;                    
                 }else
                 {

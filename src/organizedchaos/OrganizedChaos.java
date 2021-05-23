@@ -8,7 +8,7 @@ public class OrganizedChaos {
         
         String prueba = fc.Leer_txt("test\\Archivo.txt");
         
-        System.out.println(prueba);
+        //System.out.println(prueba);
         
         ListaSimple lista = fc.ExtraerVertices(prueba);
         

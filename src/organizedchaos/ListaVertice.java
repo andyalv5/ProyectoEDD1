@@ -1,12 +1,12 @@
 package organizedchaos;
 
-public class ListaSimple 
+public class ListaVertice 
 {
-    private NodoSimple pFirst;
-    private NodoSimple pLast;
+    private NodoVertice pFirst;
+    private NodoVertice pLast;
     private int size;
     
-    public ListaSimple(){
+    public ListaVertice(){
         
         this.pFirst = null;
         this.pLast = null;
@@ -14,19 +14,19 @@ public class ListaSimple
         
     }
     
-    public NodoSimple getpFirst() {
+    public NodoVertice getpFirst() {
         return pFirst;
     }
 
-    public void setpFirst(NodoSimple pFirst) {
+    public void setpFirst(NodoVertice pFirst) {
         this.pFirst = pFirst;
     }
 
-    public NodoSimple getpLast() {
+    public NodoVertice getpLast() {
         return pLast;
     }
 
-    public void setpLast(NodoSimple pLast) {
+    public void setpLast(NodoVertice pLast) {
         this.pLast = pLast;
     }
 
@@ -51,19 +51,19 @@ public class ListaSimple
         return pFirst == null;
     }
     
-    public NodoSimple FirstElement(){
+    public NodoVertice FirstElement(){
         return pFirst;
     }
     
-    public NodoSimple LastElement(){
+    public NodoVertice LastElement(){
         return null;
     }
     
-    public Object Access(NodoSimple pValue){
+    public Object Access(NodoVertice pValue){
         return pValue.getElement();
     }
     
-    public NodoSimple Proximo(NodoSimple pValue)
+    public NodoVertice Proximo(NodoVertice pValue)
     {
         
         if(pValue.getpNext() != null){
@@ -75,10 +75,10 @@ public class ListaSimple
     }
     //prepa
     
-    public NodoSimple Anterior(NodoSimple pValue)
+    public NodoVertice Anterior(NodoVertice pValue)
     {
-        NodoSimple aux = pFirst;
-        NodoSimple ant = pFirst;
+        NodoVertice aux = pFirst;
+        NodoVertice ant = pFirst;
         
         boolean find = false;
         
@@ -104,23 +104,21 @@ public class ListaSimple
     public void Imprimir()
     {
         
-        NodoSimple aux = pFirst;
+        NodoVertice aux = pFirst;
         
         for (int i = 0; i < size; i++) {
-            System.out.println(aux.getElement());
+            System.out.println(aux.getElement().ObtenerInfo());
             aux = aux.getpNext();
             
         }
     }
     public String printList()
     {
-        
-        
         if (!IsEmpty()) {
-            String lista_completa = "->";
-            NodoSimple pAct = this.pFirst;
+            String lista_completa = "";
+            NodoVertice pAct = this.pFirst;
             while(pAct != null){
-                lista_completa += pAct.getElement() + "\n";
+                lista_completa += pAct.getElement().ObtenerInfo()+"\n";
                 pAct = pAct.getpNext();
             }
         
@@ -131,10 +129,10 @@ public class ListaSimple
         
     }
     
-    public void InsertarEnd(String x)
+    public void InsertarEnd(Vertice x)
     {
         
-        NodoSimple aux = new NodoSimple(x);
+        NodoVertice aux = new NodoVertice(x);
         
         if (IsEmpty()) {
             setpFirst(aux);
@@ -148,16 +146,15 @@ public class ListaSimple
              
         }
         size++;
+        x.setIndiceV(size);
         
     }
-
-
-    
-    public NodoSimple getNodo(int posicion)
+ 
+    public NodoVertice getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
         if (IsEmpty() && posicion <= size) {
             
-            NodoSimple aux = pFirst;
+            NodoVertice aux = pFirst;
             
             for (int i = 0; i < posicion; i++) {
                 
@@ -171,32 +168,35 @@ public class ListaSimple
         }
     }
     
-    public int getIndex(NodoSimple nodo)
-    {//retona la posicion del parametro nodo
+    public int getIndex(String nom)
+    {//retona la posicion del parametro nom
         
-        if (IsEmpty()) {
-            
-            NodoSimple aux = pFirst;
-            int contador = 0;
-            
-            while(aux != nodo){
+        if (!IsEmpty()) 
+        {
+            NodoVertice aux = pFirst;
+            int id = 0;
+            while(aux != null){
+                if(aux.getElement().getNombre().equals(nom)){
                 
-                contador++;
-                aux = Proximo(aux);
+                id = aux.getElement().getIndiceV();
+                
+                } else {
+                    aux = aux.getpNext();
+                }
                 
             }
-            return contador;
-            
+            return id;
+   
         }else{
             return -1;
         }
     }
-    // Primitivas profe --> Busca un elemento. --> esta chimbo
+    // Primitivas profe --> Busca un elemento.
     
-    public NodoSimple Buscar(Object x, NodoSimple pValue)
+    public NodoVertice Buscar(Vertice x, NodoVertice pValue)
     {
         
-        NodoSimple p = null;
+        NodoVertice p = null;
         boolean find = false;
         
         if (IsEmpty()) 
@@ -229,10 +229,10 @@ public class ListaSimple
         
     }
     
-    public void Insertar(String x, NodoSimple pValue)
+    public void Insertar(Vertice x, NodoVertice pValue)
     {//Inserta despues de pValue
         
-        NodoSimple pNew = new NodoSimple(x);
+        NodoVertice pNew = new NodoVertice(x);
         
         if (pValue == LastElement()) 
         {
@@ -257,10 +257,10 @@ public class ListaSimple
         
     }
     
-    public void Delete(NodoSimple pValue)
+    public void Delete(NodoVertice pValue)
     {
         
-        NodoSimple p;
+        NodoVertice p;
         
         if (pValue!= LastElement()) {
             
@@ -274,7 +274,24 @@ public class ListaSimple
         
     }
     
-    
+    public boolean ExisteVertice(String nom)
+    {
+        NodoVertice aux = this.getpFirst();
+        boolean exist = false;
+        if (!IsEmpty()) {
+            while(aux != null){
+                 if (aux.getElement().getNombre().equals(nom)) {
+                    exist = true;
+                } else{
+                     aux = aux.getpNext();
+                 }
+        
+            }
+            
+        }
+        
+       return exist; 
+    }
     //ORDENAR LISTA, SI TIENE DIFERENTES TIPOS DE DATOS QUE HAGO?
     //USAR ORDENAMIENTO BINARIO
     public void OrdenarLista(Vertice pValue)

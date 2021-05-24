@@ -31,7 +31,7 @@ public class Funciones
     }*/
     
     public String Leer_txt(String path){
-        //ListaSimple lista = new ListaSimple();
+        
         String line;
         String info = "";
         File file = new File(path);
@@ -44,16 +44,9 @@ public class Funciones
                 BufferedReader br = new BufferedReader(fr);
                 while((line = br.readLine()) != null){
                     if (!line.isEmpty()) {
-                        info += line +"\n";
+                        info += line+"\n";
                     }
                 }
-                /*if (!"".equals(info)) {
-                    String[] aux = info.split("\n");
-                    for (int i = 0; i < aux.length; i++) {
-                        lista.InsertarEnd(aux[i]);
-                    }
-                    
-                }*/
                 br.close();
                 JOptionPane.showMessageDialog(null, "ÉXITO AL LEER! ");
             }
@@ -65,46 +58,68 @@ public class Funciones
         return info;
     }
     
-    public ListaSimple ExtraerArcos(String info)
+    public Grafo ExtraerVertices(String info, Grafo gf)
     {
-        ListaSimple lista = new ListaSimple();
+
         if (!"".equals(info)) 
         {
-            String[] aux = info.split("\n");
-            for (int i = 1; i < aux.length; i++) {
-                if(aux[i].equals("Rutas;"))
+            String[] aux = info.split(";");
+            for (int i = 1; i < aux.length; i++) 
+            {
+                if(aux[i].equals("\nRutas"))
                 {
-                    System.out.println("Llego a rutas");
+                    break;                    
+                } else
+                {
+                    String[] aux2 = aux[i].split("\n");
+                    
+                    String[] n = aux2[1].split("");
+                    String nombreVertice = n[8];
+                    
+                    Lista infoVertice = new Lista();
+                    
+                    for (int j = 2; j < aux2.length; j++) 
+                    {
+                        infoVertice.InsertarEnd(aux2[j]);
+                    }
+
+                    gf.InsertarVertice(infoVertice, nombreVertice);
+                    
+                }
+            }
+         
+        }
+        
+        return gf;
+        
+    }
+    
+    public Grafo ExtraerArcos(String info, Grafo gf)
+    {
+        
+        if (!"".equals(info)) 
+        {
+            String[] aux = info.split(";");
+            for (int i = aux.length-1; i >= 0 ; i--) {
+                if(aux[i].equals("\nRutas"))
+                {
                     break;                    
                 }else
                 {
-                    lista.InsertarEnd(aux[i]);                                        
+                    String[] infoArcos = aux[i].split("\n");
+                    for (int j = 1; j < infoArcos.length; j++) 
+                    {
+                        String[] aux2 = infoArcos[j].split(",");
+                        gf.InsertarArco(aux2[0], aux2[1], aux2[2]);
+                    }
+                                        
                 }
                 
             }
                     
         }
         
-        return lista;
-        
-    }
-    
-    public ListaSimple ExtraerVertices(String info)
-    {
-        ListaSimple lista = new ListaSimple();
-        if (!"".equals(info)) 
-        {
-            String[] aux = info.split("\n");
-            for (String aux1 : aux) {
-                if(aux1.equals("Rutas;")){
-                    
-                }
-                lista.InsertarEnd(aux1);
-            }
-                    
-        }
-        
-        return lista;
+        return gf;
     }
     
 }

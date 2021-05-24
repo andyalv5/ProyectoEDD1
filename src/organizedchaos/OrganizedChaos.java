@@ -19,6 +19,9 @@ public class OrganizedChaos {
         
         jajaja.CrearNodes(grafico);
         jajaja.CrearEdges(grafico);
+        
+        
+        
         /*Interfaz ventana = new Interfaz();
         
         ventana.setVisible(true);*/

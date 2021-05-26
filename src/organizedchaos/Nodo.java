@@ -5,7 +5,6 @@ public class Nodo
     Nodo pNext;
     Object element;
     
-    
     public Nodo(Object el){
         
         this.pNext = null;

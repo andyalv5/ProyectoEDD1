@@ -137,35 +137,8 @@ public class Interfaz extends javax.swing.JFrame {
             
             String info = fc.Leer_txt(fichero.getAbsolutePath());
             
-            //listaArcos = fc.ExtraerArcos(info);
-            
-            //listaVertices =fc.ExtraerVertices(info);
-            
-            //jTextArea1.setText(listaArcos.printList()+"\n"+listaVertices.printList());
-            
-            //valid = JOptionPane.showConfirmDialog(null, "¿Desea guardar la información cargada?");
+            valid = JOptionPane.showConfirmDialog(null, "¿Desea guardar la información cargada?");
             // 0= yes 1=no, 2 = cancel
-            switch(valid)
-            {
-                case 0:
-                    //llevar a otra interfaz
-                    break;
-                case 1:
-                    //deshacer la carga del documento y dejar en la inerfaz actual
-                    break;
-                case 2:
-                    //igual al anterior
-                    break;
-                default:
-                    //igual anterior
-                
-            }
-            
-            //Graph grafo = new Graph(listaVertices, listaArcos);
-            
-            //Confimación para guardar los datos
-            
-            //Motrar grafica del grafo
         }
         
         try{

@@ -9,7 +9,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 public class Grafo {
     
-    private ListaVertice vertices;//atibuto que contiene los vertices
+    private ListaVertice vertices;//atributo que contiene los vertices
     private ListaArco arcos;//contiene los arcos(relaciones entre vertices)
     private int numVertices;
     private String[][] matrizAdyacencia;

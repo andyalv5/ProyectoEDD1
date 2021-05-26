@@ -19,9 +19,7 @@ public class Grafo {
         this.arcos = new ListaArco();
         this.vertices = new ListaVertice();
         this.numVertices = this.vertices.getSize();
-        this.matrizAdyacencia = LlenarMatriz();
-        this.LlenarAdyacencia();
-        
+ 
     }
     
     //Constructor con listas
@@ -30,9 +28,17 @@ public class Grafo {
         this.arcos = arc;
         this.vertices = vert;
         this.numVertices = vert.getSize();
-        this.matrizAdyacencia = this.LlenarMatriz();
-        
+  
     }
+
+    public String[][] getMatrizAdyacencia() {
+        return matrizAdyacencia;
+    }
+
+    public void setMatrizAdyacencia(String[][] matrizAdyacencia) {
+        this.matrizAdyacencia = matrizAdyacencia;
+    }
+    
 
     public ListaVertice getVertices() {
         return vertices;
@@ -62,37 +68,14 @@ public class Grafo {
     public String[][] LlenarMatriz()
     {
         String[][] aux = new String[this.numVertices][this.numVertices];
-        //NodoArco axArco = this.arcos.FirstElement();
-        //NodoVertice axVerticeCol = this.vertices.FirstElement();
-        //NodoVertice axVerticeFila = this.vertices.FirstElement();
         
         for (int i = 0; i < this.numVertices; i++) 
         {
-            for (int j = 0; j < this.numVertices; j++) //para cambiar los vertices columnas
+            for (int j = 0; j < this.numVertices; j++)
             {
-                aux[i][j] = "0";                
-                /*
-                //evalua si el vertice es el de origen en un arco. si lo es coloca el peso en la ubicación sino coloca un 0
-                if ((axVerticeCol.getElement().getNombre().equals(axArco.getElement().getOrigin()))&&(axVerticeFila.getElement().getNombre().equals(axArco.getElement().getDestino()))) 
-                {
-                    aux[i][j] = axArco.getElement().getPeso();
-                    
-                    //pasar al siguiente arco
-                    axArco = axArco.getpNext();
-                    axVerticeCol = axVerticeCol.getpNext();
-                } else
-                {
-                    aux[i][j] = "0";
-                    //pasar al siguiente arco
-                    axArco = axArco.getpNext();
-                    axVerticeCol = axVerticeCol.getpNext();
-                }*/
-
-
+                aux[i][j] = "0";
             }
-            //pasar al siguiente vertice fila
-            //axVerticeFila = axVerticeFila.getpNext();
-            
+  
         }
         
         return aux;
@@ -101,6 +84,7 @@ public class Grafo {
     
     public void LlenarAdyacencia()
     {
+        String[][] vv = this.getMatrizAdyacencia();
         if (!arcos.IsEmpty()) 
         {
             NodoArco aux = arcos.getpFirst();
@@ -111,19 +95,20 @@ public class Grafo {
                 int i = vertices.getIndex(coorI);
                 int j = vertices.getIndex(coorJ);
                 
-                this.matrizAdyacencia[i][j] = aux.getElement().getPeso();
+                vv[i][j] = aux.getElement().getPeso();
                 
                 aux = aux.getpNext();
             }
-        } 
+            
+        }
     }
-    
+
     public void ImprimirMatriz()
     {
         
         for (int i = 0; i < this.numVertices; i++) {
-            for (int j = 0; j < this.numVertices; j++) {//no se que coño te pasa 
-                System.out.println(" | " + this.matrizAdyacencia[i][j] + " | ");  
+            for (int j = 0; j < this.numVertices; j++) { 
+                System.out.print(" | " + this.getMatrizAdyacencia()[i][j] + " | ");  
             }
             System.out.println();
             
@@ -168,7 +153,7 @@ public class Grafo {
         this.arcos.Imprimir();
         System.out.println("Número de vertices: "+ this.numVertices+"\n");
         System.out.println("Matriz Adyacencia: \n");
-        //this.ImprimirMatriz();        
+        this.ImprimirMatriz();        
         
     }
     

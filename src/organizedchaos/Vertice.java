@@ -44,12 +44,6 @@ public class Vertice
         this.indiceV = indiceV;
     }
     
-    public void CalcularStockAlmacen()
-    {
-        //depende de la manera en la que se trabaje el txt    
-        
-    }
-    
     //retorna true si dos vertices son iguales
     public boolean Equals(Vertice n)
     {

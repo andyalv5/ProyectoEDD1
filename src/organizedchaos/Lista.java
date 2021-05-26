@@ -59,8 +59,8 @@ public class Lista
         return null;
     }
     
-    public Object Access(Nodo pValue){
-        return pValue.getElement();
+    public String Access(Nodo pValue){
+        return "Producto: "+pValue.getpNombre() + " Stock: "+pValue.getpStock();
     }
     
     public Nodo Proximo(Nodo pValue)
@@ -107,7 +107,7 @@ public class Lista
         Nodo aux = pFirst;
         
         for (int i = 0; i < size; i++) {
-            System.out.println(aux.getElement());
+            System.out.println("Producto: "+aux.getpNombre() + " Stock: "+aux.getpStock());
             aux = aux.getpNext();
             
         }
@@ -120,7 +120,7 @@ public class Lista
             String lista_completa = "";
             Nodo pAct = this.pFirst;
             while(pAct != null){
-                lista_completa += pAct.getElement().toString()+ "->";
+                lista_completa += "Producto: "+pAct.getpNombre() + " Stock: "+pAct.getpStock()+ "->";
                 pAct = pAct.getpNext();
             }
         
@@ -131,7 +131,7 @@ public class Lista
         
     }
     
-    public void InsertarEnd(Object x)
+    public void InsertarEnd(String x)
     {
         
         Nodo aux = new Nodo(x);
@@ -193,7 +193,7 @@ public class Lista
     }
     // Primitivas profe --> Busca un elemento. --> esta chimbo
     
-    public Nodo Buscar(Object x, Nodo pValue)
+    public Nodo Buscar(String nom, Nodo pValue)
     {
         
         Nodo p = null;
@@ -211,10 +211,10 @@ public class Lista
                 
                 while(!find || p != LastElement())
                 {
-                    if (p.getElement() != x) {
+                    if (p.getpNombre().equals(nom)) {
                         Proximo(p);  
                     } else{
-                        if (p.getElement() == x){
+                        if (p.getpNombre().equals(nom)){
                             find = true;
                         } else{
                             p = null;
@@ -229,7 +229,7 @@ public class Lista
         
     }
     
-    public void Insertar(Object x, Nodo pValue)
+    public void Insertar(String x, Nodo pValue)
     {//Inserta despues de pValue
         
         Nodo pNew = new Nodo(x);
@@ -242,13 +242,13 @@ public class Lista
         {
             if (pValue == FirstElement()) {
                 
-                pNew.pNext = FirstElement();
+                pNew.setpNext(FirstElement());
                 pFirst = pNew;
                 
             } else{
                 
-                pNew.pNext = pValue.pNext;
-                pValue.pNext = pNew;
+                pNew.setpNext(pValue.getpNext());
+                pValue.setpNext(pNew);
                 
             }
         }
@@ -265,7 +265,7 @@ public class Lista
         if (pValue!= LastElement()) {
             
             p = pValue.getpNext();
-            pValue.pNext = p.pNext;
+            pValue.setpNext(p.getpNext());
             
             p = null;
             

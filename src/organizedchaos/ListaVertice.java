@@ -178,7 +178,7 @@ public class ListaVertice
             while(aux != null){
                 if(aux.getElement().getNombre().equals(nom)){
                 
-                id = aux.getElement().getIndiceV();
+                    id = aux.getElement().getIndiceV();
                 
                 } else {
                     aux = aux.getpNext();

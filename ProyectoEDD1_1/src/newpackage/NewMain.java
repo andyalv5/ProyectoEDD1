@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import Frames.Inicio;
+import Frames.newFrame;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 
@@ -18,8 +20,11 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Funciones func = new Funciones();
         
+        Inicio mf= new Inicio();
+        mf.setVisible(true);
+        Funciones func = new Funciones();
+        /*
         ListaVertex mylistsimp = func.Leer_matrix("test//lista.txt");
         ListaSimple mylistVer = func.Leer_txt("test//lista.txt",mylistsimp);
         MatrixGraph matrix = new MatrixGraph(mylistsimp,mylistVer,mylistVer.getSize());
@@ -28,6 +33,6 @@ public class NewMain {
         
         matrix.CrearNodes(grafico);
         matrix.CrearEdges(grafico);
+        */
     }
-    
 }

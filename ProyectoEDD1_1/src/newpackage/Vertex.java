@@ -24,7 +24,7 @@ public class Vertex {
     public Vertex(String x,Lista_productos listaver){
         this.name=x;
         this.listaver= listaver;
-        vertexNum = -1;
+        vertexNum = 3;
     }
     /**
      * @return the name

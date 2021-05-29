@@ -127,20 +127,15 @@ public class ListaSimple
         
         ListaSimple aux =this;
         Nodoweight auxiliar1=this.pFirst;
-        try{
-            while(auxiliar1.getpNext() !=null){
-                if(nom.equals(aux.pFirst.getVertex1())){
-                    if (nom2.equals(aux.pFirst.getpNext().getVertex2())){
-                        return aux.getpFirst().getweight();
-                    }
-                    auxiliar1 = auxiliar1.getpNext();
-                } 
-            }     
-        }
-        catch(Exception e){
-            return 0;
-        }
-        return auxiliar1.getweight();
+        while(auxiliar1 !=null){
+            if(nom.equals(aux.getpFirst().getVertex1())){
+                if (nom2.equals(aux.pFirst.getpNext().getVertex2())){
+                    return aux.getpFirst().getweight();
+                }
+            }
+            auxiliar1 = auxiliar1.getpNext();
+        }     
+        return -1;
     }
     
 }

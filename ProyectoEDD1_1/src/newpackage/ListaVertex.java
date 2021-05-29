@@ -122,21 +122,18 @@ public class ListaVertex
         size++;
         
     }   
-    public int search(String searched1){
+    
+    public int Buscar(String nom){
         
-        Vertex aux = pFirst;
-        int returning= 0;
-        try{
-            while(aux.getSiguiente() != null){
-                if(aux.getName().equals(searched1)){
-                    returning = aux.getVertexNum();
-                }
-            }     
-        }
-        catch(Exception e){
-            returning = -1;
-        }
-        return returning;
+        ListaVertex aux =this;
+        Vertex auxiliar1=aux.getpFirst();
+        while(auxiliar1 !=null){
+            if(nom.equals(auxiliar1.getName())){
+                return auxiliar1.getVertexNum();
+            }
+            auxiliar1 = auxiliar1.getSiguiente();
+        }     
+        return -1;
     }
     
     public Vertex searchVertex(String searched1){

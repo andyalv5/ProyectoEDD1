@@ -90,4 +90,24 @@ public class Lista_productos {
         this.size = size;
     }
     
+    public Lista_productos addVarios(Lista_productos lispro, String a,int b,String c,int d,String e,int f,String g,int h){
+        Nodo_productos nodPro=new Nodo_productos(a,b);
+        Nodo_productos nodPro1=new Nodo_productos(c,d);
+        Nodo_productos nodPro2=new Nodo_productos(e,f);
+        Nodo_productos nodPro3=new Nodo_productos(g,h);
+        if(a !=null){
+            lispro.addAtEnd(nodPro);
+        }
+        if(c != null){
+            lispro.addAtEnd(nodPro1);
+        }
+        if(e !=null){
+            lispro.addAtEnd(nodPro2);
+        }
+        if(g !=null){
+            lispro.addAtEnd(nodPro3);
+        }
+        return lispro;
+    }
+    
 }

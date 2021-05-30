@@ -16,9 +16,9 @@ import org.graphstream.graph.Graph;
  * @author andy
  */
 public class Inicio extends javax.swing.JFrame {
-    public MatrixGraph matrixre;
-    public ListaSimple listaSimpe;
-    public ListaVertex listaVersx;
+    protected MatrixGraph matrixre;
+    protected ListaSimple listaSimpe;
+    protected ListaVertex listaVersx;
     public Inicio window; 
     /**
      * Creates new form Inicio

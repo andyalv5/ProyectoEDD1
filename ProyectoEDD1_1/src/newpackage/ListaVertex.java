@@ -162,11 +162,27 @@ public class ListaVertex
         return almacenes;
     }
     
+    public void delAtEnd(){
+        Vertex temp= pFirst;
+        if(pFirst == pLast){
+            pFirst = pLast = null;
+        }
+        else{
+            while(temp.getSiguiente()!=pLast){
+                temp = temp.getSiguiente();
+            }
+        pLast =temp;
+        pLast.setSiguiente(null);
+        }
+    }
    
     
     public void delByName(String name){
         if(name.equals(this.pFirst.getName())){
             this.pFirst = this.pFirst.getSiguiente();
+        }
+        else if(name.equals(this.pLast.getName())){
+            delAtEnd();
         }
         else{
             int contador =0;

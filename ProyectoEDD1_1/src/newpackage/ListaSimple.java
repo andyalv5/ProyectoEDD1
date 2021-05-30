@@ -150,10 +150,14 @@ public class ListaSimple
                 anterior =actual;
                 actual=actual.getpNext();
             }
+        
         }
         if(actual!=null){
             if (actual==pFirst){
                 pFirst = actual.getpNext();
+                if (actual==pFirst){
+                    pFirst = actual.getpNext();
+                }
             }
             else{
                 anterior.setpNext(actual.getpNext());
@@ -181,6 +185,37 @@ public class ListaSimple
                 anterior.setpNext(actual.getpNext());
             }
             actual=null;
+        
         }
+    }
+    
+    public boolean ExistFE(String name){
+        Nodoweight actual=pFirst;
+        boolean founded = false;
+        while(actual !=null && !founded ){
+            founded = actual.getVertex2().equals(name);
+            if(!founded){
+                actual=actual.getpNext();
+            }
+            if(founded){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean ExistSE(String name){
+        Nodoweight actual=pFirst;
+        boolean founded = false;
+        while(actual !=null && !founded ){
+            founded = actual.getVertex1().equals(name);
+            if(!founded){
+                actual=actual.getpNext();
+            }
+            if(founded){
+                return true;
+            }
+        }
+        return false;
     }
 }

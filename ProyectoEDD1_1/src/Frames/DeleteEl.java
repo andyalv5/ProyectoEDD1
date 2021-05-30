@@ -7,6 +7,7 @@ package Frames;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import newpackage.ListaSimple;
 import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
 import org.graphstream.graph.Graph;
@@ -83,23 +84,38 @@ public class DeleteEl extends javax.swing.JFrame {
     }//GEN-LAST:event_SelectorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String almacenes = mywin.listaVersx.returnAlmacenes();
-        String[] almacen = almacenes.split(",");
-        Selector.setModel(new javax.swing.DefaultComboBoxModel(almacen));
-        
-        mywin.listaVersx.delByName(Selector.getSelectedItem().toString());
-        mywin.listaSimpe.delByNameSCE(Selector.getSelectedItem().toString());
-        mywin.listaSimpe.delByNameFE(Selector.getSelectedItem().toString());
-        
-        MatrixGraph matrix = new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize());
-        
-        Graph grafico = matrix.MotrarGraph();
-        matrix.CrearNodes(grafico);
-        matrix.CrearEdges(grafico);
-        
 
-        
-        
+        try{
+            int counter = 0;
+                mywin.listaVersx.delByName(Selector.getSelectedItem().toString());
+            for(;counter<12;counter++){
+                mywin.listaSimpe.delByNameFE(Selector.getSelectedItem().toString());
+                mywin.listaSimpe.delByNameSCE(Selector.getSelectedItem().toString());
+            }
+            String almacenes = mywin.listaVersx.returnAlmacenes();
+            String[] almacen = almacenes.split(",");
+
+            MatrixGraph matrix = new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize());
+
+
+            Graph grafico = matrix.MotrarGraph();
+            matrix.CrearNodes(grafico);
+            matrix.CrearEdges(grafico);
+            
+            for (String almacen1 : almacen) {
+                if (!mywin.listaSimpe.ExistFE(almacen1)) {
+                    throw new Exception();
+                }
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Hay un vertice aislado,reiniciando todo el programa");
+            Inicio newWin=new Inicio();
+            newWin.setVisible(true);
+            mywin.dispose();
+        }
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

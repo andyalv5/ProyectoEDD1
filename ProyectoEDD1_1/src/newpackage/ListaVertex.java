@@ -136,22 +136,22 @@ public class ListaVertex
         return -1;
     }
     
-    public Vertex searchVertex(String searched1){
+   public Vertex BuscarVertex(String searched){
         
-        Vertex aux = pFirst;
-        Vertex returning=null;
+        Vertex aux;
         try{
-            while(aux.getSiguiente() != null){
-                if(aux.getName().equals(searched1)){
-                    returning = aux;
-                }
+            for(aux=this.pFirst;aux !=null;aux=aux.getSiguiente()){
+                if(searched.equals(aux.getName())){
+                    return aux;
+                } 
             }     
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"No hay elementos");
+            return null;
         }
-        return returning;
+        return null;
     }
+   
     public String returnAlmacenes(){
         String almacenes = "";
         Vertex temp = this.pFirst;

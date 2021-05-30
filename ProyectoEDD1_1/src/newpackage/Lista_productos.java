@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ulises
@@ -43,9 +45,22 @@ public class Lista_productos {
             addElementbegin(node);
         }
         Nodo_productos tempo = this.ultimo_producto;
-        primer_producto.setProximo(tempo);
+        tempo.setProximo(node);
         ultimo_producto = node;
         size ++;
+    }
+    
+    public void pntAllelmntinList(){
+        String toPrint = "";
+        Nodo_productos nodoTmp = this.getPrimer_producto();
+        if(this.IsEmpty()){
+         JOptionPane.showMessageDialog(null,"The list is empty");
+        }
+        while(nodoTmp != null){
+            toPrint += "Producto: "+nodoTmp.getNombre() + " Cantidad: " +nodoTmp.getCantidad()+"\n";
+            nodoTmp=nodoTmp.getProximo();
+        }
+        JOptionPane.showMessageDialog(null,toPrint);
     }
     
     /**

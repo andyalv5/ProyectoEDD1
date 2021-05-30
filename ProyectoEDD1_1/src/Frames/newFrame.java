@@ -10,8 +10,6 @@ import newpackage.Lista_productos;
 import newpackage.Nodo_productos;
 import newpackage.Nodoweight;
 import newpackage.Vertex;
-import Frames.Inicio;
-import org.graphstream.graph.Graph;
 
 /**
  *
@@ -35,11 +33,14 @@ public class newFrame extends javax.swing.JFrame {
     public Inicio mywin;
     /**
      * Creates new form newFrame
+     * @param mywin
      */
     public newFrame(Inicio mywin) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.mywin = mywin;
+        
+        
     }
 
     private newFrame() {
@@ -92,6 +93,11 @@ public class newFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(630, 571));
         setPreferredSize(new java.awt.Dimension(630, 571));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Peso.addActionListener(new java.awt.event.ActionListener() {
@@ -143,13 +149,13 @@ public class newFrame extends javax.swing.JFrame {
                 Ruta2ActionPerformed(evt);
             }
         });
-        getContentPane().add(Ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 40, 30));
+        getContentPane().add(Ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 40, 30));
 
         jLabel4.setText("--->");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, 20));
 
         jTextField5.setEditable(false);
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 40, 30));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 40, 30));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel6.setText("Almacen:");
@@ -572,7 +578,7 @@ public class newFrame extends javax.swing.JFrame {
             this.pe=Integer.parseInt(Peso.getText());
             this.pe1=Integer.parseInt(Peso1.getText());
             Nodoweight node = new Nodoweight(Producto.getText().toUpperCase(),Ruta1.getText().toUpperCase(),pe);
-            Nodoweight node1 = new Nodoweight(Producto.getText().toUpperCase(),Ruta2.getText().toUpperCase(),pe1);
+            Nodoweight node1 = new Nodoweight(Ruta2.getText().toUpperCase(),Producto.getText().toUpperCase(),pe1);
             mywin.listaVersx.addAtEnd(ver1);
             mywin.listaSimpe.addAtEnd(node);
             mywin.listaSimpe.addAtEnd(node1);
@@ -614,6 +620,10 @@ public class newFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Peso1ActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
@@ -646,7 +656,6 @@ public class newFrame extends javax.swing.JFrame {
             new newFrame().setVisible(true);
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JButton Cancelar;

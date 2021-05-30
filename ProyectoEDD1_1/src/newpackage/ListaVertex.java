@@ -152,4 +152,32 @@ public class ListaVertex
         }
         return returning;
     }
+    public String returnAlmacenes(){
+        String almacenes = "";
+        Vertex temp = this.pFirst;
+        while(temp!=null){
+            almacenes+= temp.getName() +",";
+            temp = temp.getSiguiente();
+        }
+        return almacenes;
+    }
+    
+   
+    
+    public void delByName(String name){
+        if(name.equals(this.pFirst.getName())){
+            this.pFirst = this.pFirst.getSiguiente();
+        }
+        else{
+            int contador =0;
+            Vertex nodoTmp = this.pFirst;
+            while(contador < size-1 && nodoTmp.getSiguiente() !=null){
+                if(name.equals(nodoTmp.getSiguiente().getName())){
+                    nodoTmp.setSiguiente(nodoTmp.getSiguiente().getSiguiente());
+                }
+                nodoTmp = nodoTmp.getSiguiente(); 
+            }
+        }
+        size--;
+    }
 }

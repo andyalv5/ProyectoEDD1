@@ -7,8 +7,6 @@ package Frames;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import newpackage.ListaSimple;
-import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
 import org.graphstream.graph.Graph;
 

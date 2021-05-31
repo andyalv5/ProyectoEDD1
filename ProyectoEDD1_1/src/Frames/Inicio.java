@@ -11,7 +11,6 @@ import newpackage.ListaSimple;
 import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
 import org.graphstream.graph.Graph;
-import org.graphstream.ui.view.Viewer;
 
 /**
  *
@@ -128,29 +127,49 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(null, "No cerrar la ventana del grafo", "cuidado", JOptionPane.WARNING_MESSAGE);
-        Graph grafico = getMatrixre().MotrarGraph();
-        getMatrixre().CrearNodes(grafico);
-        getMatrixre().CrearEdges(grafico);
+        try{
+            Graph grafico = getMatrixre().MotrarGraph();
+            JOptionPane.showMessageDialog(null, "No cerrar la ventana del grafo", "cuidado", JOptionPane.WARNING_MESSAGE);
+            getMatrixre().CrearNodes(grafico);
+            getMatrixre().CrearEdges(grafico);}
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se puede crear el grafo", "Negativo", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        DeleteEl delW = new DeleteEl(this);
-        delW.setVisible(true);
-        
+        try{
+            DeleteEl delW = new DeleteEl(this);
+            delW.setVisible(true);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No puede eliminarse", "Negativo", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.setVisible(false);
-        Stock dis = new Stock(this);
-        dis.setVisible(true);
+        try{
+            this.setVisible(false);
+            Stock dis = new Stock(this);
+            dis.setVisible(true);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No puede agregarse el almacen", "Error terrible", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.setVisible(false);
-        NewCargar dis = new NewCargar(this);
-        dis.setVisible(true);
+        try{
+            this.setVisible(false);
+            NewCargar dis = new NewCargar(this);
+            dis.setVisible(true);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No puede agregarse el almacen", "Error terrible", JOptionPane.ERROR_MESSAGE);
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

@@ -521,7 +521,8 @@ public class newFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Cantidad4KeyTyped
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        // TODO add your handling code here:
+        mywin.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed

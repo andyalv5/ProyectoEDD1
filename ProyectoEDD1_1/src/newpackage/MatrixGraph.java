@@ -12,6 +12,7 @@ import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 
 /**
@@ -118,13 +119,15 @@ public class MatrixGraph {
         System.setProperty("org.graphstream.ui", "swing");
         
         Graph graph = new SingleGraph("GRAFO");
-        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 20px, 4px; } node { size: 20px; fill-color: red, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
+        graph.setAttribute("ui.stylesheet", "graph { padding: 40px; } edge { arrow-shape: arrow; arrow-size: 20px, 8px; } node { size: 40px; fill-color: yellow, black; fill-mode: gradient-horizontal; text-alignment: at-right; text-padding: 10px, 15px; text-background-mode: rounded-box; text-background-color: #EB2; text-color: #222; } ");    
         
         graph.display();
         
         return graph;
         
     }
+    
+    
     
     public Graph IndividualEdge(Graph graph, int peso,String ver1,String ver2){
         

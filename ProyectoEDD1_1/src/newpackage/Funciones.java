@@ -63,7 +63,6 @@ public class Funciones
                     }
                 }
                 
-                JOptionPane.showMessageDialog(null,"Exito al leer");
                 br.close();
             } 
         }

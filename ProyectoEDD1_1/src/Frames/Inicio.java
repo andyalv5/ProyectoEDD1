@@ -5,11 +5,13 @@
  */
 package Frames;
 
+import javax.swing.JOptionPane;
 import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
 import org.graphstream.graph.Graph;
+import org.graphstream.ui.view.Viewer;
 
 /**
  *
@@ -28,14 +30,8 @@ public class Inicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Funciones func = new Funciones();
         
-        ListaVertex mylistv = func.Leer_matrix("test//lista.txt");
-        listaVersx = mylistv;
-        ListaSimple mylists = func.Leer_txt("test//lista.txt",mylistv);
-        listaSimpe = mylists;
-        MatrixGraph matrix = new MatrixGraph(mylistv,mylists,mylists.getSize());
-        matrixre = matrix;
-        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +50,8 @@ public class Inicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -108,6 +106,18 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4.setText("Agregar al Stock");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel5.setText("Cargar");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
+
+        jButton5.setText("click");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 90, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,9 +128,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Graph grafico = matrixre.MotrarGraph();
-        matrixre.CrearNodes(grafico);
-        matrixre.CrearEdges(grafico);
+        JOptionPane.showMessageDialog(null, "No cerrar la ventana del grafo", "cuidado", JOptionPane.WARNING_MESSAGE);
+        Graph grafico = getMatrixre().MotrarGraph();
+        getMatrixre().CrearNodes(grafico);
+        getMatrixre().CrearEdges(grafico);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -135,6 +146,12 @@ public class Inicio extends javax.swing.JFrame {
         Stock dis = new Stock(this);
         dis.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.setVisible(false);
+        NewCargar dis = new NewCargar(this);
+        dis.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,9 +193,53 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @param matrixre the matrixre to set
+     */
+    public void setMatrixre(MatrixGraph matrixre) {
+        this.matrixre = matrixre;
+    }
+
+    /**
+     * @param listaSimpe the listaSimpe to set
+     */
+    public void setListaSimpe(ListaSimple listaSimpe) {
+        this.listaSimpe = listaSimpe;
+    }
+
+    /**
+     * @param listaVersx the listaVersx to set
+     */
+    public void setListaVersx(ListaVertex listaVersx) {
+        this.listaVersx = listaVersx;
+    }
+
+    /**
+     * @return the matrixre
+     */
+    public MatrixGraph getMatrixre() {
+        return matrixre;
+    }
+
+    /**
+     * @return the listaSimpe
+     */
+    public ListaSimple getListaSimpe() {
+        return listaSimpe;
+    }
+
+    /**
+     * @return the listaVersx
+     */
+    public ListaVertex getListaVersx() {
+        return listaVersx;
+    }
 }

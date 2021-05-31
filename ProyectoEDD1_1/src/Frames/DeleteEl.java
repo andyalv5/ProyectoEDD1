@@ -87,6 +87,7 @@ public class DeleteEl extends javax.swing.JFrame {
 
         try{
             int counter = 0;
+                
                 mywin.listaVersx.delByName(Selector.getSelectedItem().toString());
             for(;counter<12;counter++){
                 mywin.listaSimpe.delByNameFE(Selector.getSelectedItem().toString());

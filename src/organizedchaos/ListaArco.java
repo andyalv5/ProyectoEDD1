@@ -156,7 +156,7 @@ public class ListaArco
     
     public NodoArco getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
-        if (IsEmpty() && posicion <= size) {
+        if (!IsEmpty() && posicion <= size) {
             
             NodoArco aux = pFirst;
             
@@ -175,7 +175,7 @@ public class ListaArco
     public int getIndex(NodoArco nodo)
     {//retona la posicion del parametro nodo
         
-        if (IsEmpty()) {
+        if (!IsEmpty()) {
             
             NodoArco aux = pFirst;
             int contador = 0;

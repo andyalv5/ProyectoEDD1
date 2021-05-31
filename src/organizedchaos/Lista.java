@@ -101,6 +101,22 @@ public class Lista
         return null;
     }
     
+    public String EnviarAtxt()
+    {
+        String aux = "";
+        if (!IsEmpty()) {
+            Nodo pAct = this.pFirst;
+            while(pAct != null){
+                aux += pAct.getpNombre() + ","+pAct.getpStock()+ "\n";
+                pAct = pAct.getpNext();
+            }
+        
+            return aux;           
+        }
+        
+        return aux+";";
+    }
+    
     public void Imprimir()
     {
         
@@ -151,11 +167,9 @@ public class Lista
         
     }
 
-
-    
     public Nodo getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
-        if (IsEmpty() && posicion <= size) {
+        if (!IsEmpty() && posicion <= size) {
             
             Nodo aux = pFirst;
             
@@ -174,7 +188,7 @@ public class Lista
     public int getIndex(Nodo nodo)
     {//retona la posicion del parametro nodo
         
-        if (IsEmpty()) {
+        if (!IsEmpty()) {
             
             Nodo aux = pFirst;
             int contador = 0;
@@ -191,7 +205,6 @@ public class Lista
             return -1;
         }
     }
-    // Primitivas profe --> Busca un elemento. --> esta chimbo
     
     public Nodo Buscar(String nom, Nodo pValue)
     {
@@ -274,16 +287,5 @@ public class Lista
         
     }
     
-    
-    //ORDENAR LISTA, SI TIENE DIFERENTES TIPOS DE DATOS QUE HAGO?
-    //USAR ORDENAMIENTO BINARIO
-    public void OrdenarLista(Nodo pValue)
-    {
-        if (!IsEmpty()) 
-        {
-                        
-        }
-        
-    }
     
 }

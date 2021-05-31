@@ -60,4 +60,7 @@ public class Vertice
         return "ID: "+this.getIndiceV()+" Nombre: "+this.nombre+"\n"+" Info: "+this.data.printList();        
     }
     
+    public String ParaTXT(){
+        return "Almacen "+this.getNombre()+":"+"\n"+this.getData().EnviarAtxt();
+    }
 }

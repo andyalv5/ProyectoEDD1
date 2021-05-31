@@ -39,7 +39,6 @@ public class Grafo {
         this.matrizAdyacencia = matrizAdyacencia;
     }
     
-
     public ListaVertice getVertices() {
         return vertices;
     }
@@ -65,7 +64,7 @@ public class Grafo {
     }
     
     
-    public String[][] LlenarMatriz()
+    public void LlenarMatriz()
     {
         String[][] aux = new String[this.numVertices][this.numVertices];
         
@@ -78,7 +77,7 @@ public class Grafo {
   
         }
         
-        return aux;
+        this.setMatrizAdyacencia(aux);
        
     }
     
@@ -87,20 +86,24 @@ public class Grafo {
         String[][] vv = this.getMatrizAdyacencia();
         if (!arcos.IsEmpty()) 
         {
+     
             NodoArco aux = arcos.getpFirst();
             while(aux != null){
-                
+ 
                 String coorI = aux.getElement().getOrigin();
                 String coorJ = aux.getElement().getDestino();
+               
                 int i = vertices.getIndex(coorI);
+                
                 int j = vertices.getIndex(coorJ);
                 
-                vv[i][j] = aux.getElement().getPeso();
+                vv[i-1][j-1] = aux.getElement().getPeso();
                 
                 aux = aux.getpNext();
             }
-            
+            this.setMatrizAdyacencia(vv);            
         }
+        
     }
 
     public void ImprimirMatriz()
@@ -115,7 +118,30 @@ public class Grafo {
         }
                 
     }
+    public String RetornarMatriz()
+    {
+        String aux = "";
+        for (int i = 0; i < this.numVertices; i++) {
+            String line = "";
+            for (int j = 0; j < this.numVertices; j++) { 
+                line += " | " + this.getMatrizAdyacencia()[i][j] + " | ";  
+            }
+            aux += line+"\n";
+            
+        }
+        
+        return aux;
+                
+    }
     
+    public void RecorridoBFS()//ANCHURA usar cola
+    {
+        
+    }
+    public void RecorridoDFS()//PROFUNDIDAD usar pila
+    {
+        
+    }
     public void InsertarVertice(Lista data, String nombre)
     {
         if (!this.vertices.ExisteVertice(nombre)) 
@@ -154,6 +180,11 @@ public class Grafo {
         System.out.println("Número de vertices: "+ this.numVertices+"\n");
         System.out.println("Matriz Adyacencia: \n");
         this.ImprimirMatriz();        
+        
+    }
+    
+    public String InfoGrafo(){
+        return "Almacenes: \n"+vertices.printList()+ "Arcos: \n"+arcos.printList()+"Número de vertices: "+this.numVertices+"\n"+this.RetornarMatriz();
         
     }
     

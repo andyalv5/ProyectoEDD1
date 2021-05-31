@@ -152,7 +152,7 @@ public class ListaVertice
  
     public NodoVertice getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
-        if (IsEmpty() && posicion <= size) {
+        if (!IsEmpty() && posicion <= size) {
             
             NodoVertice aux = pFirst;
             
@@ -173,12 +173,14 @@ public class ListaVertice
         
         if (!IsEmpty()) 
         {
-            NodoVertice aux = pFirst;
+            NodoVertice aux = this.getpFirst();
             int id = 0;
-            while(aux != null){
+            while(aux != null)
+            {
                 if(aux.getElement().getNombre().equals(nom)){
                 
                     id = aux.getElement().getIndiceV();
+                    return id;
                 
                 } else {
                     aux = aux.getpNext();

@@ -13,6 +13,7 @@ public class Nodo_productos {
     private String nombre;
     private int cantidad;
     private Nodo_productos proximo;
+    private int tamanio;
 
     
     
@@ -20,6 +21,7 @@ public class Nodo_productos {
     this.nombre = nombre;
     this.cantidad = cantidad;
     this.proximo = null;
+    this.tamanio = 0;
     }
     
     public String getNombre() {

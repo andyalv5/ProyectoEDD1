@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
 public class Lista_productos {
   
     private Nodo_productos primer_producto;
-    private Nodo_productos ultimo_producto;
+    private Nodo_productos siguiente;
     private int size;
     
     public Lista_productos() {
         this.primer_producto = null;
-        this.ultimo_producto = null;
+        this.siguiente= null;
         this.size = 0;
     
     }
@@ -30,7 +30,7 @@ public class Lista_productos {
     
     public void addElementbegin(Nodo_productos newNodo){
         if(this.IsEmpty()){
-            this.primer_producto = this.ultimo_producto = newNodo;
+            this.primer_producto = this.siguiente = newNodo;
         }
         else{
             Nodo_productos pNew= primer_producto; 
@@ -44,10 +44,12 @@ public class Lista_productos {
         if(this.IsEmpty()){
             addElementbegin(node);
         }
-        Nodo_productos tempo = this.ultimo_producto;
-        tempo.setProximo(node);
-        ultimo_producto = node;
-        size ++;
+        else{
+            Nodo_productos tempo = this.getUltimo_producto();
+            tempo.setProximo(node);
+            siguiente = node;
+            size ++;
+        }
     }
     
     public void pntAllelmntinList(){
@@ -81,14 +83,14 @@ public class Lista_productos {
      * @return the ultimo_producto
      */
     public Nodo_productos getUltimo_producto() {
-        return ultimo_producto;
+        return siguiente;
     }
 
     /**
      * @param ultimo_producto the ultimo_producto to set
      */
     public void setUltimo_producto(Nodo_productos ultimo_producto) {
-        this.ultimo_producto = ultimo_producto;
+        this.siguiente = ultimo_producto;
     }
 
     /**

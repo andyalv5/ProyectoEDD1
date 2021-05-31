@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import javax.swing.JOptionPane;
 import java.io.FileReader;
+import java.io.PrintWriter;
 
 public class Funciones 
 {
@@ -28,6 +29,52 @@ public class Funciones
             JOptionPane.showMessageDialog(null, "ÉRROR AL REGISTRAR! ");
         }
     }*/
+    
+       
+    
+    public void writeTxt(ListaVertex vertex, ListaSimple listsimp){
+        String txt = "";
+        String txt2 ="";
+        
+        if(!vertex.IsEmpty()){
+            Vertex temp= vertex.getpFirst();
+            
+            for(int i = 0;i< vertex.getSize() -1;i++){
+                txt +="Almacen "+ temp.getName() + ":"+"\n";
+                Lista_productos lispro=temp.getListaver();
+                Nodo_productos mynod= lispro.getPrimer_producto();
+                for(int j = 0;j< lispro.getSize()-1;j++){
+                    txt += mynod.getNombre() +","+mynod.getCantidad()+"\n";
+                    mynod = mynod.getProximo();
+                }
+                txt +=mynod.getNombre() +","+mynod.getCantidad()+";"+"\n";
+                temp =temp.getSiguiente();
+            }  
+        }
+        
+        if(!listsimp.IsEmpty()){
+            Nodoweight temp1= listsimp.getpFirst();
+            for(int z =0;z< listsimp.getSize()-1;z++){
+                txt2 +=temp1.getVertex1()+","+temp1.getVertex2()+","+temp1.getWeight()+"\n";
+                temp1 =temp1.getpNext();
+            }  
+        }
+        
+        try{
+            PrintWriter pw = new PrintWriter("test//lista.txt");
+            pw.print("Almacenes; Esta Linea se salta automaticamente"+"\n");
+            pw.append(txt);
+            pw.print("Rutas;"+"\n");
+            pw.append(txt2);
+            pw.close();
+            JOptionPane.showMessageDialog(null, "Guardado Exitoso.");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Fallo En Cargar Datos.");
+        }
+
+    } 
+    
     
     public ListaSimple Leer_txt(String path,ListaVertex listaVer){
         ListaSimple lista = new ListaSimple();

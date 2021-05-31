@@ -111,6 +111,8 @@ public class NewCargar extends javax.swing.JFrame {
             mywin.setListaSimpe(fc.Leer_txt(fichero.getAbsolutePath(),mywin.listaVersx));
             MatrixGraph matrix=new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize());
             mywin.setMatrixre(matrix);
+            Funciones funct=new Funciones();
+            funct.writeTxt(mywin.listaVersx, mywin.listaSimpe);
         } catch(Exception e){
             JOptionPane.showMessageDialog(this, "ERROR!!! NO SE QUÉ HICISTE PERO MAL!");
         };

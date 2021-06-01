@@ -22,6 +22,7 @@ public class Funciones
         while(nodo != null)
         {
             informacion += nodo.getElement().ParaTXT();
+            nodo = nodo.getpNext();
         }
         
         informacion += "Rutas;\n";        
@@ -29,7 +30,8 @@ public class Funciones
         //llenar con arcos
         while(pAux != null)
         {
-            informacion += pAux.getElement().Paratxt();
+            informacion += pAux.getElement().Paratxt()+"\n";
+            pAux = pAux.getpNext();
         }  
         try
         {

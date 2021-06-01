@@ -62,18 +62,17 @@ public class Cola
         
     }
     
-    public void Desencolar()
+    public NodoVertice Desencolar()
     {
         NodoVertice pTemp = this.getCimaCola();
-        this.setCimaCola(this.getCimaCola().getpNext());
-        pTemp = null;
-        in --;
-        
-        if (this.getCimaCola() == null) 
+        if (!this.IsEmpty()) 
         {
-            this.setUltimoCola(null);
+            this.setCimaCola(this.getCimaCola().getpNext());
+            in --;
             
         }
+        
+        return pTemp;        
         
     }
     

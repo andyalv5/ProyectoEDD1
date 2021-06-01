@@ -15,7 +15,9 @@ public class Grafo {
     private String[][] matrizAdyacencia;
     
     //Consrtuctor vacio
-    public Grafo(){
+    public Grafo()
+    {
+        
         this.arcos = new ListaArco();
         this.vertices = new ListaVertice();
         this.numVertices = this.vertices.getSize();
@@ -134,14 +136,130 @@ public class Grafo {
                 
     }
     
-    public void RecorridoBFS()//ANCHURA usar cola
+    public String ReporteAlmacenBFS()//ANCHURA usar cola
     {
+        Cola cola = new Cola();
+        String reporte = "Reporte de almacenes:\n";
+        //INICIA DESDE EL ALMACEN DE MENOR ID
+        NodoVertice pTemp = vertices.getpFirst();
+        NodoVertice vertice;
+        
+        while(pTemp != null)
+        {
+            // 1 marcar el vertice de partida
+            pTemp.getElement().setVisitado(true);
+            // 2 meter en la cola el vertice de partida
+            cola.Encolar(pTemp.getElement());
+            // 3 repetir 4 y 5 hasta que cola quede vacia
+            while(cola.IsEmpty())
+            {
+                // 4 quitar el nodo cima de la cola, w,
+                vertice = cola.Desencolar();
+                //visitar w
+                reporte += vertice.getElement().ObtenerInfo();
+                // 5 Meter en la cola todos los vertices adyacentes a w, que no estén marcados
+                //   marcar esos vertices
+                ListaVertice adyacentes = this.VerticesAdyacentes(pTemp);
+                NodoVertice node = adyacentes.getpFirst();
+                while(node != null)
+                {
+                    cola.Encolar(node.getElement());
+                    node.getElement().setVisitado(true);
+                    node = node.getpNext();
+                    
+                }
+                
+                
+            }
+           
+            pTemp = pTemp.getpNext();
+        }
+        
+        // fin
+        return reporte;       
+        
         
     }
-    public void RecorridoDFS()//PROFUNDIDAD usar pila
+    public void ReporteProductosBFS(String nombreProducto)
     {
+        //si se requiere saber la disponibilidad de un determinado producto, 
+        //este debe ser ingresado al sistema y generar el reporte de la disponibilidad 
+        //del mismo en cada uno de los almacenes
         
     }
+    
+    public String ReporteAlmacenDFS()//PROFUNDIDAD usar pila
+    {
+        //INICIA DESDE EL ALMACEN DE MENOR ID
+        Pila pila = new Pila();
+        String reporte = "Reporte de almacenes:\n";
+        //INICIA DESDE EL ALMACEN DE MENOR ID
+        NodoVertice pTemp = vertices.getpFirst();
+        Vertice vertice;
+        
+        while(pTemp != null)
+        {
+            // 1 marcar el vertice de partida
+            pTemp.getElement().setVisitado(true);
+            // 2 meter en la pila el vertice de partida
+            pila.Apilar(pTemp.getElement());
+            // 3 repetir 4 y 5 hasta que pila quede vacia
+            while(pila.IsEmpty())
+            {
+                // 4 quitar el nodo cima de la pila, w,
+                vertice = pila.Desapilar();
+                
+                // 5 Meter en la pila todos los vertices adyacentes a w, que no estén marcados
+                //   marcar esos vertices
+                ListaVertice adyacentes = this.VerticesAdyacentes(pTemp);
+                NodoVertice node = adyacentes.getpFirst();
+                while(node != null)
+                {
+                    pila.Apilar(node.getElement());
+                    node.getElement().setVisitado(true);
+                    node = node.getpNext();
+                    
+                }
+                //visitar w
+                reporte += vertice.ObtenerInfo();
+    
+            }
+           
+            pTemp = pTemp.getpNext();
+        }
+        
+        // fin
+        return reporte;
+        
+    }
+    
+    public void ReporteProductosDFS(String nombreProducto)
+    {
+        //si se requiere saber la disponibilidad de un determinado producto, 
+        //este debe ser ingresado al sistema y generar el reporte de la disponibilidad 
+        //del mismo en cada uno de los almacenes
+        
+    }
+    
+    public ListaVertice VerticesAdyacentes(NodoVertice nodo)//retorna una lista de vertices adyacentes al parametro
+    {
+        ListaVertice adyacentesNodo = new ListaVertice();
+        
+        NodoArco arco = arcos.getpFirst();
+        
+        while(arco != null)
+        {
+            if (arco.getElement().getOrigin().equals(nodo.getElement().getNombre())) 
+            {
+                adyacentesNodo.InsertarEnd(vertices.getNodoNombre(arco.getElement().getDestino()));
+            }
+            
+        }
+        
+        
+        return adyacentesNodo;        
+    }
+    
     public void InsertarVertice(Lista data, String nombre)
     {
         if (!this.vertices.ExisteVertice(nombre)) 

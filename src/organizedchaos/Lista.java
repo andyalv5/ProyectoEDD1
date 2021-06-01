@@ -111,7 +111,7 @@ public class Lista
                 pAct = pAct.getpNext();
             }
         
-            return aux;           
+            return aux+";";           
         }
         
         return aux+";";

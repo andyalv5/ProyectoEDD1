@@ -193,6 +193,29 @@ public class ListaVertice
             return -1;
         }
     }
+    
+    public Vertice getNodoNombre(String nom)
+    {//retona el vertice del parametro nom
+        
+        if (!IsEmpty()) 
+        {
+            NodoVertice aux = this.getpFirst();
+            
+            while(aux != null)
+            {
+                if(aux.getElement().getNombre().equals(nom)){
+             
+                    return aux.getElement();
+                
+                } 
+                aux = aux.getpNext();
+               
+            }
+   
+        }
+        return null;
+        
+    }
     // Primitivas profe --> Busca un elemento.
     
     public NodoVertice Buscar(Vertice x, NodoVertice pValue)

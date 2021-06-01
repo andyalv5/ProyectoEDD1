@@ -3,6 +3,7 @@ package organizedchaos;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.Graph;
 
 
 public class Interfaz extends javax.swing.JFrame {
@@ -127,7 +128,7 @@ public class Interfaz extends javax.swing.JFrame {
             
             valid = JOptionPane.showConfirmDialog(null, "¿Desea guardar la información cargada?");
             // 0= yes 1=no, 2 = cancel
-            
+            System.out.println(valid);
             if (valid != 0) 
             {
                 JOptionPane.showMessageDialog(null, "DEBE CARGAR UN ARCHIVO Y GUARDARLO PARA CONTINUAR!");
@@ -137,6 +138,9 @@ public class Interfaz extends javax.swing.JFrame {
                 fc.Escribir_txt(grafito);
                 //Motrar grafica del grafo
                 Menu menu = new Menu(grafito);
+                Graph grafica = grafito.MotrarGraph();
+                grafica = grafito.CrearNodes(grafica);
+                grafica = grafito.CrearEdges(grafica);
                 this.setVisible(false);
                 menu.setVisible(true);
             }

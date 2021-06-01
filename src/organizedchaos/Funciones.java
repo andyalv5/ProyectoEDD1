@@ -12,26 +12,43 @@ public class Funciones
         
     }
     
-    /*public void Escribir_txt(Pila pila){
+    public void Escribir_txt(Grafo grafo){
         
-        String informacion = "";
+        String informacion = "Almacenes;\n";
         
-        while(!pila.IsEmpty()) {
-            String valor = (String) pila.Desapilar().getData();
-            informacion += valor;        
+        NodoVertice nodo = grafo.getVertices().FirstElement();
+        NodoArco pAux = grafo.getArcos().FirstElement();
+        //llenar con vertices
+        while(nodo != null)
+        {
+            informacion += nodo.getElement().ParaTXT();
+            nodo = nodo.getpNext();
         }
-        try{
-            PrintWriter pw = new PrintWriter("test\\Datos.txt");
+        
+        informacion += "Rutas;\n";        
+        
+        //llenar con arcos
+        while(pAux != null)
+        {
+            informacion += pAux.getElement().Paratxt()+"\n";
+            pAux = pAux.getpNext();
+        }  
+        try
+        {
+            PrintWriter pw = new PrintWriter("test\\Prueba.txt");
             pw.print(informacion);
             pw.close();
             JOptionPane.showMessageDialog(null, "ÉXITO AL REGISTRAR! ");
-        }catch(Exception err){
+            
+        }catch(Exception err)
+        {
             JOptionPane.showMessageDialog(null, "ÉRROR AL REGISTRAR! ");
         }
-    }*/
+    }
     
-    public String Leer_txt(String path){
+    public Grafo Leer_txt(String path){
         
+        Grafo gr = new Grafo();
         String line;
         String info = "";
         File file = new File(path);
@@ -50,12 +67,22 @@ public class Funciones
                 br.close();
                 JOptionPane.showMessageDialog(null, "ÉXITO AL LEER! ");
             }
+            gr = this.ExtraerVertices(info, gr);
+            gr = this.ExtraerArcos(info, gr);
+            if (!gr.getVertices().IsEmpty() && !gr.getArcos().IsEmpty()) 
+            {
+                gr.setNumVertices(gr.getVertices().getSize());
+                gr.LlenarMatriz();
+                gr.LlenarAdyacencia();
+                
+            }
             
-        }catch(Exception e){
+            
+        }catch(Exception err){
             JOptionPane.showMessageDialog(null, "ÉRROR AL LEER! ");
         }
         
-        return info;
+        return gr;
     }
     
     public Grafo ExtraerVertices(String info, Grafo gf)

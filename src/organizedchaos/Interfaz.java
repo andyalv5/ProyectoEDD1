@@ -3,6 +3,7 @@ package organizedchaos;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.Graph;
 
 
 public class Interfaz extends javax.swing.JFrame {
@@ -11,14 +12,12 @@ public class Interfaz extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     static Funciones fc;
-    static ListaArco listaArcos;
-    static ListaVertice listaVertices;
+    static Grafo grafito;
     static int valid;
     
     public Interfaz() {
         fc = new Funciones();
-        listaArcos = new ListaArco();
-        listaVertices = new ListaVertice();
+        grafito = new Grafo();
         valid = 0;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,7 +35,6 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cargartxt = new javax.swing.JButton();
-        guardartxt = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         close = new javax.swing.JButton();
@@ -55,13 +53,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        guardartxt.setText("GUARDAR");
-        guardartxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardartxtActionPerformed(evt);
-            }
-        });
-
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -77,24 +68,22 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cargartxt)
-                        .addGap(60, 60, 60)
-                        .addComponent(guardartxt)))
-                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(cargartxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(close))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(close)
-                        .addGap(157, 157, 157))))
+                        .addGap(98, 98, 98)))
+                .addGap(101, 101, 101))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,14 +91,12 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cargartxt)
-                    .addComponent(guardartxt))
-                .addGap(18, 18, 18)
-                .addComponent(close)
-                .addGap(22, 22, 22))
+                    .addComponent(close)
+                    .addComponent(cargartxt))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,10 +122,33 @@ public class Interfaz extends javax.swing.JFrame {
             
             File fichero = fx.getSelectedFile();
             
-            String info = fc.Leer_txt(fichero.getAbsolutePath());
+            grafito = fc.Leer_txt(fichero.getAbsolutePath());
+            
+
+            valid = JOptionPane.showConfirmDialog(null, "¿Desea guardar la información cargada?");
+            // 0= yes 1=no, 2 = cancel
+
+            jTextArea1.setText(grafito.InfoGrafo());
             
             valid = JOptionPane.showConfirmDialog(null, "¿Desea guardar la información cargada?");
             // 0= yes 1=no, 2 = cancel
+            System.out.println(valid);
+            if (valid != 0) 
+            {
+                JOptionPane.showMessageDialog(null, "DEBE CARGAR UN ARCHIVO Y GUARDARLO PARA CONTINUAR!");
+                
+            } else 
+            {
+                fc.Escribir_txt(grafito);
+                //Motrar grafica del grafo
+                Menu menu = new Menu(grafito);
+                Graph grafica = grafito.MotrarGraph();
+                grafica = grafito.CrearNodes(grafica);
+                grafica = grafito.CrearEdges(grafica);
+                this.setVisible(false);
+                menu.setVisible(true);
+            }
+            
         }
         
         try{
@@ -147,14 +157,6 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ERROR!!! NO SE QUÉ HICISTE PERO MAL!");
         }
     }//GEN-LAST:event_cargartxtActionPerformed
-
-    private void guardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardartxtActionPerformed
-        try{          
-
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(this, "ERROR!!! NO SE QUÉ HICISTE PERO MAL!");
-        };
-    }//GEN-LAST:event_guardartxtActionPerformed
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
         System.exit(0);
@@ -198,7 +200,6 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cargartxt;
     private javax.swing.JButton close;
-    private javax.swing.JButton guardartxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -5,15 +5,26 @@ public class Vertice
     private Lista data; //atributo para guardar lo que contiene el almacén
     private String nombre; //nombre del vertice
     private int indiceV; //indice del vertice
+    private boolean visitado;
     
     public Vertice(Lista info, String nom)
     {
         this.data = info;
         this.nombre = nom;
         this.indiceV = -1;
+        this.visitado = false;
     }
     
     //GETTERS Y SETTERS
+
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
+    
     public Lista getData() 
     {
         return data;
@@ -44,12 +55,6 @@ public class Vertice
         this.indiceV = indiceV;
     }
     
-    public void CalcularStockAlmacen()
-    {
-        //depende de la manera en la que se trabaje el txt    
-        
-    }
-    
     //retorna true si dos vertices son iguales
     public boolean Equals(Vertice n)
     {
@@ -66,4 +71,7 @@ public class Vertice
         return "ID: "+this.getIndiceV()+" Nombre: "+this.nombre+"\n"+" Info: "+this.data.printList();        
     }
     
+    public String ParaTXT(){
+        return "Almacen "+this.getNombre()+":"+"\n"+this.getData().EnviarAtxt();
+    }
 }

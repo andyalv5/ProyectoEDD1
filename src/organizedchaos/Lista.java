@@ -59,8 +59,8 @@ public class Lista
         return null;
     }
     
-    public Object Access(Nodo pValue){
-        return pValue.getElement();
+    public String Access(Nodo pValue){
+        return "Producto: "+pValue.getpNombre() + " Stock: "+pValue.getpStock();
     }
     
     public Nodo Proximo(Nodo pValue)
@@ -101,13 +101,29 @@ public class Lista
         return null;
     }
     
+    public String EnviarAtxt()
+    {
+        String aux = "";
+        if (!IsEmpty()) {
+            Nodo pAct = this.pFirst;
+            while(pAct != null){
+                aux += pAct.getpNombre() + ","+pAct.getpStock()+ "\n";
+                pAct = pAct.getpNext();
+            }
+        
+            return aux+";";           
+        }
+        
+        return aux+";";
+    }
+    
     public void Imprimir()
     {
         
         Nodo aux = pFirst;
         
         for (int i = 0; i < size; i++) {
-            System.out.println(aux.getElement());
+            System.out.println("Producto: "+aux.getpNombre() + " Stock: "+aux.getpStock());
             aux = aux.getpNext();
             
         }
@@ -120,7 +136,7 @@ public class Lista
             String lista_completa = "";
             Nodo pAct = this.pFirst;
             while(pAct != null){
-                lista_completa += pAct.getElement().toString()+ "->";
+                lista_completa += "Producto: "+pAct.getpNombre() + " Stock: "+pAct.getpStock()+ "->";
                 pAct = pAct.getpNext();
             }
         
@@ -131,7 +147,7 @@ public class Lista
         
     }
     
-    public void InsertarEnd(Object x)
+    public void InsertarEnd(String x)
     {
         
         Nodo aux = new Nodo(x);
@@ -151,11 +167,9 @@ public class Lista
         
     }
 
-
-    
     public Nodo getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
-        if (IsEmpty() && posicion <= size) {
+        if (!IsEmpty() && posicion <= size) {
             
             Nodo aux = pFirst;
             
@@ -174,7 +188,7 @@ public class Lista
     public int getIndex(Nodo nodo)
     {//retona la posicion del parametro nodo
         
-        if (IsEmpty()) {
+        if (!IsEmpty()) {
             
             Nodo aux = pFirst;
             int contador = 0;
@@ -191,9 +205,8 @@ public class Lista
             return -1;
         }
     }
-    // Primitivas profe --> Busca un elemento. --> esta chimbo
     
-    public Nodo Buscar(Object x, Nodo pValue)
+    public Nodo Buscar(String nom, Nodo pValue)
     {
         
         Nodo p = null;
@@ -211,10 +224,10 @@ public class Lista
                 
                 while(!find || p != LastElement())
                 {
-                    if (p.getElement() != x) {
+                    if (p.getpNombre().equals(nom)) {
                         Proximo(p);  
                     } else{
-                        if (p.getElement() == x){
+                        if (p.getpNombre().equals(nom)){
                             find = true;
                         } else{
                             p = null;
@@ -229,7 +242,7 @@ public class Lista
         
     }
     
-    public void Insertar(Object x, Nodo pValue)
+    public void Insertar(String x, Nodo pValue)
     {//Inserta despues de pValue
         
         Nodo pNew = new Nodo(x);
@@ -242,13 +255,13 @@ public class Lista
         {
             if (pValue == FirstElement()) {
                 
-                pNew.pNext = FirstElement();
+                pNew.setpNext(FirstElement());
                 pFirst = pNew;
                 
             } else{
                 
-                pNew.pNext = pValue.pNext;
-                pValue.pNext = pNew;
+                pNew.setpNext(pValue.getpNext());
+                pValue.setpNext(pNew);
                 
             }
         }
@@ -265,7 +278,7 @@ public class Lista
         if (pValue!= LastElement()) {
             
             p = pValue.getpNext();
-            pValue.pNext = p.pNext;
+            pValue.setpNext(p.getpNext());
             
             p = null;
             
@@ -274,16 +287,5 @@ public class Lista
         
     }
     
-    
-    //ORDENAR LISTA, SI TIENE DIFERENTES TIPOS DE DATOS QUE HAGO?
-    //USAR ORDENAMIENTO BINARIO
-    public void OrdenarLista(Nodo pValue)
-    {
-        if (!IsEmpty()) 
-        {
-                        
-        }
-        
-    }
     
 }

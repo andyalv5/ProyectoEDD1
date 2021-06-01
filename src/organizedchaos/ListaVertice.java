@@ -152,7 +152,7 @@ public class ListaVertice
  
     public NodoVertice getNodo(int posicion)
     {//retorna un nodo si se pasa la posición
-        if (IsEmpty() && posicion <= size) {
+        if (!IsEmpty() && posicion <= size) {
             
             NodoVertice aux = pFirst;
             
@@ -173,12 +173,14 @@ public class ListaVertice
         
         if (!IsEmpty()) 
         {
-            NodoVertice aux = pFirst;
+            NodoVertice aux = this.getpFirst();
             int id = 0;
-            while(aux != null){
+            while(aux != null)
+            {
                 if(aux.getElement().getNombre().equals(nom)){
                 
-                id = aux.getElement().getIndiceV();
+                    id = aux.getElement().getIndiceV();
+                    return id;
                 
                 } else {
                     aux = aux.getpNext();
@@ -190,6 +192,29 @@ public class ListaVertice
         }else{
             return -1;
         }
+    }
+    
+    public Vertice getNodoNombre(String nom)
+    {//retona el vertice del parametro nom
+        
+        if (!IsEmpty()) 
+        {
+            NodoVertice aux = this.getpFirst();
+            
+            while(aux != null)
+            {
+                if(aux.getElement().getNombre().equals(nom)){
+             
+                    return aux.getElement();
+                
+                } 
+                aux = aux.getpNext();
+               
+            }
+   
+        }
+        return null;
+        
     }
     // Primitivas profe --> Busca un elemento.
     

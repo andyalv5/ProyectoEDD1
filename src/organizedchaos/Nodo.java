@@ -2,13 +2,18 @@ package organizedchaos;
 
 public class Nodo 
 {
-    Nodo pNext;
-    Object element;
+    private Nodo pNext;
+    //Object element;
+    private String pNombre;
+    private int pStock;
     
-    public Nodo(Object el){
+    public Nodo(String el){
+
         
+        String[] aux = el.split(",");
         this.pNext = null;
-        this.element = el;
+        this.pNombre = aux[0];
+        this.pStock = Integer.parseInt(aux[1]);
         
     }
 
@@ -20,11 +25,21 @@ public class Nodo
         this.pNext = pNext;
     }
 
-    public Object getElement() {
-        return element;
+    public String getpNombre() {
+        return pNombre;
     }
 
-    public void setElement(Object element) {
-        this.element = element;
+    public void setpNombre(String pNombre) {
+        this.pNombre = pNombre;
     }
+
+    public int getpStock() {
+        return pStock;
+    }
+
+    public void setpStock(int pStock) {
+        this.pStock = pStock;
+    }
+
+    
 }

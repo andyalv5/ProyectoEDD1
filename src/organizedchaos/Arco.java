@@ -48,4 +48,8 @@ public class Arco
         return "Origen: "+this.origin+" Destino: "+this.destino+" Peso: "+this.peso;         
     }
     
+    public String Paratxt(){
+        return this.getOrigin()+","+this.getDestino()+","+this.getPeso();
+    }
+    
 }

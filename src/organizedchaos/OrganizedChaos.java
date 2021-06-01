@@ -6,22 +6,27 @@ public class OrganizedChaos {
 
     public static void main(String[] args) {
         
-        Funciones fc = new Funciones();
+        //Funciones fc = new Funciones();
         
-        String prueba = fc.Leer_txt("test\\Archivo.txt");
+        /*String prueba = fc.Leer_txt("test\\Archivo.txt");
         Grafo jajaja = new Grafo();
         jajaja = fc.ExtraerVertices(prueba, jajaja);
         jajaja = fc.ExtraerArcos(prueba, jajaja);
         jajaja.setNumVertices(jajaja.getVertices().getSize());
-        jajaja.MostrarInfoGrafo();
+        jajaja.LlenarMatriz();
+        jajaja.LlenarAdyacencia();
         
-        Graph grafico = jajaja.MotrarGraph();
+        jajaja.MostrarInfoGrafo();*/
         
-        jajaja.CrearNodes(grafico);
-        jajaja.CrearEdges(grafico);
-        /*Interfaz ventana = new Interfaz();
+        //Graph grafico = jajaja.MotrarGraph();
         
-        ventana.setVisible(true);*/
+        //jajaja.CrearNodes(grafico);
+        //jajaja.CrearEdges(grafico);
+        
+        
+        Interfaz ventana = new Interfaz();
+        
+        ventana.setVisible(true);
     }
     
 }

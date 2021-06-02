@@ -162,6 +162,8 @@ public class ListaVertex
         return almacenes;
     }
     
+    
+    
     public void delAtEnd(){
         Vertex temp= pFirst;
         if(pFirst == pLast){

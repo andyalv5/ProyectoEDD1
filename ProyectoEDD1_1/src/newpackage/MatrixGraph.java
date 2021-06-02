@@ -20,6 +20,41 @@ import org.graphstream.ui.view.Viewer;
  * @author andynet
  */
 public class MatrixGraph {
+
+    /**
+     * @return the vertices
+     */
+    public ListaVertex getVertices() {
+        return vertices;
+    }
+
+    /**
+     * @return the peso
+     */
+    public ListaSimple getPeso() {
+        return peso;
+    }
+
+    /**
+     * @return the numNodo
+     */
+    public int getNumNodo() {
+        return numNodo;
+    }
+
+    /**
+     * @return the vertexarray
+     */
+    public Vertex[] getVertexarray() {
+        return vertexarray;
+    }
+
+    /**
+     * @return the adjacent
+     */
+    public int[][] getAdjacent() {
+        return adjacent;
+    }
     private ListaVertex vertices;
     private ListaSimple peso;
     private int numNodo;
@@ -37,7 +72,7 @@ public class MatrixGraph {
                 for(int j=0;i<NodoId;i++){
                     adjacent[i][j] =0;
                 }
-            numNodo =0;
+            numNodo =NodoId;
             }
         }
         
@@ -52,7 +87,7 @@ public class MatrixGraph {
             boolean isFound = returnIfVxFounded(chain) >=0;
             if(!isFound){
                 Vertex vx = new Vertex(chain,lis);
-                vx.assingVtx(numNodo);
+                vx.assingVtx(getNumNodo());
                 lisV.addAtEnd(vx);
                 vertexarray[numNodo++]=vx;
             }
@@ -63,7 +98,7 @@ public class MatrixGraph {
             boolean isFound = returnIfVxFounded(chain) >=0;
             if(!isFound){
                 Vertex vx = new Vertex(chain,lis);
-                vx.assingVtx(numNodo);
+                vx.assingVtx(getNumNodo());
                 lisV.addAtEnd(vx);
                 vertexarray[numNodo++]=vx;
             }
@@ -75,15 +110,15 @@ public class MatrixGraph {
         Vertex newVertex = new Vertex(chain);
         boolean Founded = false;
         int i =0;
-        for(;i<numNodo;i++){
+        for(;i<getNumNodo();i++){
             if (!Founded){
-                Founded = vertexarray[i].equals(newVertex);
+                Founded = getVertexarray()[i].equals(newVertex);
                 if (!Founded){
                     i++;
                 }
             }
         }
-        return (i<numNodo)? i:-1;
+        return (i<getNumNodo())? i:-1;
     }
     
     public void newArc(String firstChain, String secondChain,ListaSimple weightList){
@@ -147,7 +182,7 @@ public class MatrixGraph {
     public Graph CrearNodes(Graph grafico){
         if (!this.vertices.IsEmpty()) 
         {
-           Vertex aux = vertices.getpFirst();
+           Vertex aux = getVertices().getpFirst();
             while(aux != null){
                 
                 grafico = IndividualNode(grafico, aux);
@@ -165,7 +200,7 @@ public class MatrixGraph {
         
         if (!this.peso.IsEmpty()) 
         {
-            Nodoweight pesoInicial=peso.getpFirst();
+            Nodoweight pesoInicial=getPeso().getpFirst();
             
             while(pesoInicial!=null){
                 IndividualEdge(grafico,pesoInicial.getweight(),pesoInicial.getVertex1(),pesoInicial.getVertex2());

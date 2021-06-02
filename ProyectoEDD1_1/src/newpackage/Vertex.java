@@ -14,17 +14,20 @@ public class Vertex {
     private Lista_productos listaver;
     private int vertexNum;
     private Vertex siguiente;
+    private boolean Visitado;
     
 
     public Vertex(String x){
         name=x;
         vertexNum = -1;
+        this.Visitado = false;
     }
 
     public Vertex(String x,Lista_productos listaver){
         this.name=x;
         this.listaver= listaver;
         vertexNum = 3;
+        this.Visitado = false;
     }
     /**
      * @return the name
@@ -89,6 +92,20 @@ public class Vertex {
      */
     public void setSiguiente(Vertex siguiente) {
         this.siguiente = siguiente;
+    }
+
+    /**
+     * @return the Visitado
+     */
+    public boolean isVisitado() {
+        return Visitado;
+    }
+
+    /**
+     * @param Visitado the Visitado to set
+     */
+    public void setVisitado(boolean Visitado) {
+        this.Visitado = Visitado;
     }
 
 }

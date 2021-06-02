@@ -138,6 +138,37 @@ public class ListaSimple
         return -1;
     }
     
+    public String ReturnFE(String name){
+        Nodoweight actual=pFirst;
+        String myStr = "";
+        boolean founded = false;
+        while(actual !=null && !founded ){
+            founded = actual.getVertex2().equals(name);
+            if(!founded){
+                actual=actual.getpNext();
+            }
+            if(founded){
+                myStr+=actual.getVertex1()+",";
+            }
+        }
+        return myStr;
+    }
+    
+    public String ReturnSE(String name){
+        String myStr="";
+        Nodoweight actual=pFirst;
+        boolean founded = false;
+        while(actual !=null && !founded ){
+            founded = actual.getVertex1().equals(name);
+            if(!founded){
+                actual=actual.getpNext();
+            }
+            if(founded){
+                myStr+=actual.getVertex2()+",";
+            }
+        }
+        return myStr;
+    }
    
     
     public void delByNameSCE(String name){

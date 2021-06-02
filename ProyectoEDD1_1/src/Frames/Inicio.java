@@ -10,6 +10,7 @@ import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
+import newpackage.Recorrido;
 import org.graphstream.graph.Graph;
 
 /**
@@ -29,6 +30,9 @@ public class Inicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Funciones func = new Funciones();
         
+        listaVersx = func.Leer_matrix("test//lista.txt");
+        listaSimpe = func.Leer_txt("test//lista.txt",listaVersx);
+        matrixre = new MatrixGraph(listaVersx,listaSimpe,listaVersx.getSize());
     }
     
 
@@ -51,6 +55,10 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -106,8 +114,8 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel5.setText("Cargar");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
+        jLabel5.setText("Mostrar BFS");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
 
         jButton5.setText("click");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +124,30 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 90, 40));
+
+        jButton6.setText("jButton6");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel6.setText("Cargar");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
+
+        jButton7.setText("click");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("Mostrar DFS");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +204,21 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Recorrido reco=new Recorrido();    
+        String s = reco.ReporteAlmacenBFS(matrixre,listaVersx);
+        JOptionPane.showMessageDialog(null, s);
+        reco.SetTrueBFS(matrixre, listaVersx);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Recorrido reco=new Recorrido();    
+        String s = reco.ReporteAlmacenDFS(matrixre,listaVersx);
+        JOptionPane.showMessageDialog(null, s);
+        reco.SetTrueDFS(matrixre, listaVersx);
+        reco.SetTrueBFS(matrixre, listaVersx);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -213,11 +260,15 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 
     /**

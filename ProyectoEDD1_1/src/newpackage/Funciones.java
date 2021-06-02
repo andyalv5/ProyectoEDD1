@@ -39,7 +39,7 @@ public class Funciones
         if(!vertex.IsEmpty()){
             Vertex temp= vertex.getpFirst();
             
-            for(int i = 0;i< vertex.getSize() -1;i++){
+            for(int i = 0;i< vertex.getSize()-1;i++){
                 txt +="Almacen "+ temp.getName() + ":"+"\n";
                 Lista_productos lispro=temp.getListaver();
                 Nodo_productos mynod= lispro.getPrimer_producto();
@@ -154,7 +154,7 @@ public class Funciones
                         String[] low = otros.split(",");
                         Lista_productos listprod =new Lista_productos();
                         
-                        
+                        JOptionPane.showMessageDialog(null,low.length);
                         for(int j = 0;j< low.length-1;j++){
                             int k=j;
                             int m =j+1;

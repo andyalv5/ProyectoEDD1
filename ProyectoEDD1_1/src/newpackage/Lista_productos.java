@@ -24,6 +24,19 @@ public class Lista_productos {
     
     }
     
+    public String returnInlistProducts(){
+        String toPrint = "";
+        Nodo_productos nodoTmp = this.getPrimer_producto();
+        if(this.IsEmpty()){
+         toPrint = "The list is empty";
+        }
+        while(nodoTmp != null){
+            toPrint += "Producto: "+nodoTmp.getNombre() + " Cantidad: " +nodoTmp.getCantidad()+"\n";
+            nodoTmp=nodoTmp.getProximo();
+        }
+        return toPrint;
+    }
+    
      public boolean IsEmpty(){
         return this.primer_producto == null;
     }

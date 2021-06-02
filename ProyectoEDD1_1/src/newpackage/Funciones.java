@@ -154,7 +154,7 @@ public class Funciones
                         String[] low = otros.split(",");
                         Lista_productos listprod =new Lista_productos();
                         
-                        JOptionPane.showMessageDialog(null,low.length);
+                        
                         for(int j = 0;j< low.length-1;j++){
                             int k=j;
                             int m =j+1;

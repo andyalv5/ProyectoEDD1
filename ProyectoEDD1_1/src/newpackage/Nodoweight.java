@@ -63,7 +63,7 @@ public class Nodoweight {
         }
     
     public void setpNext(Nodoweight pNext) {
-        this.pNext = pNext;
+        this.pNext= pNext;
     }
 
     public int getweight() {

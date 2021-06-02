@@ -95,7 +95,7 @@ public class ListaSimple
          JOptionPane.showMessageDialog(null,"The list is empty");
         }
         while(nodoTmp != null){
-            JOptionPane.showMessageDialog(null,nodoTmp);
+            JOptionPane.showMessageDialog(null,nodoTmp.getVertex1());
             nodoTmp=nodoTmp.getpNext();
         }
         
@@ -105,10 +105,11 @@ public class ListaSimple
         if(this.IsEmpty()){
             addElementbegin(node);
         }
-        Nodoweight tempo = this.pLast;
-        tempo.setpNext(node);
-        pLast = node;
-        size ++;
+        else{Nodoweight tempo = this.pLast;
+            tempo.setpNext(node);
+            pLast = node;
+            size ++;
+        }
     }
     
     public void addElementbegin(Nodoweight newNodo){
@@ -119,6 +120,7 @@ public class ListaSimple
             Nodoweight pNew= pFirst; 
             pFirst=newNodo;
             pFirst.setpNext(pNew);
+            
         }
         size++;
         
@@ -141,15 +143,14 @@ public class ListaSimple
     public String ReturnFE(String name){
         Nodoweight actual=pFirst;
         String myStr = "";
+        
         boolean founded = false;
-        while(actual !=null && !founded ){
+        while(actual !=null){
             founded = actual.getVertex2().equals(name);
-            if(!founded){
-                actual=actual.getpNext();
-            }
             if(founded){
                 myStr+=actual.getVertex1()+",";
             }
+            actual=actual.getpNext();
         }
         return myStr;
     }
@@ -158,14 +159,12 @@ public class ListaSimple
         String myStr="";
         Nodoweight actual=pFirst;
         boolean founded = false;
-        while(actual !=null && !founded ){
+        while(actual !=null){
             founded = actual.getVertex1().equals(name);
-            if(!founded){
-                actual=actual.getpNext();
-            }
             if(founded){
                 myStr+=actual.getVertex2()+",";
             }
+            actual=actual.getpNext();
         }
         return myStr;
     }

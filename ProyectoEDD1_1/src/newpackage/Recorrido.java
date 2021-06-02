@@ -46,7 +46,7 @@ public class Recorrido {
     {
         //INICIA DESDE EL ALMACEN DE MENOR ID
         Pila pila = new Pila();
-        String reporte = "Reporte de almacenes:\n";
+        String reporte = "<html><b>Tipo de Recorrido DFS (Depth-first search)-Busqueda en profundidad:</b><html>"+"\n";
         //INICIA DESDE EL ALMACEN DE MENOR ID
         Vertex pTemp = matrix.getVertices().getpFirst();
         Vertex vertice;

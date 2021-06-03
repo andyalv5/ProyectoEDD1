@@ -1,9 +1,11 @@
+package newpackage;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package newpackage;
+
     
 /**
  *
@@ -11,10 +13,10 @@ package newpackage;
  */
 public class NodoSuma {
     private String Nombre;
-    private int cantidad;
+    private String cantidad;
     private NodoSuma siguiente;
     
-    public NodoSuma(String Nombre,int cantidad){
+    public NodoSuma(String Nombre,String cantidad){
         this.Nombre=Nombre;
         this.cantidad=cantidad;
         this.siguiente=null;
@@ -37,14 +39,14 @@ public class NodoSuma {
     /**
      * @return the cantidad
      */
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
     /**
      * @param cantidad the cantidad to set
      */
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 

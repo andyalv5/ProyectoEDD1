@@ -1,5 +1,8 @@
 package newpackage;
 
+
+
+import newpackage.NodoSuma;
 import javax.swing.JOptionPane;
 
 public class SumaLista 
@@ -16,9 +19,9 @@ public class SumaLista
         
     }
     public void DestroyList(){
-    this.pFirst = null;
-    this.pLast = null;
-    this.size = 0;
+        this.setpFirst(null);
+        this.setpLast(null);
+        this.setSize(0);
 
     }   
     
@@ -44,12 +47,11 @@ public class SumaLista
  
     
     public void pntAllelmnt(){
-        NodoSuma nodoTmp = pFirst;
+        NodoSuma nodoTmp = getpFirst();
         if(this.IsEmpty()){
          JOptionPane.showMessageDialog(null,"The list is empty");
         }
         while(nodoTmp != null){
-            JOptionPane.showMessageDialog(null,nodoTmp);
             nodoTmp=nodoTmp.getSiguiente();
         }
         
@@ -83,10 +85,10 @@ public class SumaLista
     public int Buscar(String nom){
         
         SumaLista aux =this;
-        NodoSuma auxiliar1=aux.pFirst;
+        NodoSuma auxiliar1=aux.getpFirst();
         while(auxiliar1 !=null){
             if(nom.equals(auxiliar1.getNombre())){
-                return auxiliar1.getCantidad();
+                return Integer.parseInt(auxiliar1.getCantidad());
             }
             auxiliar1 = auxiliar1.getSiguiente();
         }     
@@ -97,7 +99,7 @@ public class SumaLista
         
         NodoSuma aux;
         try{
-            for(aux=this.pFirst;aux !=null;aux=aux.getSiguiente()){
+            for(aux=this.getpFirst();aux !=null;aux=aux.getSiguiente()){
                 if(searched.equals(aux.getNombre())){
                     return aux;
                 } 
@@ -111,7 +113,7 @@ public class SumaLista
    
     public String returnAlmacenes(){
         String almacenes = "";
-        NodoSuma temp = this.pFirst;
+        NodoSuma temp = this.getpFirst();
         while(temp!=null){
             almacenes+= temp.getNombre() +",";
             temp = temp.getSiguiente();
@@ -122,50 +124,111 @@ public class SumaLista
     
     
     public void delAtEnd(){
-        NodoSuma temp= pFirst;
-        if(pFirst == pLast){
-            pFirst = pLast = null;
+        NodoSuma temp= getpFirst();
+        if(getpFirst() == getpLast()){
+            setpFirst(pLast = null);
         }
         else{
-            while(temp.getSiguiente()!=pLast){
+            while(temp.getSiguiente()!=getpLast()){
                 temp = temp.getSiguiente();
             }
-        pLast =temp;
-        pLast.setSiguiente(null);
+            setpLast(temp);
+            getpLast().setSiguiente(null);
         }
     }
    
     
     public void delByName(String name){
-        if(name.equals(this.pFirst.getNombre())){
-            this.pFirst = this.pFirst.getSiguiente();
+        if(name.equals(this.getpFirst().getNombre())){
+            this.setpFirst(this.getpFirst().getSiguiente());
         }
-        else if(name.equals(this.pLast.getNombre())){
+        else if(name.equals(this.getpLast().getNombre())){
             delAtEnd();
         }
         else{
             int contador =0;
-            NodoSuma nodoTmp = this.pFirst;
-            while(contador < size-1 && nodoTmp.getSiguiente() !=null){
+            NodoSuma nodoTmp = this.getpFirst();
+            while(contador < getSize()-1 && nodoTmp.getSiguiente() !=null){
                 if(name.equals(nodoTmp.getSiguiente().getNombre())){
                     nodoTmp.setSiguiente(nodoTmp.getSiguiente().getSiguiente());
                 }
                 nodoTmp = nodoTmp.getSiguiente(); 
             }
         }
-        size--;
+        setSize(getSize() - 1);
     }
    
     
-    public void sumar(){
-        NodoSuma aux=this.pFirst;
-        NodoSuma aux2=aux;
-        while(aux2!=null){
-            if(aux2.getNombre().equals(aux.getNombre())){
-                
-            }
+    
+    public void delFElement(){
+        if(!this.IsEmpty()){
+            NodoSuma aux = this.getpFirst().getSiguiente();
+            this.getpFirst().setSiguiente(null);
+            this.setpFirst(aux);
+            setSize(getSize() - 1);
         }
+        
     }
+
+    /**
+     * @return the pFirst
+     */
+    public NodoSuma getpFirst() {
+        return pFirst;
+    }
+
+    /**
+     * @param pFirst the pFirst to set
+     */
+    public void setpFirst(NodoSuma pFirst) {
+        this.pFirst = pFirst;
+    }
+
+    /**
+     * @return the pLast
+     */
+    public NodoSuma getpLast() {
+        return pLast;
+    }
+
+    /**
+     * @param pLast the pLast to set
+     */
+    public void setpLast(NodoSuma pLast) {
+        this.pLast = pLast;
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(int size) {
+        this.size = size;
+    }
+    
+    public String SumarLista(ListaVertex lisver){
+        
+        String almacenes = "";
+        Vertex temp = lisver.getpFirst();
+        for(int s=0; s<lisver.getSize();s++){
+            almacenes+= "Almacen "+temp.getName()+"\n";
+            almacenes+= temp.getListaver().returnInlistProducts();
+            almacenes+="\n";
+            temp = temp.getSiguiente();
+            
+        }
+        JOptionPane.showMessageDialog(null, almacenes);
+        return almacenes;
+        
+    }
+
+    
 }
             
             

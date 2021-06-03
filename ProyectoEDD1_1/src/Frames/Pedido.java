@@ -5,9 +5,16 @@
  */
 package Frames;
 
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import newpackage.Funciones;
 import newpackage.ListaSimple;
+import newpackage.ListaVertex;
+import newpackage.Lista_productos;
 import newpackage.MatrixGraph;
+import newpackage.Nodo_productos;
+import newpackage.SumaLista;
+import newpackage.Vertex;
 
 /**
  *
@@ -17,7 +24,7 @@ public class Pedido extends javax.swing.JFrame {
     private Inicio mywin;
     static Funciones fc;
     static ListaSimple lista;
-    static MatrixGraph mymatrix;
+    protected ListaVertex listaVersx;
     /**
      * Creates new form Pedido
      */
@@ -25,6 +32,12 @@ public class Pedido extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.mywin = mywin;
+        String almacenes = mywin.listaVersx.returnAlmacenes();
+        String[] almacen = almacenes.split(",");
+        SelectorAlmacen.setModel(new javax.swing.DefaultComboBoxModel(almacen));
+        listaVersx =mywin.listaVersx;
+        this.Cajita2.setVisible(false);
+        
         
     }   
 
@@ -41,10 +54,32 @@ public class Pedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Cajita2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        cajita = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        Producto1 = new javax.swing.JTextField();
+        Producto3 = new javax.swing.JTextField();
+        Producto4 = new javax.swing.JTextField();
+        Cantidad2 = new javax.swing.JTextField();
+        Cantidad1 = new javax.swing.JTextField();
+        Cantidad3 = new javax.swing.JTextField();
+        Cantidad4 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        Cancelar = new javax.swing.JButton();
+        Aceptar = new javax.swing.JButton();
+        Producto2 = new javax.swing.JTextField();
+        SelectorAlmacen = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 600));
@@ -52,48 +87,474 @@ public class Pedido extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        Cajita2.setBackground(new java.awt.Color(0, 0, 0));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        cajita.setEditable(false);
+        cajita.setColumns(20);
+        cajita.setRows(5);
+        jScrollPane1.setViewportView(cajita);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout Cajita2Layout = new javax.swing.GroupLayout(Cajita2);
+        Cajita2.setLayout(Cajita2Layout);
+        Cajita2Layout.setHorizontalGroup(
+            Cajita2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Cajita2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        Cajita2Layout.setVerticalGroup(
+            Cajita2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Cajita2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, 190));
+        getContentPane().add(Cajita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, 190));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("click");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel3.setText("Pedido de productos");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("Almacen:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+
+        Producto1.setText("<Producto>");
+        Producto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Producto1ActionPerformed(evt);
+            }
+        });
+        Producto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Producto1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Producto1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Producto1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Producto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, 30));
+
+        Producto3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Producto3ActionPerformed(evt);
+            }
+        });
+        Producto3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Producto3KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Producto3KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Producto3KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Producto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 150, 30));
+
+        Producto4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Producto4ActionPerformed(evt);
+            }
+        });
+        Producto4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Producto4KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Producto4KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Producto4KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Producto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 150, 30));
+
+        Cantidad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cantidad2ActionPerformed(evt);
+            }
+        });
+        Cantidad2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Cantidad2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Cantidad2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Cantidad2KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Cantidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 50, 30));
+
+        Cantidad1.setText("0");
+        Cantidad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cantidad1ActionPerformed(evt);
+            }
+        });
+        Cantidad1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Cantidad1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Cantidad1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Cantidad1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Cantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 50, 30));
+
+        Cantidad3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cantidad3ActionPerformed(evt);
+            }
+        });
+        Cantidad3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Cantidad3KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Cantidad3KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Cantidad3KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Cantidad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 50, 30));
+
+        Cantidad4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cantidad4ActionPerformed(evt);
+            }
+        });
+        Cantidad4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Cantidad4KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Cantidad4KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Cantidad4KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Cantidad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 50, 30));
+
+        jLabel22.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel22.setText("Producto:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
+
+        jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel23.setText("Producto:");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, 30));
+
+        jLabel24.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel24.setText("Producto:");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 30));
+
+        jLabel25.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel25.setText("Producto:");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, 30));
+
+        jLabel13.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel13.setText("Mostrar Productos:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, 30));
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel14.setText("Cantidad:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 30));
+
+        jLabel29.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel29.setText("Cantidad:");
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, 30));
+
+        jLabel30.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel30.setText("Cantidad:");
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, 30));
+
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 120, 60));
+
+        Aceptar.setText("Aceptar");
+        Aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 120, 60));
+
+        Producto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Producto2ActionPerformed(evt);
+            }
+        });
+        Producto2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Producto2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Producto2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Producto2KeyTyped(evt);
+            }
+        });
+        getContentPane().add(Producto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, 30));
+
+        SelectorAlmacen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SelectorAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectorAlmacenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SelectorAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 100, 70));
+
+        jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel15.setText("Cantidad:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        mywin.listaVersx.Visualizar();
+        Cajita2.setVisible(true);
+        SumaLista sum=new SumaLista();
+        cajita.setText(sum.SumarLista(listaVersx));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Producto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Producto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto1ActionPerformed
+
+    private void Producto1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto1KeyPressed
+
+    private void Producto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto1KeyReleased
+
+    private void Producto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto1KeyTyped
+
+    private void Producto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Producto3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto3ActionPerformed
+
+    private void Producto3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto3KeyPressed
+
+    private void Producto3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto3KeyReleased
+
+    private void Producto3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto3KeyTyped
+
+    private void Producto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Producto4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto4ActionPerformed
+
+    private void Producto4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto4KeyPressed
+
+    private void Producto4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto4KeyReleased
+
+    private void Producto4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto4KeyTyped
+
+    private void Cantidad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cantidad2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad2ActionPerformed
+
+    private void Cantidad2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad2KeyPressed
+
+    private void Cantidad2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad2KeyReleased
+
+    private void Cantidad2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad2KeyTyped
+
+    private void Cantidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cantidad1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad1ActionPerformed
+
+    private void Cantidad1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad1KeyPressed
+
+    private void Cantidad1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad1KeyReleased
+
+    private void Cantidad1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad1KeyTyped
+
+    private void Cantidad3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cantidad3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad3ActionPerformed
+
+    private void Cantidad3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad3KeyPressed
+
+    private void Cantidad3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad3KeyReleased
+
+    private void Cantidad3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad3KeyTyped
+
+    private void Cantidad4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cantidad4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad4ActionPerformed
+
+    private void Cantidad4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad4KeyPressed
+
+    private void Cantidad4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad4KeyReleased
+
+    private void Cantidad4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidad4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidad4KeyTyped
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        mywin.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+        Vertex myver= mywin.listaVersx.BuscarVertex(SelectorAlmacen.getSelectedItem().toString());
+        Lista_productos mylistVer= myver.getListaver();
+        try{
+            if (!"".equals(Producto1.getText()) && !"0".equals(Cantidad1.getText())){
+                String a = Producto1.getText();
+                Nodo_productos mynod = myver.getListaver().BuscarProducto(a);
+                if(a.equals(mynod.getNombre())){
+                    int b = Integer.parseInt(Cantidad1.getText());
+                    int delb = mynod.getCantidad();
+                    if(delb>b){
+                        int bb = delb - b;
+                        mynod.setCantidad(bb);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
+                    }
+                }
+            }
+            if (!"".equals(Producto2.getText()) && !"0".equals(Cantidad2.getText())){
+                String c = Producto2.getText();
+                Nodo_productos mynod = myver.getListaver().BuscarProducto(c);
+                if(c.equals(mynod.getNombre())){
+                    int d = Integer.parseInt(Cantidad2.getText());
+                    int deld = mynod.getCantidad();
+                    if(deld>d){
+                        int dd = deld - d;
+                        mynod.setCantidad(dd);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
+                    }
+                }
+            }
+            if (!"".equals(Producto3.getText()) && !"0".equals(Cantidad3.getText())){
+                String e = Producto3.getText();
+                Nodo_productos mynod = myver.getListaver().BuscarProducto(e);
+                if(e.equals(mynod.getNombre())){
+                    int f = Integer.parseInt(Cantidad3.getText());
+                    int delf = mynod.getCantidad();
+                    if(delf>f){
+                        int ff = delf - f;
+                        mynod.setCantidad(ff);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
+                    }
+                }
+            }
+            
+            if (!"".equals(Producto4.getText()) && !"0".equals(Cantidad4.getText())){
+                String g = Producto4.getText();
+                Nodo_productos mynod = myver.getListaver().BuscarProducto(g);
+                if(g.equals(mynod.getNombre())){
+                    int h = Integer.parseInt(Cantidad4.getText());
+                    int delh = mynod.getCantidad();
+                    if(delh>h){
+                        int hh = delh - h;
+                        mynod.setCantidad(hh);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
+                    }
+                }
+            }
+            
+            mylistVer.pntAllelmntinList();
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "El tipo de dato introducido es erróneo","Error!",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AceptarActionPerformed
+
+    private void Producto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Producto2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto2ActionPerformed
+
+    private void Producto2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto2KeyPressed
+
+    private void Producto2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto2KeyReleased
+
+    private void Producto2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Producto2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Producto2KeyTyped
+
+    private void SelectorAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorAlmacenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectorAlmacenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,9 +592,31 @@ public class Pedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Aceptar;
+    private javax.swing.JPanel Cajita2;
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JTextField Cantidad1;
+    private javax.swing.JTextField Cantidad2;
+    private javax.swing.JTextField Cantidad3;
+    private javax.swing.JTextField Cantidad4;
+    private javax.swing.JTextField Producto1;
+    private javax.swing.JTextField Producto2;
+    private javax.swing.JTextField Producto3;
+    private javax.swing.JTextField Producto4;
+    private javax.swing.JComboBox<String> SelectorAlmacen;
+    private javax.swing.JTextArea cajita;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,9 +18,9 @@ import org.graphstream.graph.Graph;
  * @author andy
  */
 public class Inicio extends javax.swing.JFrame {
-    protected MatrixGraph matrixre;
-    protected ListaSimple listaSimpe;
-    protected ListaVertex listaVersx;
+    public MatrixGraph matrixre;
+    public ListaSimple listaSimpe;
+    public ListaVertex listaVersx;
     public Inicio window; 
     /**
      * Creates new form Inicio
@@ -243,7 +243,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        listaSimpe.pntAllelmnt();
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed

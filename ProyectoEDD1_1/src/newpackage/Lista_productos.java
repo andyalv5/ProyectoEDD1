@@ -31,7 +31,7 @@ public class Lista_productos {
          toPrint = "The list is empty";
         }
         while(nodoTmp != null){
-            toPrint += "Producto: "+nodoTmp.getNombre() + " Cantidad: " +nodoTmp.getCantidad()+"\n";
+            toPrint += "Producto: "+nodoTmp.getNombre() + "  Cantidad: " +nodoTmp.getCantidad()+"\n";
             nodoTmp=nodoTmp.getProximo();
         }
         return toPrint;
@@ -78,6 +78,21 @@ public class Lista_productos {
         JOptionPane.showMessageDialog(null,toPrint);
     }
     
+    public Nodo_productos BuscarProducto(String searched){
+        
+        Nodo_productos aux;
+        try{
+            for(aux=this.getPrimer_producto();aux !=null;aux=aux.getProximo()){
+                if(searched.equals(aux.getNombre())){
+                    return aux;
+                } 
+            }     
+        }
+        catch(Exception e){
+            return null;
+        }
+        return null;
+    }
     /**
      * @return the primer_producto
      */

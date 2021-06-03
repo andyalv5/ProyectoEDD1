@@ -201,42 +201,6 @@ public class ListaVertex
         size--;
     }
     
-    
-    
-    public SumaLista ReturnSumaLista(){
-        
-        String almacenes = "";
-        Vertex temp = this.getpFirst();
-        for(int s=0; s<this.size;s++){
-            almacenes+= temp.getListaver().returnInlistProducts();
-            temp = temp.getSiguiente();
-        }
-        JOptionPane.showMessageDialog(null, almacenes);
-        
-        
-        almacenes = almacenes.replaceAll("Producto: ","");
-        String[]infP = almacenes.split("Cantidad: ");
-        String lop=infP[0]+",";
-        for(int j =1;j<infP.length;j++){
-            String[]infin=infP[j].split("\n");
-            for(int k =0;k<infin.length;k++){
-                lop+=infin[k]+",";
-            }
-        }
-        
-        String[] finLoop=lop.split(",");
-        SumaLista mysumlist =new SumaLista();
-        for(int z=0;z<finLoop.length;){
-            int numNod = Integer.parseInt(finLoop[z+1]);
-            NodoSuma nod =new NodoSuma(finLoop[z],numNod);
-            mysumlist.addAtEnd(nod);
-        }
-       
-       
-        return mysumlist;
-    }
-    
-    
 }
             
             

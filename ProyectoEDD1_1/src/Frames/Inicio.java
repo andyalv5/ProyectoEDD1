@@ -59,7 +59,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -152,14 +151,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7.setText("Mostrar DFS");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
-        jButton8.setText("jButton8");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, -1, -1));
-
         jButton9.setText("click");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +175,7 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
             Graph grafico = getMatrixre().MotrarGraph();
-            JOptionPane.showMessageDialog(null, "No cerrar la ventana del grafo", "cuidado", JOptionPane.WARNING_MESSAGE);
+           
             getMatrixre().CrearNodes(grafico);
             getMatrixre().CrearEdges(grafico);}
         catch(Exception e){
@@ -242,10 +233,6 @@ public class Inicio extends javax.swing.JFrame {
         reco.SetTrueBFS(matrixre, listaVersx);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         this.setVisible(false);
         Pedido dis = new Pedido(this);
@@ -295,7 +282,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

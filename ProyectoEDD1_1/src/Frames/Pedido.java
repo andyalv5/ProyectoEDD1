@@ -464,8 +464,8 @@ public class Pedido extends javax.swing.JFrame {
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         Vertex myver= mywin.listaVersx.BuscarVertex(SelectorAlmacen.getSelectedItem().toString());
         Lista_productos mylistVer= myver.getListaver();
-        if (!"".equals(Producto1.getText()) && !"0".equals(Cantidad1.getText())){
-            String a = Producto1.getText();
+        if (!"".equals(Producto1.getText().toUpperCase()) && !"0".equals(Cantidad1.getText())){
+            String a = Producto1.getText().toUpperCase();
             Nodo_productos mynod = myver.getListaver().BuscarProducto(a);
             if(a.equals(mynod.getNombre())){
                 int b = Integer.parseInt(Cantidad1.getText());
@@ -479,8 +479,8 @@ public class Pedido extends javax.swing.JFrame {
                 }
             }
         }
-        if (!"".equals(Producto2.getText()) && !"0".equals(Cantidad2.getText())){
-            String c = Producto2.getText();
+        if (!"".equals(Producto2.getText().toUpperCase()) && !"0".equals(Cantidad2.getText())){
+            String c = Producto2.getText().toUpperCase();
             Nodo_productos mynod = myver.getListaver().BuscarProducto(c);
             if(c.equals(mynod.getNombre())){
                 int d = Integer.parseInt(Cantidad2.getText());
@@ -494,8 +494,8 @@ public class Pedido extends javax.swing.JFrame {
                 }
             }
         }
-        if (!"".equals(Producto3.getText()) && !"0".equals(Cantidad3.getText())){
-            String e = Producto3.getText();
+        if (!"".equals(Producto3.getText().toUpperCase()) && !"0".equals(Cantidad3.getText())){
+            String e = Producto3.getText().toUpperCase();
             Nodo_productos mynod = myver.getListaver().BuscarProducto(e);
             if(e.equals(mynod.getNombre())){
                 int f = Integer.parseInt(Cantidad3.getText());
@@ -510,8 +510,8 @@ public class Pedido extends javax.swing.JFrame {
             }
         }
 
-        if (!"".equals(Producto4.getText()) && !"0".equals(Cantidad4.getText())){
-            String g = Producto4.getText();
+        if (!"".equals(Producto4.getText().toUpperCase()) && !"0".equals(Cantidad4.getText())){
+            String g = Producto4.getText().toUpperCase();
             Nodo_productos mynod = myver.getListaver().BuscarProducto(g);
             if(g.equals(mynod.getNombre())){
                 int h = Integer.parseInt(Cantidad4.getText());

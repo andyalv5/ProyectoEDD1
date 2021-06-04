@@ -409,31 +409,87 @@ public class Stock extends javax.swing.JFrame {
         Vertex myver= mywin.listaVersx.BuscarVertex(SelectorAlmacen.getSelectedItem().toString());
         Lista_productos mylistVer= myver.getListaver();
         try{
-            if (!"".equals(Producto1.getText()) && !"".equals(Cantidad1.getText())){
-                String a = Producto1.getText();
-                int b = Integer.parseInt(Cantidad1.getText());
-                Nodo_productos nodMine = new Nodo_productos(a,b);
-                mylistVer.addAtEnd(nodMine);
+            if (!"".equals(Producto1.getText().toUpperCase()) && !"".equals(Cantidad1.getText())){
+                String a = Producto1.getText().toUpperCase();
+                Nodo_productos mynod = myver.getListaver().BuscarProducto(a);
+                if(mynod!=null){
+                    if(a.equals(mynod.getNombre())){
+                        int b = Integer.parseInt(Cantidad1.getText());
+                        int delb = mynod.getCantidad();
+                        int bb = delb + b;
+                        mynod.setCantidad(bb);
+                        
+                        
+                    }
+                }
+                else{
+                    int bbb = Integer.parseInt(Cantidad1.getText());
+                    Nodo_productos nodMine = new Nodo_productos(a,bbb);
+                    mylistVer.addAtEnd(nodMine);
+                }
+                
             }
-            if (!"".equals(Producto2.getText()) && !"".equals(Cantidad2.getText())){
-                String c = Producto2.getText();
-                int d = Integer.parseInt(Cantidad2.getText());
-                Nodo_productos nodMine1 = new Nodo_productos(c,d);
-                mylistVer.addAtEnd(nodMine1);
+            if (!"".equals(Producto2.getText().toUpperCase()) && !"".equals(Cantidad2.getText())){
+                String c = Producto2.getText().toUpperCase();
+                Nodo_productos mynod1 = myver.getListaver().BuscarProducto(c);
+                if(mynod1!=null){
+                    if(c.equals(mynod1.getNombre())){
+                        int d = Integer.parseInt(Cantidad2.getText());
+                        int deld = mynod1.getCantidad();
+                        int dd = deld + d;
+                        mynod1.setCantidad(dd);
+                        
+                        
+                    }
+                }
+                else{
+                    int ddd = Integer.parseInt(Cantidad2.getText());
+                    Nodo_productos nodMine2 = new Nodo_productos(c,ddd);
+                    mylistVer.addAtEnd(nodMine2);
+                
+                }
             }
-            if (!"".equals(Producto3.getText()) && !"".equals(Cantidad3.getText())){
-                String e = Producto3.getText();
-                int f = Integer.parseInt(Cantidad3.getText());
-                Nodo_productos nodMine2 = new Nodo_productos(e,f);
-                mylistVer.addAtEnd(nodMine2);
+                
+            if (!"".equals(Producto3.getText().toUpperCase()) && !"".equals(Cantidad3.getText())){
+                String e = Producto3.getText().toUpperCase();
+                Nodo_productos mynod3 = myver.getListaver().BuscarProducto(e);
+                if(mynod3!=null){
+                    if(e.equals(mynod3.getNombre())){
+                        int f = Integer.parseInt(Cantidad3.getText());
+                        int delf = mynod3.getCantidad();
+                        int ff = delf + f;
+                        mynod3.setCantidad(ff);
+
+                        
+                    }
+                }
+                else{
+                    int fff = Integer.parseInt(Cantidad3.getText());
+                    Nodo_productos nodMine3 = new Nodo_productos(e,fff);
+                    mylistVer.addAtEnd(nodMine3);
+                }
+                
             }
             if (!"".equals(Producto4.getText()) && !"".equals(Cantidad4.getText())){
                 String g = Producto4.getText();
-                int h = Integer.parseInt(Cantidad4.getText());
-                Nodo_productos nodMine3 = new Nodo_productos(g,h);
-                mylistVer.addAtEnd(nodMine3);
+                Nodo_productos mynod4 = myver.getListaver().BuscarProducto(g);
+                if(mynod4!=null){
+                    if(g.equals(mynod4.getNombre())){
+                        int h = Integer.parseInt(Cantidad4.getText());
+                        int delh = mynod4.getCantidad();
+                        int hh = delh + h;
+                        mynod4.setCantidad(hh);
+                        
+                        
+                    }
+                }
+                else{
+                    int hhh = Integer.parseInt(Cantidad4.getText());
+                    Nodo_productos nodMine4 = new Nodo_productos(g,hhh);
+                    mylistVer.addAtEnd(nodMine4);
+                }
+                
             }
-            mylistVer.pntAllelmntinList();
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "El tipo de dato introducido es erróneo","Error!",JOptionPane.ERROR_MESSAGE);

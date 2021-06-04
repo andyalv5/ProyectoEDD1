@@ -165,6 +165,62 @@ public class Recorrido {
         }
     }
     
+    public String algoritmoFloyd(MatrixGraph matrix,ListaVertex lisver){
+        int n= lisver.getSize();
+        int[][]P =new int[n][n];
+        String Caminos= "";
+        String caminazos="";
+        int temp1,temp2,temp3,temp4,minimo;
+        for (int i=0;i<n;i++){
+            for(int j =0;j<n;j++){
+                P[i][j]= matrix.adyacente(i,j);
+            }
+        
+        }
+        for(int k=0;k<n;k++){
+            for(int x=0;x<n;x++){
+                for(int j=0;j<n;j++){
+                    temp1= P[x][j];
+                    temp2= P[x][k];
+                    temp3=P[k][j];
+                    temp4=temp2+temp3;
+                    minimo=Math.min(temp1,temp4);
+                    P[x][j]= minimo;
+                }
+            }
+        }
+        for(int y=0;y<n;y++){
+            for(int z=0;z<n;z++){
+                Caminos=Caminos+="|"+P[y][z]+"|"+"\n";
+            }
+        }
+        for(int f=0;f<n;f++){
+            for(int g=0;g<n;g++){
+                if(f!=g){
+                    if(P[f][g]!=0){
+                        caminazos+= "Del Almacen "+(f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
+                        caminazos+="Se recorrera de la siguiente manera: "+"\n";
+                        caminazos+="Almacen "+ (f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
+                        caminazos+="\n";
+                        caminazos+="\n";
+                    }
+                    else{
+                        caminazos+= "Del Almacen "+(f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
+                        caminazos+="Se recorrera de la siguiente manera: "+"\n";
+                        
+                        caminazos+="Almacen "+ (f+1)+"---->"+" Al Almacen "+ P[f][g]+" ----> Al Almacen "+ (g+1);
+                        caminazos+="\n";
+                        caminazos+="\n";
+                    }
+                    
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null, Caminos);
+        JOptionPane.showMessageDialog(null, caminazos);
+        return caminazos;
+    }
+   /* 
     public int[][] FloydWarshall(MatrixGraph grafo, ListaVertex listav){
         int n = listav.getSize();
         
@@ -186,5 +242,5 @@ public class Recorrido {
         return P;
     }
     
-    
+    */
 }

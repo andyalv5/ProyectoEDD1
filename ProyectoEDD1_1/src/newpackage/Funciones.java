@@ -167,13 +167,12 @@ public class Funciones
                     }
                 }
                 br.close();
-                JOptionPane.showMessageDialog(null, "Exito al leer");
                 
             } 
         }
                 
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ÉRROR AL LEER! ");
+            JOptionPane.showMessageDialog(null, "ERROR AL LEER! ");
         }
         return lista; 
     }

@@ -58,9 +58,8 @@ public class Recorrido {
             reporte +="Almacen: "+vertice.getName()+"\n";
             reporte += vertice.getListaver().returnInlistProducts();
             reporte += "\n";
-            String segundo=matrix.getPeso().ReturnFE(vertice.getName());
             String primero=matrix.getPeso().ReturnSE(vertice.getName());
-            String joint= primero +segundo;
+            String joint= primero ;
             String[] jointvar = joint.split(",");
             for(int i =0; i<jointvar.length;i++){
                 String st =jointvar[i];
@@ -86,9 +85,9 @@ public class Recorrido {
         while(!pila.IsEmpty())
         {
             vertice =pila.Desapilar();
-            String segundo=matrix.getPeso().ReturnFE(vertice.getName());
+            
             String primero=matrix.getPeso().ReturnSE(vertice.getName());
-            String joint= primero +segundo;
+            String joint= primero;
             String[] jointvar = joint.split(",");
             for(int i =0; i<jointvar.length;i++){
                 String st =jointvar[i];

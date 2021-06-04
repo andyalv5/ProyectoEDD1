@@ -56,6 +56,7 @@ public class MatrixGraph {
     public int[][] getAdjacent() {
         return adjacent;
     }
+    private ListaArco arcos;
     private ListaVertex vertices;
     private ListaSimple peso;
     private int numNodo;
@@ -246,6 +247,34 @@ public class MatrixGraph {
      */
     public int getRealnumNodo() {
         return realnumNodo;
+    }
+
+    /**
+     * @return the arcos
+     */
+    public ListaArco getArcos() {
+        return arcos;
+    }
+
+    /**
+     * @param arcos the arcos to set
+     */
+    public void setArcos(ListaArco arcos) {
+        this.arcos = arcos;
+    }
+    
+    public void InsertarArco(String origin, String destiny, String peso)
+    {
+        if (!this.arcos.ExisteArco(peso)) 
+        {
+            Arco arcoGrafo = new Arco(origin, destiny, peso);
+        
+            arcos.InsertarEnd(arcoGrafo);
+            
+        } else{
+            JOptionPane.showMessageDialog(null, "EL ARCO YA EXISTE!");            
+        }
+        
     }
     
     

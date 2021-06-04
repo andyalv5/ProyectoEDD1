@@ -20,18 +20,18 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*
+        
         Inicio mf= new Inicio();
         mf.setVisible(true);
         
-        */
+        /*
         Funciones func = new Funciones();
         
         ListaVertex mylistsimp = func.Leer_matrix("test//lista.txt");
         ListaSimple mylistVer = func.Leer_txt("test//lista.txt",mylistsimp);
         MatrixGraph matrix = new MatrixGraph(mylistsimp,mylistVer,mylistVer.getSize(),mylistVer.getSize());
-        
-        Graph grafico = matrix.MotrarGraph();
+        MatrixGraph newM=func.ExtraerArcos("test//lista.txt",matrix);
+        Graph grafico = newM.MotrarGraph();
         
         
         matrix.CrearNodes(grafico);
@@ -39,6 +39,6 @@ public class NewMain {
         Recorrido s= new Recorrido();
         
         s.algoritmoFloyd(matrix, mylistsimp);
-        
+        */
     }
 }

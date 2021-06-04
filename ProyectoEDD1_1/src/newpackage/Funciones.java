@@ -178,6 +178,34 @@ public class Funciones
     }
     
     
+    public MatrixGraph ExtraerArcos(String info, MatrixGraph gf)
+    {
+        
+        if (!"".equals(info)) 
+        {
+            String[] aux = info.split(";");
+            for (int i = aux.length-1; i >= 0 ; i--) {
+                if(aux[i].equals("\nRutas"))
+                {
+                    break;                    
+                }else
+                {
+                    String[] infoArcos = aux[i].split("\n");
+                    for (int j = 1; j < infoArcos.length; j++) 
+                    {
+                        String[] aux2 = infoArcos[j].split(",");
+                        gf.InsertarArco(aux2[0], aux2[1], aux2[2]);
+                    }
+                                        
+                }
+                
+            }
+                    
+        }
+        
+        return gf;
+    }
+    
 }
     
     

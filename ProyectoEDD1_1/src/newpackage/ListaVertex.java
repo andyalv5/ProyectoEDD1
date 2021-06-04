@@ -201,6 +201,23 @@ public class ListaVertex
         size--;
     }
     
+    
+    public String SumarLista(ListaVertex lisver){
+        
+        String almacenes = "";
+        Vertex temp = lisver.getpFirst();
+        for(int s=0; s<lisver.getSize();s++){
+            almacenes+= "Almacen "+temp.getName()+"\n";
+            almacenes+= temp.getListaver().returnInlistProducts();
+            almacenes+="\n";
+            temp = temp.getSiguiente();
+            
+        }
+        JOptionPane.showMessageDialog(null, almacenes);
+        return almacenes;
+        
+    }
+    
 }
             
             

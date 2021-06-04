@@ -109,7 +109,7 @@ public class NewCargar extends javax.swing.JFrame {
         try{
             mywin.setListaVersx(fc.Leer_matrix(fichero.getAbsolutePath()));
             mywin.setListaSimpe(fc.Leer_txt(fichero.getAbsolutePath(),mywin.listaVersx));
-            MatrixGraph matrix=new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize());
+            MatrixGraph matrix=new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaVersx.getSize(),mywin.listaVersx.getSize());
             mywin.setMatrixre(matrix);
             Funciones funct=new Funciones();
             funct.writeTxt(mywin.listaVersx, mywin.listaSimpe);

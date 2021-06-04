@@ -164,4 +164,27 @@ public class Recorrido {
             }
         }
     }
+    
+    public int[][] FloydWarshall(MatrixGraph grafo, ListaVertex listav){
+        int n = listav.getSize();
+        
+        int[][]P =new int[n][n];
+        
+        for (int i=0;i<n;i++){
+            for(int j =0;j<n;j++){
+                P[i][j]= grafo.adyacente(i,j);
+            }
+            
+        }
+        for(int m=0;m<n;m++){
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    P[i][j]=Math.min(P[i][j]+P[i][m]*P[m][j],1);
+                }
+            }
+        }
+        return P;
+    }
+    
+    
 }

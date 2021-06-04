@@ -22,17 +22,21 @@ public class NewMain {
     public static void main(String[] args) {
         
         Inicio mf= new Inicio();
-        mf.setVisible(true);
+        mf.setVisible(true);/*
         Funciones func = new Funciones();
-        /*
+        
         ListaVertex mylistsimp = func.Leer_matrix("test//lista.txt");
         ListaSimple mylistVer = func.Leer_txt("test//lista.txt",mylistsimp);
-        MatrixGraph matrix = new MatrixGraph(mylistsimp,mylistVer,mylistVer.getSize());
+        MatrixGraph matrix = new MatrixGraph(mylistsimp,mylistVer,mylistVer.getSize(),mylistVer.getSize());
         
         Graph grafico = matrix.MotrarGraph();
+        Recorrido s= new Recorrido();
+        
+        int[][] j=s.FloydWarshall(matrix, mylistsimp);
         
         matrix.CrearNodes(grafico);
         matrix.CrearEdges(grafico);
         */
+        
     }
 }

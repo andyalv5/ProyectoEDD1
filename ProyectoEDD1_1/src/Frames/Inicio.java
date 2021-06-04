@@ -32,7 +32,7 @@ public class Inicio extends javax.swing.JFrame {
         
         listaVersx = func.Leer_matrix("test//lista.txt");
         listaSimpe = func.Leer_txt("test//lista.txt",listaVersx);
-        matrixre = new MatrixGraph(listaVersx,listaSimpe,listaVersx.getSize());
+        matrixre = new MatrixGraph(listaVersx,listaSimpe,listaVersx.getSize(),listaVersx.getSize());
     }
     
 

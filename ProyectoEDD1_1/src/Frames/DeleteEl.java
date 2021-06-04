@@ -94,7 +94,7 @@ public class DeleteEl extends javax.swing.JFrame {
             String almacenes = mywin.listaVersx.returnAlmacenes();
             String[] almacen = almacenes.split(",");
 
-            MatrixGraph matrix = new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize());
+            MatrixGraph matrix = new MatrixGraph(mywin.listaVersx,mywin.listaSimpe,mywin.listaSimpe.getSize(),mywin.listaVersx.getSize());
 
 
             Graph grafico = matrix.MotrarGraph();

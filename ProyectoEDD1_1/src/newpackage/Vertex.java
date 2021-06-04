@@ -13,6 +13,7 @@ public class Vertex {
     private String name;
     private Lista_productos listaver;
     private int vertexNum;
+    private int realvertexNum;
     private Vertex siguiente;
     private boolean Visitado;
     
@@ -21,6 +22,7 @@ public class Vertex {
         name=x;
         vertexNum = -1;
         this.Visitado = false;
+        
     }
 
     public Vertex(String x,Lista_productos listaver){
@@ -28,6 +30,7 @@ public class Vertex {
         this.listaver= listaver;
         vertexNum = 3;
         this.Visitado = false;
+        this.realvertexNum = -1;
     }
     /**
      * @return the name
@@ -42,6 +45,7 @@ public class Vertex {
     
     public void assingVtx(int n){
         this.setVertexNum(n);
+        this.setRealvertexNum(n);
     }
     
     /**
@@ -106,6 +110,20 @@ public class Vertex {
      */
     public void setVisitado(boolean Visitado) {
         this.Visitado = Visitado;
+    }
+
+    /**
+     * @return the realvertexNum
+     */
+    public int getRealvertexNum() {
+        return realvertexNum;
+    }
+
+    /**
+     * @param realvertexNum the realvertexNum to set
+     */
+    public void setRealvertexNum(int realvertexNum) {
+        this.realvertexNum = realvertexNum;
     }
 
 }

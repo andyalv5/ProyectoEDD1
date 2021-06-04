@@ -22,7 +22,8 @@ public class NewMain {
     public static void main(String[] args) {
         
         Inicio mf= new Inicio();
-        mf.setVisible(true);/*
+        mf.setVisible(true);
+        /*
         Funciones func = new Funciones();
         
         ListaVertex mylistsimp = func.Leer_matrix("test//lista.txt");

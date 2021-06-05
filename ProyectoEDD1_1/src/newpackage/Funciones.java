@@ -106,7 +106,8 @@ public class Funciones
                         String[] infod = infos[i].split(",");
                         
                         Nodoweight mynod = new Nodoweight(infod[0],infod[1],Integer.parseInt(infod[2]));
-                        lista.addAtEnd(mynod);    
+                        lista.addAtEnd(mynod);
+                        
                     }
                 }
                 

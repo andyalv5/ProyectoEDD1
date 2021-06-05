@@ -56,26 +56,28 @@ public class MatrixGraph {
     public int[][] getAdjacent() {
         return adjacent;
     }
-    private ListaVertex vertices;
-    private ListaSimple peso;
-    private int numNodo;
-    private int realnumNodo;
-    private Vertex [] vertexarray;
-    private int [][] adjacent;
+    public ListaVertex vertices;
+    public ListaSimple peso;
+    public int numNodo;
+    public int realnumNodo;
+    
+    public Vertex [] vertexarray;
+    public int [][] adjacent;
     
     //genera una matrix con un tamaño puesto por nosotros
     public MatrixGraph(ListaVertex vertices,ListaSimple peso,int NodoId,int RealNum){
         try{
+            
             this.vertices=vertices;
             this.peso=peso;
-            this.adjacent = new int[NodoId][NodoId];
-            this.vertexarray = new Vertex[NodoId];
-            for(int i=0; i<NodoId;i++){
-                for(int j=0;i<NodoId;i++){
+            this.adjacent = new int[RealNum][RealNum];
+            this.vertexarray = new Vertex[RealNum];
+            for(int i=0; i<RealNum;i++){
+                for(int j=0;j<RealNum;j++){
                     adjacent[i][j] =0;
                 }
-            numNodo =NodoId;
-            realnumNodo=RealNum;
+            numNodo =0;
+            realnumNodo=0;
             }
         }
         
@@ -84,78 +86,73 @@ public class MatrixGraph {
         }
     }
     
+     public void pntAllelmnt(){
+        
+        for(int i=0; i<realnumNodo;i++){
+            for(int j=0; j<realnumNodo;j++){
+                JOptionPane.showMessageDialog(null,this.adjacent[i][j]);
+            }
+        }
+    }
     
-    public void newVertex(String chain, Lista_productos lis,ListaVertex lisV){
-        if (returnIfVxFoundedRealNUM(chain) >= 0){
-            boolean isFound = returnIfVxFoundedRealNUM(chain) >=0;
-            if(!isFound){
-                Vertex vx = new Vertex(chain,lis);
-                vx.assingVtx(getNumNodo());
-                lisV.addAtEnd(vx);
-                vertexarray[numNodo++]=vx;
-                vx.assingVtx(getRealnumNodo());
-                vertexarray[realnumNodo++]=vx;
-            }
+    public void newVertex(Vertex vertice){
+        boolean isfound =returnIfVxFounded(vertice.getName());
+        if(!isfound){
+            vertexarray[realnumNodo++]=vertice;
         }
+                
     }
-    public void newVertexi(String chain, Lista_productos lis,ListaVertex lisV){
-        if (returnIfVxFounded(chain) < 0){
-            boolean isFound = returnIfVxFounded(chain) >=0;
-            if(!isFound){
-                Vertex vx = new Vertex(chain,lis);
-                vx.assingVtx(getNumNodo());
-                lisV.addAtEnd(vx);
-                vertexarray[numNodo++]=vx;
-                vx.assingVtx(getRealnumNodo());
-                vertexarray[realnumNodo++]=vx;
-            }
-        }
-    }
-            
  //Devuelve verdadero o falso dependiendo si encuentra o no el elemento
-    public int returnIfVxFounded(String chain){
-        Vertex newVertex = new Vertex(chain);
-        boolean Founded = false;
-        int i =0;
-        for(;i<getNumNodo();i++){
-            if (!Founded){
-                Founded = getVertexarray()[i].equals(newVertex);
-                if (!Founded){
-                    i++;
-                }
+    public boolean returnIfVxFounded(String vertice){
+       for(int i=0;i<realnumNodo;i++){
+            if (vertice.equals(vertexarray[i].getName())){
+                return true;
             }
         }
-        return (i<getNumNodo())? i:-1;
+        return false;
+    }
+           
+    public int getIndex(String v){
+        for(int i =0; i<realnumNodo;i++){
+           if(v.equals(vertexarray[i].getName())){
+               return i;
+           }
+
+        }
+        return-1;
     }
     
-    public int returnIfVxFoundedRealNUM(String chain){
-        Vertex newVertex = new Vertex(chain);
-        boolean Founded = false;
-        int i =0;
-        for(;i<getRealnumNodo();i++){
-            if (!Founded){
-                Founded = getVertexarray()[i].equals(newVertex);
-                if (!Founded){
-                    i++;
-                }
-            }
+    public int getVertex(Vertex v){
+        for(int i =0; i<realnumNodo;i++){
+           if(v.getName().equals(vertexarray[i].getName())){
+               return i;
+           }
+
         }
-        return (i<getRealnumNodo())? i:-1;
+        return-1;
     }
     
-    public void newArc(String firstChain, String secondChain,ListaSimple weightList){
-        int firstVar= returnIfVxFoundedRealNUM(firstChain.toUpperCase());
-        int secondVar = returnIfVxFoundedRealNUM(secondChain.toUpperCase());
-        if(firstVar<0||secondVar<0){
-            JOptionPane.showMessageDialog(null,"No existe el vértice");
-            
+    public void newArc(String origen, String destino, int weight){
+        boolean founded =returnIfVxFounded(origen);
+        boolean founded2 = returnIfVxFounded(destino);
+        if((founded==true)&&(founded2==true)){
+            int i=getIndex(origen);
+            int j=getIndex(destino);
+            adjacent[i][j]=weight;
         }
-        else{
-            int var = weightList.Buscar(firstChain,secondChain);
-            adjacent[firstVar][secondVar] = var;
-            }
-        }
-   
+    }
+    
+    
+    public int adyacentebynum(int i,int k){
+        return adjacent[i][k];
+    }
+
+    /**
+     * @return the realnumNodo
+     */
+  
+    
+    
     public Graph MotrarGraph()
     {
         System.setProperty("org.graphstream.ui", "swing");
@@ -222,31 +219,5 @@ public class MatrixGraph {
         
        
     }
-    
-    public int adyacente(int aa,int bb){
-        if(aa<0||bb<0){
-            return 0;
-        }
-        return 1;
-    }
-    public int adyacente(String a,String b){
-        
-        int va=this.returnIfVxFoundedRealNUM(a);
-        int vb=this.returnIfVxFoundedRealNUM(b);
-        if(va<0||vb<0){
-            if(this.adjacent[va][vb]==1){
-                return 1;
-            }
-        }
-        return 0;
-    }
-
-    /**
-     * @return the realnumNodo
-     */
-    public int getRealnumNodo() {
-        return realnumNodo;
-    }
-    
     
 }

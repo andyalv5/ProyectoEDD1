@@ -165,6 +165,7 @@ public class Recorrido {
         }
     }
     
+  
     public String algoritmoFloyd(MatrixGraph matrix,ListaVertex lisver){
         int n= lisver.getSize();
         int[][]P =new int[n][n];
@@ -173,7 +174,8 @@ public class Recorrido {
         int temp1,temp2,temp3,temp4,minimo;
         for (int i=0;i<n;i++){
             for(int j =0;j<n;j++){
-                P[i][j]= matrix.adyacente(i,j);
+                P[i][j]= matrix.adyacentebynum(i,j);
+                JOptionPane.showMessageDialog(null,matrix.adyacentebynum(i,j));
             }
         
         }
@@ -220,27 +222,4 @@ public class Recorrido {
         JOptionPane.showMessageDialog(null, caminazos);
         return caminazos;
     }
-   /* 
-    public int[][] FloydWarshall(MatrixGraph grafo, ListaVertex listav){
-        int n = listav.getSize();
-        
-        int[][]P =new int[n][n];
-        
-        for (int i=0;i<n;i++){
-            for(int j =0;j<n;j++){
-                P[i][j]= grafo.adyacente(i,j);
-            }
-            
-        }
-        for(int m=0;m<n;m++){
-            for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    P[i][j]=Math.min(P[i][j]+P[i][m]*P[m][j],1);
-                }
-            }
-        }
-        return P;
-    }
-    
-    */
 }

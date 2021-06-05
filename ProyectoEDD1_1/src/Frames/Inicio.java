@@ -10,7 +10,9 @@ import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
 import newpackage.MatrixGraph;
+import newpackage.Nodoweight;
 import newpackage.Recorrido;
+import newpackage.Vertex;
 import org.graphstream.graph.Graph;
 
 /**
@@ -33,6 +35,18 @@ public class Inicio extends javax.swing.JFrame {
         listaVersx = func.Leer_matrix("test//lista.txt");
         listaSimpe = func.Leer_txt("test//lista.txt",listaVersx);
         matrixre = new MatrixGraph(listaVersx,listaSimpe,listaVersx.getSize(),listaVersx.getSize());
+        
+        Vertex aux = listaVersx.getpFirst();
+        while(aux!=null){
+            matrixre.newVertex(aux);
+            aux=aux.getSiguiente();
+        }
+        Nodoweight pesa=listaSimpe.getpFirst();
+        while(pesa!=null){
+            matrixre.newArc(pesa.getVertex1(), pesa.getVertex2(), pesa.getWeight());
+            pesa=pesa.getpNext();
+        }
+        
     }
     
 

@@ -21,7 +21,7 @@ public class Recorrido {
     private int n;
     private MatrixGraph matrix;
     public Recorrido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         //To change body of generated methods, choose Tools | Templates.
     }
     /*
     public String ReporteAlmacenBFS(MatrixGraph matrix, ListaVertex lisver,String origen)//ANCHURA usar cola

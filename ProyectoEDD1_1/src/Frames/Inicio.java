@@ -76,6 +76,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         recorrido = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -163,8 +164,8 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel7.setText("Mostrar DFS");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
+        jLabel7.setText("Floyd");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
 
         jButton9.setText("click");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +186,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(recorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel9.setText("Mostrar DFS");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -323,6 +328,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton recorrido;
     // End of variables declaration//GEN-END:variables
 

@@ -151,7 +151,21 @@ public class MatrixGraph {
      * @return the realnumNodo
      */
   
-    
+    public String RetornarMatriz()
+    {
+        String aux = "";
+        for (int i = 0; i < this.realnumNodo; i++) {
+            String line = "";
+            for (int j = 0; j < this.realnumNodo; j++) { 
+                line += " | " + this.getAdjacent()[i][j] + " | ";  
+            }
+            aux += line+"\n";
+            
+        }
+        
+        return aux;
+                
+    }
     
     public Graph MotrarGraph()
     {
@@ -166,7 +180,10 @@ public class MatrixGraph {
         
     }
     
-    
+    public Vertex getVerbyint(int index){
+        Vertex s=this.vertexarray[index];
+        return s;
+    }
     
     public Graph IndividualEdge(Graph graph, int peso,String ver1,String ver2){
         

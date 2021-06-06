@@ -46,7 +46,7 @@ public class Inicio extends javax.swing.JFrame {
             matrixre.newArc(pesa.getVertex1(), pesa.getVertex2(), pesa.getWeight());
             pesa=pesa.getpNext();
         }
-        
+        JOptionPane.showMessageDialog(null, matrixre.RetornarMatriz());
     }
     
 
@@ -75,6 +75,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        recorrido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -177,6 +178,14 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setText("Hacer Pedido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
+        recorrido.setText("jButton8");
+        recorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recorridoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(recorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -253,6 +262,15 @@ public class Inicio extends javax.swing.JFrame {
         dis.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void recorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorridoActionPerformed
+        
+        Recorrido rec=new Recorrido(matrixre,listaVersx);
+        rec.caminosminFloyd();
+        JOptionPane.showConfirmDialog(null, rec.RetornarMatriz());
+            
+        
+    }//GEN-LAST:event_recorridoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +323,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton recorrido;
     // End of variables declaration//GEN-END:variables
 
     /**

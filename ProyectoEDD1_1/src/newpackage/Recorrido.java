@@ -14,6 +14,15 @@ import javax.swing.JOptionPane;
  * @author andy
  */
 public class Recorrido {
+    private int[][]pesos;
+    private int[][]traza;
+    private int[][]d;
+    private String[][]almacenes;
+    private int n;
+    private MatrixGraph matrix;
+    public Recorrido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /*
     public String ReporteAlmacenBFS(MatrixGraph matrix, ListaVertex lisver,String origen)//ANCHURA usar cola
     {
@@ -166,60 +175,114 @@ public class Recorrido {
     }
     
   
-    public String algoritmoFloyd(MatrixGraph matrix,ListaVertex lisver){
-        int n= lisver.getSize();
+    public Recorrido(MatrixGraph matrix,ListaVertex lisver){
+        n= lisver.getSize();
         int[][]P =new int[n][n];
-        String Caminos= "";
-        String caminazos="";
-        int temp1,temp2,temp3,temp4,minimo;
+        String[][]F=new String[n][n];
         for (int i=0;i<n;i++){
             for(int j =0;j<n;j++){
-                P[i][j]= matrix.adyacentebynum(i,j);
-                JOptionPane.showMessageDialog(null,matrix.adyacentebynum(i,j));
+                P[i][j]= matrix.adyacentebynum(i, j);
+                F[i][j]=matrix.getVerbyint(i).getName();
             }
+        }
+        pesos=P;
+        almacenes =F;
+        d=new int[n][n];
+        traza=new int[n][n];
+        this.matrix=matrix;
+    }
+    
+   
+    public void caminosminFloyd(){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                d[i][j]=pesos[i][j];
+                traza[i][j]=-1;
+            }
+        }
         
+        for(int i=0;i<n;i++){
+            d[i][i]=0;
+            almacenes[i][i]="-";
         }
         for(int k=0;k<n;k++){
-            for(int x=0;x<n;x++){
+            for(int i=0;i<n;i++){
+                
                 for(int j=0;j<n;j++){
-                    temp1= P[x][j];
-                    temp2= P[x][k];
-                    temp3=P[k][j];
-                    temp4=temp2+temp3;
-                    minimo=Math.min(temp1,temp4);
-                    P[x][j]= minimo;
-                }
-            }
-        }
-        for(int y=0;y<n;y++){
-            for(int z=0;z<n;z++){
-                Caminos=Caminos+="|"+P[y][z]+"|"+"\n";
-            }
-        }
-        for(int f=0;f<n;f++){
-            for(int g=0;g<n;g++){
-                if(f!=g){
-                    if(P[f][g]!=0){
-                        caminazos+= "Del Almacen "+(f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
-                        caminazos+="Se recorrera de la siguiente manera: "+"\n";
-                        caminazos+="Almacen "+ (f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
-                        caminazos+="\n";
-                        caminazos+="\n";
-                    }
-                    else{
-                        caminazos+= "Del Almacen "+(f+1)+"---->"+" Al Almacen "+ (g+1)+"\n";
-                        caminazos+="Se recorrera de la siguiente manera: "+"\n";
+                    int suma=d[i][k]+d[k][j];
+                    if(suma<d[i][j]){
+                        d[i][j]=d[i][k]+d[k][j];
+                        almacenes[i][j]=matrix.getVerbyint(k).getName();
+                        traza[i][j]=k;
                         
-                        caminazos+="Almacen "+ (f+1)+"---->"+" Al Almacen "+ P[f][g]+" ----> Al Almacen "+ (g+1);
-                        caminazos+="\n";
-                        caminazos+="\n";
                     }
                     
                 }
             }
         }
-        JOptionPane.showMessageDialog(null, Caminos);
-        JOptionPane.showMessageDialog(null, caminazos);
-        return caminazos;
+        
+    }
+    
+    
+     public String RetornarMatriz()
+    {
+        String aux = "";
+        for (int i = 0; i < this.n; i++) {
+            String line = "";
+            for (int j = 0; j < this.n; j++) { 
+                line += " | " + this.almacenes[i][j] + " | ";  
+            }
+            aux += line+"\n";
+            
+        }
+        
+        return aux;
+                
+    }
+    
+    
+    
+
+
+    /**
+     * @return the pesos
+     */
+    public int[][] getPesos() {
+        return pesos;
+    }
+
+    /**
+     * @param pesos the pesos to set
+     */
+    public void setPesos(int[][] pesos) {
+        this.pesos = pesos;
+    }
+
+    /**
+     * @return the traza
+     */
+    public int[][] getTraza() {
+        return traza;
+    }
+
+    /**
+     * @param traza the traza to set
+     */
+    public void setTraza(int[][] traza) {
+        this.traza = traza;
+    }
+
+    /**
+     * @return the almacenes
+     */
+    public String[][] getAlmacenes() {
+        return almacenes;
+    }
+
+    /**
+     * @param almacenes the almacenes to set
+     */
+    public void setAlmacenes(String[][] almacenes) {
+        this.almacenes = almacenes;
     }
 }

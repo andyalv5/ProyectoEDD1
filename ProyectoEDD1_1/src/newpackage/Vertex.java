@@ -15,6 +15,14 @@ public class Vertex {
     private int vertexNum;
     private Vertex siguiente;
     
+    public Vertex(){
+        
+        this.name = name;
+        this.listaver = null;
+        this.vertexNum = vertexNum;
+        this.siguiente = null;
+        
+    }
 
     public Vertex(String x){
         name=x;

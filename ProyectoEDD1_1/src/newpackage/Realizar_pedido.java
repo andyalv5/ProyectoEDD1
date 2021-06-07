@@ -13,18 +13,19 @@ import javax.swing.JOptionPane;
  */
 public class Realizar_pedido {
     
-    public void Buscar_producto (Vertex lista, String nombre, int cantidad){
+    public void Buscar_producto (Vertex lista, String nombre, int cantidad, Productos_pedidos listaPP){
         
         Boolean encontrado = false;
         
+        
+        
         for (Nodo_productos aux = lista.getListaver().getPrimer_producto(); aux != null; aux = aux.getProximo()) {
             
-            if (aux.getNombre() == nombre && cantidad >= aux.getCantidad()){
+            if (aux.getNombre().equals(nombre) && cantidad >= aux.getCantidad()){
                 
-                Productos_pedidos listaPP = new Productos_pedidos();
                 Nodo_Productos_pedidos auxp = new Nodo_Productos_pedidos(nombre, cantidad);
                 aux.setCantidad(aux.getCantidad() - cantidad);
-
+                listaPP.addAtEnd(auxp);
                 encontrado = true;
                 
             }
@@ -38,9 +39,12 @@ public class Realizar_pedido {
                 
                 for (Nodo_productos aux3 = aux2.getListaver().getPrimer_producto(); aux3 != null; aux3.getProximo()) {
                     
-                    if (aux3.getNombre() == nombre && cantidad >= aux3.getCantidad()){
+                    if (aux3.getNombre().equals(nombre) && cantidad >= aux3.getCantidad()){
                         
+                        Productos_pedidos listaPP = new Productos_pedidos();
+                        Nodo_Productos_pedidos auxp = new Nodo_Productos_pedidos(nombre, cantidad);
                         aux3.setCantidad(aux3.getCantidad() - cantidad);
+                        listaPP.addAtEnd(auxp);
                         encontrado = true;
                         
                     }

@@ -56,6 +56,7 @@ public class newFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
         Peso = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -88,6 +89,8 @@ public class newFrame extends javax.swing.JFrame {
         Ruta1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Peso1 = new javax.swing.JTextField();
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("/Users/usuario/Documents/UNIMET/Imagenes proyecto/paquetes.jpg")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(630, 571));
@@ -686,6 +689,7 @@ public class newFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables

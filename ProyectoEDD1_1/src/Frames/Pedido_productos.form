@@ -45,7 +45,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -64,15 +68,21 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton2" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace pref="144" max="32767" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Ver_almacenes" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="Numero_almacen" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="Agregar_producto" max="32767" attributes="0"/>
+                              <Component id="Guardar_pedido" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" pref="169" max="32767" attributes="0"/>
-                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Cantidad_producto" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="Nombre_persona" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Nombre_producto" alignment="0" pref="220" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -85,15 +95,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jTextField2" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jTextField3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTextField4" pref="38" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton1" pref="55" max="32767" attributes="0"/>
-                      <Component id="jButton2" max="32767" attributes="0"/>
+                  <Component id="Nombre_persona" min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="Nombre_producto" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="Cantidad_producto" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="Agregar_producto" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="Numero_almacen" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="Ver_almacenes" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="Guardar_pedido" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -101,35 +116,45 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre: "/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="Cantidad_producto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cantidad: "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cantidad_productoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Guardar_pedido">
           <Properties>
             <Property name="text" type="java.lang.String" value="Realizar Pedido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="Ver_almacenes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver Productos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="Numero_almacen">
           <Properties>
             <Property name="text" type="java.lang.String" value="Almacen:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="Agregar_producto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Agregar Producto a pedir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Agregar_productoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="Nombre_persona">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ingrese su nombre: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="Nombre_producto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre del Producto:"/>
           </Properties>
         </Component>
       </SubComponents>

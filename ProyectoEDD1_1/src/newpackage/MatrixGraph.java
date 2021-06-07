@@ -144,7 +144,7 @@ public class MatrixGraph {
     
     
     public int adyacentebynum(int i,int k){
-        return adjacent[i][k];
+        return adjacent[k][i];
     }
 
     /**
@@ -157,7 +157,7 @@ public class MatrixGraph {
         for (int i = 0; i < this.realnumNodo; i++) {
             String line = "";
             for (int j = 0; j < this.realnumNodo; j++) { 
-                line += " | " + this.getAdjacent()[i][j] + " | ";  
+                line += " | " +this.getAdjacent()[j][i] + " | ";  
             }
             aux += line+"\n";
             

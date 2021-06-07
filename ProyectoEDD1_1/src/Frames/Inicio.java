@@ -6,6 +6,7 @@
 package Frames;
 
 import javax.swing.JOptionPane;
+import newpackage.Dijsktra;
 import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
@@ -75,8 +76,10 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        recorrido = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -132,8 +135,8 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel5.setText("Mostrar BFS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+        jLabel5.setText("Salir");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, -1, -1));
 
         jButton5.setText("click");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +144,7 @@ public class Inicio extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 90, 40));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 570, 90, 40));
 
         jButton6.setText("jButton6");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -179,17 +182,29 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setText("Hacer Pedido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
-        recorrido.setText("jButton8");
-        recorrido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recorridoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(recorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, -1));
-
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel9.setText("Mostrar DFS");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
+
+        jButton8.setText("jButton8");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, -1, -1));
+
+        jButton10.setText("click");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 90, 40));
+
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel10.setText("Mostrar BFS");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,15 +250,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try{
-            this.setVisible(false);
-            NewCargar dis = new NewCargar(this);
-            dis.setVisible(true);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "No puede agregarse el almacen", "Error terrible", JOptionPane.ERROR_MESSAGE);
-            this.setVisible(true);
-        }
+       
+             System.exit(0);
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -267,14 +276,18 @@ public class Inicio extends javax.swing.JFrame {
         dis.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void recorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorridoActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+      
         
-        Recorrido rec=new Recorrido(matrixre,listaVersx);
-        rec.caminosminFloyd();
-        JOptionPane.showConfirmDialog(null, rec.RetornarMatriz());
-            
+        Dijsktra J=new Dijsktra(matrixre,listaVersx,2);
+        J.print();
         
-    }//GEN-LAST:event_recorridoActionPerformed
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,14 +326,17 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -329,7 +345,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton recorrido;
     // End of variables declaration//GEN-END:variables
 
     /**

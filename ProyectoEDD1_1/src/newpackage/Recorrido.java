@@ -23,16 +23,15 @@ public class Recorrido {
     private MatrixGraph matrix;
     private int size;
     
-    private int[] distancia;
-    private int[] costo;
     
     public Recorrido() {
         
     }
     
-    public Recorrido(MatrixGraph matrix) {
+    public Recorrido(int s,MatrixGraph matrix) {
          this.matrix=matrix;
          this.size=matrix.getVertices().getSize();
+         this.origen=s;
     }
     /*
     public String ReporteAlmacenBFS(MatrixGraph matrix, ListaVertex lisver,String origen)//ANCHURA usar cola
@@ -186,7 +185,7 @@ public class Recorrido {
     }
     
   
-    public Recorrido(MatrixGraph matrix,ListaVertex lisver,int origen){
+    public Recorrido(int s,MatrixGraph matrix,ListaVertex lisver){
         n= lisver.getSize();
         int[][]P =new int[n][n];
         String[][]F=new String[n][n];
@@ -195,13 +194,14 @@ public class Recorrido {
                 P[i][j]= matrix.adyacentebynum(i, j);
                 F[i][j]=matrix.getVerbyint(i).getName();
             }
+        
         }
+        this.origen=s;
         pesos=P;
         almacenes =F;
         d=new int[n][n];
         traza=new int[n][n];
         this.matrix=matrix;
-        this.origen=origen;
         
     }
     
@@ -209,29 +209,49 @@ public class Recorrido {
     public void caminosminFloyd(){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                d[i][j]=pesos[i][j];
+                traza[i][j]=0;
+                if(pesos[i][j]==0){
+                    d[i][j]=999;
+                }else{
+                    d[i][j]=pesos[i][j];
+                }
+                
             }
         }
         
         for(int i=0;i<n;i++){
             d[i][i]=0;
-            almacenes[i][i]="-";
         }
         for(int k=0;k<n;k++){
             for(int i=0;i<n;i++){
-                
                 for(int j=0;j<n;j++){
                     int suma=d[i][k]+d[k][j];
                     if(d[i][j]>suma){
                         d[i][j]=suma;
-                        almacenes[i][j]=matrix.getVerbyint(k).getName();
+                        traza[i][j]=k;
+                        
                     }
-                    
                 }
             }
         }
         
     }
+    
+    public String Print(MatrixGraph matrix,int v,int vj){
+        String st ="";
+        int anterior=ultimo[v];
+        if(v!=s){
+            st+=Print(matrix, anterior);
+            st+= " ---> "+ " Almacen "+matrix.getVerbyint(v).getName();
+        }
+        else{
+            System.out.print("V" +s);
+            st+= " Almacen "+matrix.getVerbyint(s).getName();
+        }
+        return st;
+    
+    }
+    
     
     
      public String RetornarMatriz()
@@ -250,31 +270,7 @@ public class Recorrido {
                 
     }
     
-    public String showing(String Origen,String Destino){
-        String toString=" Almacen: "+Origen;
-        String perma= Destino;
-        toString +=show(Origen,Destino,perma);
-        JOptionPane.showMessageDialog(null, toString);
-        toString+="---> Almacen: "+Destino;
-        JOptionPane.showMessageDialog(null, toString);
-        return toString;
-    }
-     
-   public String show(String Origen,String Destino,String perma) {
-       String toString="";
-       int ori=matrix.getIndex(Origen);
-       int dest=matrix.getIndex(Destino);
-       String anterior = this.almacenes[dest][ori];
-       if(!Destino.equals(perma)){
-           toString += "----> Almacen: " +anterior;
-           show(anterior,Destino,perma);
-       } 
-       else{
-           toString += "----> Almacen: " +anterior;
-       }
-       return toString;
-    }
-       
+  
        
        
        

@@ -60,7 +60,6 @@ public class MatrixGraph {
     public ListaSimple peso;
     public int numNodo;
     public int realnumNodo;
-    
     public Vertex [] vertexarray;
     public int [][] adjacent;
     
@@ -144,7 +143,7 @@ public class MatrixGraph {
     
     
     public int adyacentebynum(int i,int k){
-        return adjacent[k][i];
+        return adjacent[i][k];
     }
 
     /**
@@ -157,7 +156,7 @@ public class MatrixGraph {
         for (int i = 0; i < this.realnumNodo; i++) {
             String line = "";
             for (int j = 0; j < this.realnumNodo; j++) { 
-                line += " | " +this.getAdjacent()[j][i] + " | ";  
+                line += " | " +this.getAdjacent()[i][j] + " | ";  
             }
             aux += line+"\n";
             
@@ -192,6 +191,8 @@ public class MatrixGraph {
         return graph;
         
     }
+    
+
     
     public Graph IndividualNode(Graph graph, Vertex cualquiera){
        Node aux = graph.addNode(""+cualquiera.getName());

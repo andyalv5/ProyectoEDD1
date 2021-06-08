@@ -6,7 +6,7 @@
 package Frames;
 
 import javax.swing.JOptionPane;
-import newpackage.Dijsktra;
+import newpackage.Dijkstra;
 import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
@@ -80,6 +80,8 @@ public class Inicio extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -168,7 +170,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Floyd");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 180, -1, -1));
 
         jButton9.setText("click");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +207,18 @@ public class Inicio extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel10.setText("Mostrar BFS");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+
+        jButton11.setText("jButton11");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel11.setText("Dijskstra");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -279,8 +293,9 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
       
         
-        Dijsktra J=new Dijsktra(matrixre,listaVersx,2);
-        J.print();
+        Dijkstra J=new Dijkstra(2, matrixre);
+        J.caminosMinimos();
+        JOptionPane.showMessageDialog(null, J.Print(matrixre,1));
         
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -288,6 +303,12 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        Recorrido rec = new Recorrido(2,matrixre,listaVersx);
+        rec.caminosminFloyd();
+        JOptionPane.showMessageDialog(null, rec.Print(matrixre,3,2));
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,6 +348,7 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -337,6 +359,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

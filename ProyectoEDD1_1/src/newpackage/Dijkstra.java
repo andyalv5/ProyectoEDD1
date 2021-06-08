@@ -5,6 +5,7 @@
  */
 package newpackage;
     
+import Frames.Inicio;
 import javax.swing.JOptionPane;
 
 /**
@@ -105,5 +106,47 @@ public class Dijkstra
         }
         return st;
     }
+    
+    public String devolverSig(MatrixGraph matrix,int v){
+        String st ="";
+        int anterior=ultimo[v];
+        st+= matrix.getVerbyint(anterior).getName().toUpperCase();
+        return st;
+    }
+    
+    public Nodo_productos devolverSigRecursive(MatrixGraph matrix,int v,String igual){
+        String st ="";
+        int anterior=ultimo[v];
+        st+= matrix.getVerbyint(anterior).getName().toUpperCase();
+        Vertex newver=matrix.vertices.BuscarVertex(st);
+        Nodo_productos prod = newver.getListaver().getPrimer_producto();
+        while(prod !=null){
+            if(igual.equals(prod.getNombre())){
+                return prod;
+            }
+        }
+        if (s!=v){
+            prod =devolverSigRecursive(matrix,anterior,igual);
+        }
+        return prod;
+    }
+    public void recursivesearch(MatrixGraph matrixre,String a,String alm,Inicio mywin,int newborrar,String quan){
+        Dijkstra J=new Dijkstra(matrixre.getIndex(a), matrixre);
+        J.caminosMinimos();
+        String alm2=alm.toUpperCase();
+        String sig = J.devolverSig(matrixre,matrixre.getIndex(alm2));
+        Vertex mynewver= mywin.listaVersx.BuscarVertex(sig);
+        Nodo_productos nd =J.devolverSigRecursive(matrixre, matrixre.getIndex(mynewver.getName()), quan);
+        if (!"0".equals(nd.getCantidad())){
+           if(nd.getCantidad()>=newborrar){
+               nd.setCantidad(nd.getCantidad()-newborrar);
+           }
+           else{
+               int newborrar1=newborrar-nd.getCantidad();
+               recursivesearch(matrixre,a,alm2,mywin,newborrar1,quan);
+           }
+        }
+    }
 }
+                    
 

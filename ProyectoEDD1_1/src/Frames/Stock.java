@@ -419,8 +419,8 @@ public class Stock extends javax.swing.JFrame {
                         int bb = delb + b;
                         mynod.setCantidad(bb);
                         
-                        
                     }
+                    
                 }
                 else{
                     int bbb = Integer.parseInt(Cantidad1.getText());

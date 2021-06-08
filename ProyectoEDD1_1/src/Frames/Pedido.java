@@ -7,6 +7,7 @@ package Frames;
 
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import newpackage.Dijkstra;
 import newpackage.Funciones;
 import newpackage.ListaSimple;
 import newpackage.ListaVertex;
@@ -24,6 +25,7 @@ public class Pedido extends javax.swing.JFrame {
     static Funciones fc;
     static ListaSimple lista;
     protected ListaVertex listaVersx;
+    protected MatrixGraph matrixre;
     /**
      * Creates new form Pedido
      */
@@ -33,9 +35,12 @@ public class Pedido extends javax.swing.JFrame {
         this.mywin = mywin;
         String almacenes = mywin.listaVersx.returnAlmacenes();
         String[] almacen = almacenes.split(",");
-        SelectorAlmacen.setModel(new javax.swing.DefaultComboBoxModel(almacen));
+        DAlmacen.setModel(new javax.swing.DefaultComboBoxModel(almacen));
+        this.SelectorAlmacen1.setModel(new javax.swing.DefaultComboBoxModel(almacen));
         listaVersx =mywin.listaVersx;
         this.Cajita2.setVisible(false);
+        this.panelOculto.setVisible(false);
+        this.matrixre =mywin.getMatrixre();
         
         
     }   
@@ -77,8 +82,16 @@ public class Pedido extends javax.swing.JFrame {
         Cancelar = new javax.swing.JButton();
         Aceptar = new javax.swing.JButton();
         Producto2 = new javax.swing.JTextField();
-        SelectorAlmacen = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
+        panelOculto = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        DAlmacen = new javax.swing.JComboBox<>();
+        SelectorAlmacen1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 600));
@@ -112,7 +125,7 @@ public class Pedido extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(Cajita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, 190));
+        getContentPane().add(Cajita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, -1, 190));
 
         jButton1.setText("click");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -324,17 +337,58 @@ public class Pedido extends javax.swing.JFrame {
         });
         getContentPane().add(Producto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, 30));
 
-        SelectorAlmacen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        SelectorAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SelectorAlmacenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(SelectorAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 100, 70));
-
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel15.setText("Cantidad:");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, 30));
+
+        panelOculto.setBackground(new java.awt.Color(0, 0, 0));
+        panelOculto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        panelOculto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Algoritmo de Dijkstra");
+        panelOculto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        panelOculto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Almacen para completar");
+        panelOculto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("su pedido");
+        panelOculto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("disponible");
+        panelOculto.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+
+        DAlmacen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DAlmacenActionPerformed(evt);
+            }
+        });
+        panelOculto.add(DAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 100, 70));
+
+        getContentPane().add(panelOculto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 260, 200));
+
+        SelectorAlmacen1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SelectorAlmacen1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectorAlmacen1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SelectorAlmacen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 100, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -462,7 +516,7 @@ public class Pedido extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        Vertex myver= mywin.listaVersx.BuscarVertex(SelectorAlmacen.getSelectedItem().toString());
+        Vertex myver= mywin.listaVersx.BuscarVertex(DAlmacen.getSelectedItem().toString());
         Lista_productos mylistVer= myver.getListaver();
         if (!"".equals(Producto1.getText().toUpperCase()) && !"0".equals(Cantidad1.getText())){
             String a = Producto1.getText().toUpperCase();
@@ -470,11 +524,34 @@ public class Pedido extends javax.swing.JFrame {
             if(a.equals(mynod.getNombre())){
                 int b = Integer.parseInt(Cantidad1.getText());
                 int delb = mynod.getCantidad();
-                if(delb>b){
+                if(delb>=b){
                     int bb = delb - b;
                     mynod.setCantidad(bb);
                 }
                 else{
+                    int bb = delb - delb;
+                    mynod.setCantidad(bb);
+                    int borrar=delb-b;
+                    this.panelOculto.setVisible(true);
+                    Dijkstra J=new Dijkstra(matrixre.getIndex(a), matrixre);
+                    J.caminosMinimos();
+                    String alm=SelectorAlmacen1.getSelectedItem().toString();
+                    alm=alm.toUpperCase();
+                    String sig = J.devolverSig(matrixre,matrixre.getIndex(alm));
+                    Vertex mynewver= mywin.listaVersx.BuscarVertex(sig);
+                    Nodo_productos nd =J.devolverSigRecursive(matrixre, matrixre.getIndex(mynewver.getName()), Cantidad1.getText());
+                    if (!"0".equals(nd.getCantidad())){
+                       if(nd.getCantidad()>=borrar){
+                           nd.setCantidad(nd.getCantidad()-borrar);
+                       }
+                       else{
+                           nd.setCantidad(0);
+                           int newborrar=borrar-nd.getCantidad();
+                           String alm1=alm;
+                           J.recursivesearch(matrixre,a,alm1,mywin,newborrar,Cantidad1.getText());
+                       }
+                    }
+                    
                     JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
                 }
             }
@@ -546,9 +623,13 @@ public class Pedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Producto2KeyTyped
 
-    private void SelectorAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorAlmacenActionPerformed
+    private void DAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DAlmacenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SelectorAlmacenActionPerformed
+    }//GEN-LAST:event_DAlmacenActionPerformed
+
+    private void SelectorAlmacen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorAlmacen1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectorAlmacen1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -593,16 +674,21 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JTextField Cantidad2;
     private javax.swing.JTextField Cantidad3;
     private javax.swing.JTextField Cantidad4;
+    private javax.swing.JComboBox<String> DAlmacen;
     private javax.swing.JTextField Producto1;
     private javax.swing.JTextField Producto2;
     private javax.swing.JTextField Producto3;
     private javax.swing.JTextField Producto4;
-    private javax.swing.JComboBox<String> SelectorAlmacen;
+    private javax.swing.JComboBox<String> SelectorAlmacen1;
     private javax.swing.JTextArea cajita;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -611,6 +697,9 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelOculto;
     // End of variables declaration//GEN-END:variables
 }

@@ -185,8 +185,8 @@ public class Recorrido {
     }
     
   
-    public Recorrido(int s,MatrixGraph matrix,ListaVertex lisver){
-        n= lisver.getSize();
+    public Recorrido(MatrixGraph matrix,ListaVertex lisver){
+        n=lisver.getSize();
         int[][]P =new int[n][n];
         String[][]F=new String[n][n];
         for (int i=0;i<n;i++){
@@ -196,7 +196,7 @@ public class Recorrido {
             }
         
         }
-        this.origen=s;
+        
         pesos=P;
         almacenes =F;
         d=new int[n][n];
@@ -209,7 +209,7 @@ public class Recorrido {
     public void caminosminFloyd(){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                traza[i][j]=0;
+                traza[i][j]=-1;
                 if(pesos[i][j]==0){
                     d[i][j]=999;
                 }else{
@@ -225,7 +225,7 @@ public class Recorrido {
         for(int k=0;k<n;k++){
             for(int i=0;i<n;i++){
                 for(int j=0;j<n;j++){
-                    int suma=d[i][k]+d[k][j];
+                    int suma=(d[i][k]+d[k][j]);
                     if(d[i][j]>suma){
                         d[i][j]=suma;
                         traza[i][j]=k;
@@ -238,18 +238,19 @@ public class Recorrido {
     }
     
     public String Print(MatrixGraph matrix,int v,int vj){
+        
         String st ="";
-        int anterior=ultimo[v];
-        if(v!=s){
-            st+=Print(matrix, anterior);
-            st+= " ---> "+ " Almacen "+matrix.getVerbyint(v).getName();
+        int anterior=traza[v][vj];
+        if( anterior !=-1){
+            st+= " Almacen "+matrix.getVerbyint(vj).getName()+" ----> " ;
+            st+=Print(matrix,v,anterior);
+            
         }
         else{
-            System.out.print("V" +s);
-            st+= " Almacen "+matrix.getVerbyint(s).getName();
+            st+=  " Almacen "+matrix.getVerbyint(v).getName();
         }
         return st;
-    
+        
     }
     
     
@@ -260,7 +261,7 @@ public class Recorrido {
         for (int i = 0; i < this.n; i++) {
             String line = "";
             for (int j = 0; j < this.n; j++) { 
-                line += "\t"+ "| " + this.d[i][j] + " |" +"\t";
+                line += "\t"+ "| " + this.traza[i][j] + " |" +"\t";
             }
             aux += line+"\n";
             

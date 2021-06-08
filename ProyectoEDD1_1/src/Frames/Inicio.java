@@ -305,9 +305,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        Recorrido rec = new Recorrido(2,matrixre,listaVersx);
+        Recorrido rec = new Recorrido(matrixre,listaVersx);
         rec.caminosminFloyd();
-        JOptionPane.showMessageDialog(null, rec.Print(matrixre,3,2));
+        JOptionPane.showMessageDialog(null, rec.RetornarMatriz());
+        JOptionPane.showMessageDialog(null, rec.Print(matrixre,1,0));
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**

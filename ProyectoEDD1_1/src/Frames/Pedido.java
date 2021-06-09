@@ -26,6 +26,7 @@ public class Pedido extends javax.swing.JFrame {
     static ListaSimple lista;
     protected ListaVertex listaVersx;
     protected MatrixGraph matrixre;
+    private int borrar;
     /**
      * Creates new form Pedido
      */
@@ -91,7 +92,10 @@ public class Pedido extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         DAlmacen = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         SelectorAlmacen1 = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 600));
@@ -271,9 +275,9 @@ public class Pedido extends javax.swing.JFrame {
         });
         getContentPane().add(Cantidad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 50, 30));
 
-        jLabel22.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel22.setText("Producto:");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
+        jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel22.setText("El producto marcado con asterisco tiene implementado el mostrar caminos minimos");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 620, 30));
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel23.setText("Producto:");
@@ -380,6 +384,14 @@ public class Pedido extends javax.swing.JFrame {
         });
         panelOculto.add(DAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 100, 70));
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        panelOculto.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+
         getContentPane().add(panelOculto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 260, 200));
 
         SelectorAlmacen1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -389,6 +401,14 @@ public class Pedido extends javax.swing.JFrame {
             }
         });
         getContentPane().add(SelectorAlmacen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 100, 70));
+
+        jLabel26.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel26.setText("*");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 20, 30));
+
+        jLabel27.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel27.setText("Producto:");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -516,94 +536,99 @@ public class Pedido extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        Vertex myver= mywin.listaVersx.BuscarVertex(DAlmacen.getSelectedItem().toString());
+        Vertex myver= mywin.listaVersx.BuscarVertex(this.SelectorAlmacen1.getSelectedItem().toString());
+        
         Lista_productos mylistVer= myver.getListaver();
-        if (!"".equals(Producto1.getText().toUpperCase()) && !"0".equals(Cantidad1.getText())){
-            String a = Producto1.getText().toUpperCase();
-            Nodo_productos mynod = myver.getListaver().BuscarProducto(a);
-            if(a.equals(mynod.getNombre())){
-                int b = Integer.parseInt(Cantidad1.getText());
-                int delb = mynod.getCantidad();
-                if(delb>=b){
-                    int bb = delb - b;
-                    mynod.setCantidad(bb);
-                }
-                else{
-                    int bb = delb - delb;
-                    mynod.setCantidad(bb);
-                    int borrar=delb-b;
-                    this.panelOculto.setVisible(true);
-                    Dijkstra J=new Dijkstra(matrixre.getIndex(a), matrixre);
-                    J.caminosMinimos();
-                    String alm=SelectorAlmacen1.getSelectedItem().toString();
-                    alm=alm.toUpperCase();
-                    String sig = J.devolverSig(matrixre,matrixre.getIndex(alm));
-                    Vertex mynewver= mywin.listaVersx.BuscarVertex(sig);
-                    Nodo_productos nd =J.devolverSigRecursive(matrixre, matrixre.getIndex(mynewver.getName()), Cantidad1.getText());
-                    if (!"0".equals(nd.getCantidad())){
-                       if(nd.getCantidad()>=borrar){
-                           nd.setCantidad(nd.getCantidad()-borrar);
-                       }
-                       else{
-                           nd.setCantidad(0);
-                           int newborrar=borrar-nd.getCantidad();
-                           String alm1=alm;
-                           J.recursivesearch(matrixre,a,alm1,mywin,newborrar,Cantidad1.getText());
-                       }
+        try{
+            if (!"".equals(Producto1.getText().toUpperCase()) && !"0".equals(Cantidad1.getText())){
+                String a = Producto1.getText();
+                JOptionPane.showMessageDialog(null, a);
+                Nodo_productos mynod = mylistVer.BuscarProducto(a);
+                if(a.equals(mynod.getNombre())){
+                    int b = Integer.parseInt(Cantidad1.getText());
+                    int delb = mynod.getCantidad();
+                    if(delb>=b){
+                        int bb = delb - b;
+                        mynod.setCantidad(bb);
                     }
-                    
-                    JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
-                }
-            }
-        }
-        if (!"".equals(Producto2.getText().toUpperCase()) && !"0".equals(Cantidad2.getText())){
-            String c = Producto2.getText().toUpperCase();
-            Nodo_productos mynod = myver.getListaver().BuscarProducto(c);
-            if(c.equals(mynod.getNombre())){
-                int d = Integer.parseInt(Cantidad2.getText());
-                int deld = mynod.getCantidad();
-                if(deld>d){
-                    int dd = deld - d;
-                    mynod.setCantidad(dd);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
-                }
-            }
-        }
-        if (!"".equals(Producto3.getText().toUpperCase()) && !"0".equals(Cantidad3.getText())){
-            String e = Producto3.getText().toUpperCase();
-            Nodo_productos mynod = myver.getListaver().BuscarProducto(e);
-            if(e.equals(mynod.getNombre())){
-                int f = Integer.parseInt(Cantidad3.getText());
-                int delf = mynod.getCantidad();
-                if(delf>f){
-                    int ff = delf - f;
-                    mynod.setCantidad(ff);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
-                }
-            }
-        }
+                    else{
+                        mynod.setCantidad(0);
+                        this.borrar=delb-b;
+                        this.panelOculto.setVisible(true);
 
-        if (!"".equals(Producto4.getText().toUpperCase()) && !"0".equals(Cantidad4.getText())){
-            String g = Producto4.getText().toUpperCase();
-            Nodo_productos mynod = myver.getListaver().BuscarProducto(g);
-            if(g.equals(mynod.getNombre())){
-                int h = Integer.parseInt(Cantidad4.getText());
-                int delh = mynod.getCantidad();
-                if(delh>h){
-                    int hh = delh - h;
-                    mynod.setCantidad(hh);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Uno de los elementos no puede ser procesado");
+                        JOptionPane.showMessageDialog(null,"Elija un almacen para mostrar los caminos minimos");
+                    }
                 }
             }
+
+            if (!"".equals(Producto2.getText().toUpperCase()) && !"0".equals(Cantidad2.getText())){
+                String c = Producto2.getText();
+                JOptionPane.showMessageDialog(null, c);
+                Nodo_productos mynod = mylistVer.BuscarProducto(c);
+                if(c.equals(mynod.getNombre())){
+                    int d = Integer.parseInt(Cantidad2.getText());
+                    int deld = mynod.getCantidad();
+                    if(deld>=d){
+                        int dd = deld - d;
+                        mynod.setCantidad(dd);
+                    }
+                    else{
+                        mynod.setCantidad(0);
+                        this.borrar=deld-d;
+                        this.panelOculto.setVisible(true);
+
+                        JOptionPane.showMessageDialog(null,"Elija un almacen para mostrar los caminos minimos");
+                    }
+                }
+            }
+            if (!"".equals(Producto3.getText().toUpperCase()) && !"0".equals(Cantidad3.getText())){
+                String e = Producto3.getText();
+                JOptionPane.showMessageDialog(null, e);
+                Nodo_productos mynod = mylistVer.BuscarProducto(e);
+                if(e.equals(mynod.getNombre())){
+                    int f = Integer.parseInt(Cantidad3.getText());
+                    int delf = mynod.getCantidad();
+                    if(delf>=f){
+                        int ff = delf - f;
+                        mynod.setCantidad(ff);
+                    }
+                    else{
+                        mynod.setCantidad(0);
+                        this.borrar=delf-f;
+                        this.panelOculto.setVisible(true);
+
+                        JOptionPane.showMessageDialog(null,"Elija un almacen para mostrar los caminos minimos");
+                    }
+                }
+            }
+
+            if (!"".equals(Producto4.getText().toUpperCase()) && !"0".equals(Cantidad4.getText())){
+                String g = Producto4.getText();
+                JOptionPane.showMessageDialog(null, g);
+                Nodo_productos mynod = mylistVer.BuscarProducto(g);
+                if(g.equals(mynod.getNombre())){
+                    int h = Integer.parseInt(Cantidad4.getText());
+                    int delh = mynod.getCantidad();
+                    if(delh>=h){
+                        int hh = delh - h;
+                        mynod.setCantidad(hh);
+                    }
+                    else{
+                        mynod.setCantidad(0);
+                        this.borrar=delh-h;
+                        this.panelOculto.setVisible(true);
+
+                        JOptionPane.showMessageDialog(null,"Elija un almacen para mostrar los caminos minimos");
+                    }
+                }
+            }
+            
         }
         
-
+        
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"No puede procesarse la orden por alguna razon");
+        }
         
     }//GEN-LAST:event_AceptarActionPerformed
 
@@ -630,6 +655,38 @@ public class Pedido extends javax.swing.JFrame {
     private void SelectorAlmacen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorAlmacen1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectorAlmacen1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String r=this.SelectorAlmacen1.getSelectedItem().toString();
+        r=r.toUpperCase();
+        String alm=DAlmacen.getSelectedItem().toString();
+        alm=alm.toUpperCase();
+        
+        String a = Producto1.getText();
+        Dijkstra J=new Dijkstra(matrixre.getIndex(alm), matrixre);
+        J.caminosMinimos();
+        JOptionPane.showMessageDialog(null, J.Print(matrixre,matrixre.getIndex(r)));
+        String sig = J.devolverSig(matrixre,matrixre.getIndex(r));
+        Vertex mynewver= mywin.listaVersx.BuscarVertex(sig);
+        Nodo_productos nd = mynewver.getListaver().BuscarProducto(Cantidad1.getText());
+        
+        try{
+            int f = borrar;
+            int delf = nd.getCantidad();
+            if(delf>=f){
+                int ff = delf - f;
+                nd.setCantidad(ff);
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"No se puede proceder la orden porque el almacen mas cercano no tiene los productos ");
+        }
+            
+        
+        
+        
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -682,6 +739,7 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> SelectorAlmacen1;
     private javax.swing.JTextArea cajita;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -693,6 +751,8 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;

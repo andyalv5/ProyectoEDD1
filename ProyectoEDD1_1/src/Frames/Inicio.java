@@ -47,7 +47,6 @@ public class Inicio extends javax.swing.JFrame {
             matrixre.newArc(pesa.getVertex1(), pesa.getVertex2(), pesa.getWeight());
             pesa=pesa.getpNext();
         }
-        JOptionPane.showMessageDialog(null, matrixre.RetornarMatriz());
     }
     
 
@@ -264,9 +263,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       
-             System.exit(0);
-        
+           
+            System.exit(0);
+             
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -301,7 +300,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        NewCargar dis = new NewCargar(this);
+        dis.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed

@@ -7,6 +7,7 @@ package Frames;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import newpackage.Funciones;
 import newpackage.MatrixGraph;
 import org.graphstream.graph.Graph;
 
@@ -101,12 +102,14 @@ public class DeleteEl extends javax.swing.JFrame {
             matrix.CrearNodes(grafico);
             matrix.CrearEdges(grafico);
             
+            
             for (String almacen1 : almacen) {
                 if (!mywin.listaSimpe.ExistFE(almacen1)) {
                     throw new Exception();
                 }
             }
-            
+            Funciones func = new Funciones();
+            func.writeTxt(mywin.listaVersx, mywin.listaSimpe);
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Hay un vertice aislado,reiniciando todo el programa");

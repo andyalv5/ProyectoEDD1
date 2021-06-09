@@ -10,12 +10,11 @@ Almacen C:
 Placa,7
 Teclado,8;
 Almacen D:
-Mouse,2;
+Mouse,2
+CANNA,3;
 Almacen E:
 Microfono,7
 Audifonos,10;
-Almacen M:
-Audifonos,2;
 Rutas;
 A,B,10
 A,C,20
@@ -26,4 +25,3 @@ C,E,13
 D,E,3
 E,A,25
 M,A,34
-C,M,4

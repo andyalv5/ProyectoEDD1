@@ -6,6 +6,7 @@
 package Frames;
 
 import javax.swing.JOptionPane;
+import newpackage.Funciones;
 import newpackage.Lista_productos;
 import newpackage.Nodo_productos;
 import newpackage.Vertex;
@@ -494,6 +495,8 @@ public class Stock extends javax.swing.JFrame {
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "El tipo de dato introducido es erróneo","Error!",JOptionPane.ERROR_MESSAGE);
         }
+        Funciones func = new Funciones();
+        func.writeTxt(mywin.listaVersx, mywin.listaSimpe);
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void Producto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Producto2ActionPerformed

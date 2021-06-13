@@ -81,11 +81,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -96,55 +91,49 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1.setText("Agregar un Nuevo Almacen:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/gratis-png-blanco-signo-mas (3).jpg")); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
+        jButton1.setText("Agregar un almacen");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 90, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 150, 60));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/símbolo-de-la-impresora-con-hoja-papel-el-texto-icono-negro-simple-sombra-en-gris-126418277 (3).jpg")); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
+        jButton2.setText("Imprimir el grafo");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 70, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 60));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("Imprimir el Grafo:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/56607643-símbolo-negativo-signo-menos-negro-con-la-sombra-en-gris- (1).jpg")); // NOI18N
+        jButton3.setText("Eliminar un almacen");
         jButton3.setToolTipText("");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 90, 60));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 170, 60));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setText("Eliminar Almacen");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/gratis-png-blanco-signo-mas (5).jpg")); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
+        jButton4.setText("Agregar al stock");
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 80, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 160, 40));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Agregar al Stock");
@@ -154,16 +143,14 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setText("Salir");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, -1, -1));
 
-        jButton5.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/png-transparent-black-x-mark-tic-tac-toe-oxo-holiday-tic-tac-toe-game-blue-cross-miscellaneous-angle-cross (1).jpg")); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
+        jButton5.setText("Salir");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, 90, 100));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, 90, 50));
 
         jButton6.setText("Busqueda en Anchura");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -189,8 +176,8 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7.setText("Floyd");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, -1, -1));
 
-        jButton9.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/gratis-png-blanco-signo-mas (4).jpg")); // NOI18N
-        jButton9.setBorder(null);
+        jButton9.setText("Hacer un pedido");
+        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +185,7 @@ public class Inicio extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 70, 40));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel8.setText("Hacer Pedido");
@@ -239,21 +226,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel11.setText("Dijskstra");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, -1, -1));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/istockphoto-964902874-2048x2048 (4).jpg")); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, 70));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/png-transparent-computer-icons-order-picking-text-task-symbol (1).jpg")); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, 70));
-
-        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/pngtree-graph-line-black-icon-png-image_4779765 (1).jpg")); // NOI18N
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, 70));
-
-        jLabel15.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/gratis-png-caja-de-carton-embalaje-y-etiquetado-equipo-iconos-simbolo-caja (3).jpg")); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, 40));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon("/Users/usuario/Downloads/istockphoto-964902874-2048x2048 (4).jpg")); // NOI18N
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -398,11 +370,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

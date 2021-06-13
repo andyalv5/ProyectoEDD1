@@ -7,12 +7,15 @@ package newpackage;
 
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 
 /**
- *
- * @author andy
+ * Clase Recorrido
+ * Se tiene lo referente a los recorridos en el programa
+ * @author andy, ulises, hector
+ * @version 12/6/21
  */
+
 public class Recorrido {
     private int[][]pesos;
     private int[][]traza;
@@ -24,6 +27,13 @@ public class Recorrido {
     private int size;
     
     
+    /**
+     * Procedimiento Recorrido
+     * Se utilizara para inicializar una instancia de la clase
+     * @author Ulises,Andy,Hector
+     * @param matrix 
+     */
+    
     public Recorrido() {
         
     }
@@ -33,34 +43,15 @@ public class Recorrido {
          this.size=matrix.getVertices().getSize();
          this.origen=s;
     }
-    /*
-    public String ReporteAlmacenBFS(MatrixGraph matrix, ListaVertex lisver,String origen)//ANCHURA usar cola
-    {
-        Cola cola = new Cola();
-        String reporte = "Reporte de almacenes por Ancho:\n";
-        //INICIA DESDE EL ALMACEN DE MENOR ID
-        Vertex pTemp = matrix.getVertices().getpFirst();
-        ColaProceso vertice;
-        pTemp.setVisitado(true);
-        cola.Encolar(pTemp);
-        int counter =0;
-    
-        while(counter !=20){
-            vertice = cola.getCimaCola();
-            cola.Eliminar();
-            reporte +="Almacen: "+vertice.getElement().getName()+"/n";
-            reporte += vertice.getElement().getListaver().returnInlistProducts();
-            String segundo=matrix.getPeso().ReturnFE(vertice.getElement().getName());
-            String primero=matrix.getPeso().ReturnSE(vertice.getElement().getName());
-            String joint= primero +segundo;
-            String[] jointvar = joint.split(",");
-            
-            counter ++;
-            }
-        
-        }  
-    }
-*/
+    /**
+     * Funcion ReporteAlmacenDFS
+     * Realiza una busqueda en profundidad
+     * @author Hector, Andy, Ulises
+     * @param matrix
+     * @param lisver
+     * @return String el recorrido
+     */
+
     public String ReporteAlmacenDFS(MatrixGraph matrix, ListaVertex lisver)//PROFUNDIDAD usar pila
     {
         //INICIA DESDE EL ALMACEN DE MENOR ID
@@ -93,6 +84,13 @@ public class Recorrido {
         return reporte;
     }
 
+    /**
+     * Procedimiento SetTrueDFS
+     * Realiza una busqueda en profundidad
+     * @author Hector, Andy, Ulises
+     * @param matrix
+     * @param lisver 
+     */
     
     public void SetTrueDFS(MatrixGraph matrix, ListaVertex lisver)//PROFUNDIDAD usar pila
     {
@@ -120,6 +118,15 @@ public class Recorrido {
         }
     }
         
+    /**
+     * Funcion ReporteAlmacenBFS
+     * Se realiza la busqueda en anchura
+     * @author Andy,Hector,Ulises
+     * @param matrix
+     * @param lisver
+     * @return String el recorrido en anchura
+     */
+    
     public String ReporteAlmacenBFS(MatrixGraph matrix, ListaVertex lisver)//ANCHURA usar cola
     {
         Cola cola = new Cola();
@@ -155,6 +162,14 @@ public class Recorrido {
         
         return reporte; 
     }
+    
+    /**
+     * Procedimiento SetTrueBFS
+     * Se realiza la busqueda en anchura
+     * @author Andy,Hector,Ulises
+     * @param matrix
+     * @param lisver 
+     */
     
     public void SetTrueBFS(MatrixGraph matrix, ListaVertex lisver)//ANCHURA usar cola
     {
@@ -253,7 +268,12 @@ public class Recorrido {
         
     }
     
-    
+     /**
+     * Funcion RetornarMatriz
+     * Retorna una matriz para estudiar si es la correcta
+     * @author Ulises,Andy,Hector
+     * @return String una matriz
+     */
     
      public String RetornarMatriz()
     {
@@ -276,8 +296,10 @@ public class Recorrido {
        
        
        
-       
-    /**
+   /**
+     * Funcion getPesos
+     * Se retorna el elemento pesos
+     * @author Andy,Ulises,Hector
      * @return the pesos
      */
     public int[][] getPesos() {
@@ -285,6 +307,9 @@ public class Recorrido {
     }
 
     /**
+     * Procedimiento setPesos
+     * Se le asigna valor a el elemento pesos
+     * @author Ulises,Andy,Hector
      * @param pesos the pesos to set
      */
     public void setPesos(int[][] pesos) {
@@ -292,6 +317,9 @@ public class Recorrido {
     }
 
     /**
+     * Funcion getTraza
+     * Se retorna el elemento traza
+     * @author Andy,Ulises,Hector
      * @return the traza
      */
     public int[][] getTraza() {
@@ -299,6 +327,9 @@ public class Recorrido {
     }
 
     /**
+     * Procedimiento setTraza
+     * Se le asigna valor a el elemento traza
+     * @author Ulises,Andy,Hector
      * @param traza the traza to set
      */
     public void setTraza(int[][] traza) {
@@ -306,6 +337,9 @@ public class Recorrido {
     }
 
     /**
+     * Funcion getAlmacenes
+     * Se retorna el elemento almacenes
+     * @author Andy,Ulises,Hector
      * @return the almacenes
      */
     public String[][] getAlmacenes() {
@@ -313,6 +347,9 @@ public class Recorrido {
     }
 
     /**
+     * Procedimiento setAlmacenes
+     * Se le asigna valor a el elemento almacenes
+     * @author Ulises,Andy,Hector
      * @param almacenes the almacenes to set
      */
     public void setAlmacenes(String[][] almacenes) {

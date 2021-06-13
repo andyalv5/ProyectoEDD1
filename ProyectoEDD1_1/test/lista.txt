@@ -2,7 +2,8 @@ Almacenes; Esta Linea se salta automaticamente
 Almacen A:
 Pantalla,3
 Ram,2
-Procesador,1;
+Procesador,1
+<PRODUCTO>,9;
 Almacen B:
 Pantalla,3
 Grafica,5;
@@ -24,4 +25,3 @@ C,D,4
 C,E,13
 D,E,3
 E,A,25
-M,A,34

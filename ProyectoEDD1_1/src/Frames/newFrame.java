@@ -88,9 +88,12 @@ public class newFrame extends javax.swing.JFrame {
         Ruta1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Peso1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(630, 571));
+        setPreferredSize(new java.awt.Dimension(630, 571));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -375,6 +378,12 @@ public class newFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Peso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 40, 30));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 540, 350));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/depositphotos_97854154-stock-photo-molecule-backgound-design-wallpaper-on.jpeg"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -687,6 +696,8 @@ public class newFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables

@@ -55,11 +55,16 @@ public class NewCargar extends javax.swing.JFrame {
         close = new javax.swing.JButton();
         guardartxt = new javax.swing.JButton();
         cargartxt = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(484, 384));
+        setPreferredSize(new java.awt.Dimension(484, 384));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         close.setText("CERRAR");
@@ -68,7 +73,7 @@ public class NewCargar extends javax.swing.JFrame {
                 closeActionPerformed(evt);
             }
         });
-        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 249, -1, -1));
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
         guardartxt.setText("GUARDAR");
         guardartxt.addActionListener(new java.awt.event.ActionListener() {
@@ -86,16 +91,21 @@ public class NewCargar extends javax.swing.JFrame {
         });
         getContentPane().add(cargartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 202, -1, -1));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 77, 324, 107));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("PRUEBA PROYECTO 1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 37, -1, -1));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Carga y Guardado de Archivos");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Amazon-Logo-PNG.png"))); // NOI18N
+        jPanel1.add(jLabel14);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 120, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/30100.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,7 +187,9 @@ public class NewCargar extends javax.swing.JFrame {
     private javax.swing.JButton close;
     private javax.swing.JButton guardartxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,30 +6,31 @@ import javax.swing.JOptionPane;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
+
+/**
+ * Clase funciones
+ * En esta clase se tienen funciones y procedimientos para el funcionamiento general del programa
+ * @author Andy
+ * @version 12/6/21
+ */
+
 public class Funciones 
 {
+    /**
+     * Constructor
+     */   
+    
     public Funciones(){
         
     }
     
-    /*public void Escribir_txt(Pila pila){
-        
-        String informacion = "";
-        
-        while(!pila.IsEmpty()) {
-            String valor = (String) pila.Desapilar().getData();
-            informacion += valor;        
-        }
-        try{
-            PrintWriter pw = new PrintWriter("test\\Datos.txt");
-            pw.print(informacion);
-            pw.close();
-            JOptionPane.showMessageDialog(null, "ÉXITO AL REGISTRAR! ");
-        }catch(Exception err){
-            JOptionPane.showMessageDialog(null, "ÉRROR AL REGISTRAR! ");
-        }
-    }*/
-    
+   /**
+     * Procedimiento writeTxt
+     * Este procedimiento guarda los datos de las listas actuales en el txt
+     * @author Andy
+     * @param vertex
+     * @param listsimp 
+     */   
        
     
     public void writeTxt(ListaVertex vertex, ListaSimple listsimp){
@@ -74,6 +75,15 @@ public class Funciones
         }
 
     } 
+    
+     /**
+     * Funcion Leer_txt
+     * Esta funcion devuelve la lista de los pesos
+     * @author Andy
+     * @return ListaSimple
+     * @param path
+     * @param listaVer 
+     */
     
     
     public ListaSimple Leer_txt(String path,ListaVertex listaVer){
@@ -122,6 +132,13 @@ public class Funciones
         return lista;
     }
     
+     /**
+     * Funcion Leer_matrix
+     * Esta funcion solo devuelve la lista de los vertices
+     * @author Andy
+     * @param path
+     * @return ListaVertex la lista de los vertices
+     */
     
     public ListaVertex Leer_matrix(String path){
         ListaVertex lista = new ListaVertex();

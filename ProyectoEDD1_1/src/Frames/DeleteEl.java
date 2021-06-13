@@ -47,17 +47,19 @@ public class DeleteEl extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Selector = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(286, 161));
-        setPreferredSize(new java.awt.Dimension(286, 161));
+        setMinimumSize(new java.awt.Dimension(286, 150));
+        setPreferredSize(new java.awt.Dimension(286, 150));
         setResizable(false);
-        setSize(new java.awt.Dimension(286, 161));
+        setSize(new java.awt.Dimension(286, 150));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setText("Elemento a Eliminar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         Selector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Selector.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +76,12 @@ public class DeleteEl extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 110, 40));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 250, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/amazon_black_friday_ofertas-810x456.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,5 +167,7 @@ public class DeleteEl extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Selector;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

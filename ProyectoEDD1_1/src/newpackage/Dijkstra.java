@@ -5,12 +5,13 @@
  */
 package newpackage;
     
-import Frames.Inicio;
-import javax.swing.JOptionPane;
 
 /**
- *
- * @author andy
+ * Clase Dijsktra
+ * Esta es la clase en la cual estan los procedimientos y funciones para determinar
+ el camino mas corto
+ * @author Andy, Ulises, Hector
+ * @version 12/6/21
  */
 public class Dijkstra
 {
@@ -20,6 +21,14 @@ public class Dijkstra
     public boolean F[];
     public int P[][];
     public int n,s;
+    
+        /**
+     * Constructor Dijkstra
+     * Constructor con el cual se inicializaria las instancias de la clase
+     * @author Ulises,Andy,Hector
+     * @param s
+     * @param matrix 
+     */
     
     public Dijkstra(int s, MatrixGraph matrix) {
         
@@ -33,6 +42,13 @@ public class Dijkstra
         
         
     }
+    
+     /**
+     * Procedimiento caminosMinimos
+     * Crea la matriz de djikstra y saca los caminos minimos
+     * @author Ulises,Andy,Hector
+     */
+    
     public void caminosMinimos(){
         
         for (int i=0;i<n;i++){
@@ -77,6 +93,13 @@ public class Dijkstra
         
     }
     
+     /**
+     * Funcion minimo
+     * Busca el minimo como comparacion
+     * @author Ulises,Andy,Hector
+     * @return int el minimo
+     */
+    
     public int minimo(){
         int mx= 999;
         int v=1;
@@ -92,6 +115,15 @@ public class Dijkstra
         
     }
         
+     /**
+     * Funcion Print
+     * Imprime la matriz
+     * @author Andy,Ulises,Hector
+     * @param matrix
+     * @param v
+     * @return Stirng la matriz
+     */
+    
     
     public String Print(MatrixGraph matrix,int v){
         String st ="";
@@ -107,12 +139,31 @@ public class Dijkstra
         return st;
     }
     
+      /**
+     * Funcion devolverSig
+     * Retorna el siguiente almacen que este en el camino minimo
+     * @author Ulises,Andy,Hector
+     * @param matrix
+     * @param v
+     * @return String el siguinete almacen en el camino mas corto
+     */
+    
+    
     public String devolverSig(MatrixGraph matrix,int v){
         String st ="";
         int anterior=ultimo[v];
         st+= matrix.getVerbyint(anterior).getName().toUpperCase();
         return st;
     }
+    
+      /**
+     * Funcion Printletters
+     * Retorna las letras del camino minimo de los almacenes 
+     * @author Ulises,Hector,Andy
+     * @param matrix
+     * @param v
+     * @return String las letras
+     */
     
     public String Printletters(MatrixGraph matrix,int v){
         String st ="";
@@ -127,6 +178,16 @@ public class Dijkstra
         }
         return st;
     }
+    
+    /**
+     * Funcion devuelveProd
+     * Devuelve el producto si es conseguido
+     * @author Andy,Hector,Ulises
+     * @param matrixre
+     * @param nombre
+     * @return Nodo_productos producto
+     */
+    
     public Nodo_productos devuelveProd(MatrixGraph matrixre,String nombre){
         Vertex primero =matrixre.getVertices().getpFirst();
         while(primero !=null){

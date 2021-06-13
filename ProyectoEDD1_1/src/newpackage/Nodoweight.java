@@ -1,15 +1,30 @@
 package newpackage;
 
+   /**
+ * Clase Nodoweight
+ * En esta clase se encontrara lo referente a los Nodoweight
+ * @author Ulises, Andy, Hector
+ * @version 12/6/21
+ */
+
 public class Nodoweight {
 
-    /**
-     * @return the weight
+ /**
+     * Funcion getWeight
+     * En esta funcion se retornar el elemento weight del nodo
+     * @author Ulises,Andy,Hector
+     * @return int
      */
+
     public int getWeight() {
         return weight;
     }
 
+    
     /**
+     * Procedimiento setWeight
+     * En este procediiento se le dara valor el elemento weight del nodo
+     * @author Ulises,Hector,Andy
      * @param weight the weight to set
      */
     public void setWeight(int weight) {
@@ -17,13 +32,19 @@ public class Nodoweight {
     }
 
     /**
+     * Procedimiento setVertex1
+     * En este procediiento se le dara valor el elemento Vertex1 del nodo
+     * @author Ulises,Hector,Andy
      * @param Vertex1 the Vertex1 to set
      */
     public void setVertex1(String Vertex1) {
         this.Vertex1 = Vertex1;
     }
 
-    /**
+     /**
+     * Procedimiento setVertex2
+     * En este procediiento se le dara valor el elemento Vertex2 del nodo
+     * @author Ulises,Hector,Andy
      * @param Vertex2 the Vertex2 to set
      */
     public void setVertex2(String Vertex2) {
@@ -34,6 +55,15 @@ public class Nodoweight {
     private String Vertex1;
     private String Vertex2;
     
+    /**
+     * Procedimiento Nodoweight
+     * Constructor que se utilizara para la inicializacion de los Nodoweight en
+     el programa
+     * @author Ulises,Andy,Hector
+     * @param verx1
+     * @param verx2
+     * @param weight 
+     */
     
     public Nodoweight(String verx1,String verx2,int weight){
         
@@ -44,6 +74,15 @@ public class Nodoweight {
         
     }
     
+     /**
+     * Procedimiento Nodoweight
+     * Constructor que se utilizara para la inicializacion de los Nodoweight en
+     el programa
+     * @author Ulises,Andy,Hector
+     * @param verx1
+     * @param verx2 
+     */
+    
     public Nodoweight(String verx1,String verx2){
         
         this.pNext = null;
@@ -53,37 +92,80 @@ public class Nodoweight {
         
     }
 
+    /**
+     * Funcion getpNext
+     * En esta funcion se retornar el elemento pNext del nodo
+     * @author Ulises,Andy,Hector
+     * @return Nodoweight
+     */
+    
     public Nodoweight getpNext() {
         return pNext;
     }
     
+    /**
+     * Funcion IsEmpty
+     * Retorna si un nodo esta vacia
+     * @author Ulises,Hector,Andy
+     * @return boolean 
+     */
     
     public boolean IsEmpty(){
             return true;
         }
     
+    /**
+     * Procedimiento setpNext
+     * En este procediiento se le dara valor el elemento pNext del nodo
+     * @author Ulises,Hector,Andy
+     * @param pNext 
+     */
+    
     public void setpNext(Nodoweight pNext) {
         this.pNext= pNext;
     }
 
+    
+    /**
+     * Funcion getweight
+     * En esta funcion se retornar el elemento weight del nodo
+     * @author Ulises,Andy,Hector
+     * @return int
+     */
+    
     public int getweight() {
         return getWeight();
     }
 
+    /**
+     * Procedimiento setElement
+     * En este procediiento se le dara valor el elemento element del nodo
+     * @author Ulises,Hector,Andy
+     * @param weight 
+     */
+    
     public void setElement(int weight) {
         this.setWeight(weight);
     }
 
     /**
-     * @return the Vertex1
+     * Funcion getVertex1
+     * En esta funcion se retornar el elemento Vertex1 del nodo
+     * @author Ulises,Andy,Hector
+     * @return String
      */
+    
     public String getVertex1() {
         return Vertex1;
     }
 
     /**
-     * @return the Vertex2
+     * Funcion getVertex2
+     * En esta funcion se retornar el elemento Vertex2 del nodo
+     * @author Ulises,Andy,Hector
+     * @return String
      */
+    
     public String getVertex2() {
         return Vertex2;
     }

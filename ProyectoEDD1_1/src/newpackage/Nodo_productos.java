@@ -6,8 +6,11 @@
 package newpackage;
 
 /**
- *
- * @author Ulises
+ * Clase Nodo_productos
+ * En esta clase se encontrara todo lo referente a los nodos que conformaran la
+ lista de productos
+ * @author Ulises, Andy, Hector
+ * @version 12/6/21
  */
 public class Nodo_productos {
     private String nombre;
@@ -15,7 +18,14 @@ public class Nodo_productos {
     private Nodo_productos proximo;
     private int tamanio;
 
-    
+    /**
+     * Procedimiento Nodo_productos
+     * Constructor que se utilizara para inicializar todas las instancias de un
+     * Nodo_productos en el programa
+     * @author Ulises, Andy, Hector
+     * @param nombre
+     * @param cantidad 
+     */
     
     public Nodo_productos(String nombre, int cantidad){
     this.nombre = nombre;
@@ -24,40 +34,65 @@ public class Nodo_productos {
     this.tamanio = 0;
     }
     
+    /**
+     * Funcion getNombre
+     * Con esta funcion se retornaria el elemento nombre de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @return String
+     */
+    
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @param nombre the nombre to set
+     * Procedimiento setNombre
+     * Con esto se le asignaria un valor al elemento nombre de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @param nombre
      */
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * @return the cantidad
+     /**
+     * Funcion getCantidad
+     * Con esta funcion se retornaria el elemento cantidad de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @return int
      */
+    
     public int getCantidad() {
         return cantidad;
     }
 
+    
     /**
-     * @param cantidad the cantidad to set
+     * Procedimiento setCantidad
+     * Con esto se le asignaria un valor al elemento cantidad de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @param cantidad
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
     /**
-     * @return the proximo
+     * Funcion getProximo
+     * Con esta funcion se retornaria el elemento proximo de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @return Nodo_productos
      */
     public Nodo_productos getProximo() {
         return proximo;
     }
 
     /**
-     * @param proximo the proximo to set
+     * Procedimiento setProximo
+     * Con esto se le asignaria un valor al elemento proximo de un Nodo_productos
+     * @author Ulises,Andy,Hector
+     * @param proximo
      */
     public void setProximo(Nodo_productos proximo) {
         this.proximo = proximo;

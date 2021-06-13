@@ -65,9 +65,14 @@ public class Stock extends javax.swing.JFrame {
         Aceptar = new javax.swing.JButton();
         Producto2 = new javax.swing.JTextField();
         SelectorAlmacen = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(630, 571));
+        setPreferredSize(new java.awt.Dimension(630, 571));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -285,6 +290,18 @@ public class Stock extends javax.swing.JFrame {
             }
         });
         getContentPane().add(SelectorAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 100, 70));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 250, 50));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 100, 20));
+
+        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 470, 190));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/30100.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1150, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -568,6 +585,7 @@ public class Stock extends javax.swing.JFrame {
     private javax.swing.JTextField Producto3;
     private javax.swing.JTextField Producto4;
     private javax.swing.JComboBox<String> SelectorAlmacen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel22;
@@ -578,5 +596,8 @@ public class Stock extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,8 +6,10 @@
 package newpackage;
 
 /**
- *
- * @author andynet
+ * Clase Vertex
+ * Se ecnuentra todo lo relacionado con los vertex del programa
+ * @author andy, Ulises, Hector
+ * @version 12/6/21
  */
 public class Vertex {
     private String name;
@@ -18,6 +20,13 @@ public class Vertex {
     private boolean Visitado;
     
 
+    /**
+     * Procedimiento Vertex
+     * Contructor con el que se inicializarian instancia de Vertex
+     * @author Ulises,Andy,Hector
+     * @param x 
+     */
+    
     public Vertex(String x){
         name=x;
         vertexNum = -1;
@@ -25,6 +34,14 @@ public class Vertex {
         
     }
 
+    /**
+     * Procedimiento Vertex
+     * Contructor con el que se inicializarian instancia de Vertex
+     * @author Ulises,Andy,Hector
+     * @param x
+     * @param listaver 
+     */
+    
     public Vertex(String x,Lista_productos listaver){
         this.name=x;
         this.listaver= listaver;
@@ -33,15 +50,33 @@ public class Vertex {
         this.realvertexNum = -1;
     }
     /**
+     * Funcion getName
+     * Funcion en la cual se retorna el elemento name
+     * @author Ulises,Andy,Hector
      * @return the name
      */
     public String getName() {
         return name;
     }
     
+    /**
+     * Funcion vertexEquals
+     * Dice si el nombre es igual al nombre del vertice que le pasas
+     * @author Ulises,Andy,Hector
+     * @param i
+     * @return boolean si el nombre es igual o no
+     */
+    
     public boolean vertexEquals(Vertex i){
         return getName().equals(i.getName());
     }
+    
+    /**
+     * Procedimiento assingVtx
+     * Le asigna el mismo valor numerico a dos atributos
+     * @author Ulises,Andy,Hector
+     * @param n 
+     */
     
     public void assingVtx(int n){
         this.setVertexNum(n);
@@ -49,6 +84,9 @@ public class Vertex {
     }
     
     /**
+     * Procedimiento setName
+     * Se le asigna un valor al elemento name
+     * @author Andy,Ulises,Hector
      * @param name the name to set
      */
     public void setName(String name) {
@@ -56,6 +94,9 @@ public class Vertex {
     }
 
     /**
+     * Funcion getVertexNum
+     * Funcion en la cual se retorna el elemento vertexNum
+     * @author Ulises,Andy,Hector
      * @return the vertexNum
      */
     public int getVertexNum() {
@@ -64,13 +105,19 @@ public class Vertex {
 
  
     /**
+     * Procedimiento setVertexNum
+     * Se le asigna un valor al elemento vertexNum
+     * @author Andy,Ulises,Hector
      * @param vertexNum the vertexNum to set
      */
     public void setVertexNum(int vertexNum) {
         this.vertexNum = vertexNum;
     }
     
-      /**
+    /**
+     * Funcion getListaver
+     * Funcion en la cual se retorna el elemento listaver
+     * @author Ulises,Andy,Hector
      * @return the listaver
      */
     public Lista_productos getListaver() {
@@ -78,6 +125,9 @@ public class Vertex {
     }
 
     /**
+     * Procedimiento setListaver
+     * Se le asigna un valor al elemento listaver
+     * @author Andy,Ulises,Hector
      * @param listaver the listaver to set
      */
     public void setListaver(Lista_productos listaver) {
@@ -85,6 +135,9 @@ public class Vertex {
     }
 
     /**
+     * Funcion getSiguiente
+     * Funcion en la cual se retorna el elemento siguiente
+     * @author Ulises,Andy,Hector
      * @return the siguiente
      */
     public Vertex getSiguiente() {
@@ -92,6 +145,9 @@ public class Vertex {
     }
 
     /**
+     * Procedimiento setSiguiente
+     * Se le asigna un valor al elemento siguiente
+     * @author Andy,Ulises,Hector
      * @param siguiente the siguiente to set
      */
     public void setSiguiente(Vertex siguiente) {
@@ -99,6 +155,9 @@ public class Vertex {
     }
 
     /**
+     * Funcion isVisitado
+     * Dice si el vertice fue visitado en el proceso de Dijsktra
+     * @author Ulises, Andy, Hector
      * @return the Visitado
      */
     public boolean isVisitado() {
@@ -106,6 +165,9 @@ public class Vertex {
     }
 
     /**
+     * Procedimiento setVisitado
+     * Se le asigna un valor booleano a el elemento Visitado
+     * @author Ulises,Andy,Hector
      * @param Visitado the Visitado to set
      */
     public void setVisitado(boolean Visitado) {
@@ -113,6 +175,9 @@ public class Vertex {
     }
 
     /**
+     * Funcion getRealvertexNum
+     * Funcion en la cual se retorna el elemento realvertexNum
+     * @author Ulises,Andy,Hector
      * @return the realvertexNum
      */
     public int getRealvertexNum() {
@@ -120,6 +185,9 @@ public class Vertex {
     }
 
     /**
+     * Procedimiento setRealvertexNum
+     * Se le asigna un valor al elemento realvertexNum
+     * @author Andy,Ulises,Hector
      * @param realvertexNum the realvertexNum to set
      */
     public void setRealvertexNum(int realvertexNum) {

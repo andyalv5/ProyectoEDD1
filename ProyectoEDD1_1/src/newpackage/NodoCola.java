@@ -6,12 +6,23 @@
 package newpackage;
 
 /**
- *
- * @author andy
+ * Clase NodoCola
+ * En esta clase va a estar lo relacionado con los nodos que conformaran
+ las colas
+ * @author Andy,Hector,Ulises
+ * @version 12/6/21
  */
 public class NodoCola {
     private Vertex elemento;
     private NodoCola siguiente;
+    
+    /**
+     * Procedimiento NodoCola
+     * Constructor que se utilizara para inicializar las instancias de los 
+     nodos de las colas
+     * @author Ulises,Andy,Hector
+     * @param x 
+     */
     
     public NodoCola(Vertex x){
         elemento=x;
@@ -19,13 +30,19 @@ public class NodoCola {
     }
 
     /**
-     * @return the elemento
+     * Funcion getElemento
+     * Con esta funcion se retornara el elemento
+     * @author Ulises,Hector,Andy
+     * @return Vertex
      */
     public Vertex getElemento() {
         return elemento;
     }
 
     /**
+     * Procedimiento setElemento
+     * Con este procedimiento se le da un valor a la variable elemento
+     * @author Hector,Ulises,Andy
      * @param elemento the elemento to set
      */
     public void setElemento(Vertex elemento) {
@@ -33,6 +50,9 @@ public class NodoCola {
     }
 
     /**
+     * Funcion getSiguiente
+     * Con esta funcion se obtiene el siguiente a un nodo
+     * @author Ulises, Hector,Andy
      * @return the siguiente
      */
     public NodoCola getSiguiente() {
@@ -40,6 +60,9 @@ public class NodoCola {
     }
 
     /**
+     * Procedimiento setSiguiente
+     * Con este procedimiento se le da el valor a el siguiente de un nodo
+     * @author Ulises,Hector,Andy
      * @param siguiente the siguiente to set
      */
     public void setSiguiente(NodoCola siguiente) {

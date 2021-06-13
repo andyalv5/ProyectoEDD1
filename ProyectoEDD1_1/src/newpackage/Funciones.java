@@ -6,6 +6,13 @@ import javax.swing.JOptionPane;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
+/**
+ * Clase funciones
+ * En esta clase se tienen funciones y procedimientos para el funcionamiento general del programa
+ * @author Andy
+ * @version 12/6/21
+ */
+
 public class Funciones 
 {
     public Funciones(){
@@ -30,7 +37,13 @@ public class Funciones
         }
     }*/
     
-       
+    /**
+     * Procedimiento writeTxt
+     * Este procedimiento guarda los datos de las listas actuales en el txt
+     * @author Andy
+     * @param vertex
+     * @param listsimp 
+     */   
     
     public void writeTxt(ListaVertex vertex, ListaSimple listsimp){
         String txt = "";
@@ -75,6 +88,14 @@ public class Funciones
 
     } 
     
+    /**
+     * Funcion Leer_txt
+     * Esta funcion devuelve la lista de los pesos
+     * @author Andy
+     * @return ListaSimple
+     * @param path
+     * @param listaVer 
+     */
     
     public ListaSimple Leer_txt(String path,ListaVertex listaVer){
         ListaSimple lista = new ListaSimple();
@@ -122,6 +143,13 @@ public class Funciones
         return lista;
     }
     
+    /**
+     * Funcion Leer_matrix
+     * Esta funcion solo devuelve la lista de los vertices
+     * @author Andy
+     * @param path
+     * @return ListaVertex la lista de los vertices
+     */
     
     public ListaVertex Leer_matrix(String path){
         ListaVertex lista = new ListaVertex();

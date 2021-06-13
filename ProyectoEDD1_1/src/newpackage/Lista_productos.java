@@ -8,8 +8,10 @@ package newpackage;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase Lista_productos
+ * En esta clase esta todo lo relacionado con las listas de productos
  * @author Ulises
+ * @version 12/6/21
  */
 public class Lista_productos {
   
@@ -17,12 +19,26 @@ public class Lista_productos {
     private Nodo_productos siguiente;
     private int size;
     
+    /**
+     * Procedimiento Lista_productos
+     * Es el constructor mediante el cual se inicializaran las instancias de esta
+     clase
+     * @author Ulises,Andy,Hector
+     */
+    
     public Lista_productos() {
         this.primer_producto = null;
         this.siguiente= null;
         this.size = 0;
     
     }
+    
+    /**
+     * Funcion returnInlistProducts
+     * Retorna un String con los datos de la lista
+     * @author Ulises,Andy,Hector
+     * @return String productos
+     */
     
     public String returnInlistProducts(){
         String toPrint = "";
@@ -37,10 +53,24 @@ public class Lista_productos {
         return toPrint;
     }
     
+    /**
+     * Funcion IsEmpty
+     * verifica si una lista esta vacia
+     * @author Ulises,Hector,Andy
+     * @return boolean si esta vacia o no
+     */
+    
      public boolean IsEmpty(){
         return this.primer_producto == null;
     }
     
+    /**
+     * Procedimiento addElementbegin
+     * Agrega un elemento al principio de la lista
+     * @author Ulises,Andy,Hector
+     * @param newNodo 
+     */
+     
     public void addElementbegin(Nodo_productos newNodo){
         if(this.IsEmpty()){
             this.primer_producto = this.siguiente = newNodo;
@@ -53,6 +83,13 @@ public class Lista_productos {
         size++; 
     } 
      
+    /**
+     * Procedimiento addAtEnd
+     * Agrega un elemento al final de la lista
+     * @author Ulises,Andy,Hector
+     * @param node 
+     */
+    
     public void addAtEnd(Nodo_productos node){
         if(this.IsEmpty()){
             addElementbegin(node);
@@ -64,6 +101,12 @@ public class Lista_productos {
             size ++;
         }
     }
+    
+    /**
+     * Procedimiento pntAllelmntinList
+     * Imprime un String con los elemento de la lista
+     * @author Ulises,Hector,Andy
+     */
     
     public void pntAllelmntinList(){
         String toPrint = "";
@@ -77,6 +120,14 @@ public class Lista_productos {
         }
         JOptionPane.showMessageDialog(null,toPrint);
     }
+    
+    /**
+     * Funcion BuscarProducto
+     * Busca si un elemento con el mismo nombre dado esta en la lista
+     * @author Ulises,Hector,Andy
+     * @param searched
+     * @return Nodo_productos producto buscado
+     */
     
     public Nodo_productos BuscarProducto(String searched){
         
@@ -94,6 +145,9 @@ public class Lista_productos {
         return null;
     }
     /**
+     * Funcion getPrimer_producto
+     * Retorna el atriburo primer_producto
+     * @author Ulises,Andy,Hector
      * @return the primer_producto
      */
     public Nodo_productos getPrimer_producto() {
@@ -101,6 +155,9 @@ public class Lista_productos {
     }
 
     /**
+     * Procedimiento setPrimer_producto
+     * Se le asigna un valor a primer_producto
+     * @author Ulises,Anyd,Hector
      * @param primer_producto the primer_producto to set
      */
     public void setPrimer_producto(Nodo_productos primer_producto) {
@@ -108,6 +165,9 @@ public class Lista_productos {
     }
 
     /**
+     * Funcion getUltimo_producto
+     * Retorna el atriburo siguiente
+     * @author Ulises,Andy,Hector
      * @return the ultimo_producto
      */
     public Nodo_productos getUltimo_producto() {
@@ -115,6 +175,9 @@ public class Lista_productos {
     }
 
     /**
+     * Procedimiento setUltimo_producto
+     * Se le asigna un valor a siguiente
+     * @author Ulises,Anyd,Hector
      * @param ultimo_producto the ultimo_producto to set
      */
     public void setUltimo_producto(Nodo_productos ultimo_producto) {
@@ -122,6 +185,9 @@ public class Lista_productos {
     }
 
     /**
+     * Funcion getSize
+     * Retorna el atriburo size
+     * @author Ulises,Andy,Hector
      * @return the size
      */
     public int getSize() {
@@ -129,6 +195,9 @@ public class Lista_productos {
     }
 
     /**
+     * Procedimiento setSize
+     * Se le asigna un valor a size
+     * @author Ulises,Anyd,Hector
      * @param size the size to set
      */
     public void setSize(int size) {

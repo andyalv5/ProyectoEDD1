@@ -11,8 +11,10 @@ import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 
 /**
- *
- * @author andynet
+ * Clase NewMain
+ * Este es el main de donde se correria el programa
+ * @author Andy, Ulises, Hector
+ * @version 12/6/21
  */
 public class NewMain {
 

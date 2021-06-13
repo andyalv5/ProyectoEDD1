@@ -16,12 +16,16 @@ import org.graphstream.ui.view.Viewer;
 
 
 /**
- *
- * @author andynet
+ * Clase MatrixGraph
+ * En esta clase esta todo lo relacionado con la matriz
+ * @author Andy, Ulises, Hector
  */
 public class MatrixGraph {
 
     /**
+     * Funcion getVertices
+     * Retorna el atributo vertices
+     * @author Ulises,Andy,Hector
      * @return the vertices
      */
     public ListaVertex getVertices() {
@@ -30,6 +34,9 @@ public class MatrixGraph {
     }
 
     /**
+     * Funcion getPeso
+     * Retorna el atributo peso
+     * @author Ulises,Andy,Hector
      * @return the peso
      */
     public ListaSimple getPeso() {
@@ -37,6 +44,9 @@ public class MatrixGraph {
     }
 
     /**
+     * Funcion getNumNodo
+     * Retorna el atributo numNodo
+     * @author Ulises,Andy,Hector
      * @return the numNodo
      */
     public int getNumNodo() {
@@ -44,6 +54,9 @@ public class MatrixGraph {
     }
 
     /**
+     * Funcion getVertexarray
+     * Retorna el atributo vertexarray
+     * @author Ulises,Andy,Hector
      * @return the vertexarray
      */
     public Vertex[] getVertexarray() {
@@ -51,6 +64,9 @@ public class MatrixGraph {
     }
 
     /**
+     * Funcion getAdjacent
+     * Retorna el atributo adjacent
+     * @author Ulises,Andy,Hector
      * @return the adjacent
      */
     public int[][] getAdjacent() {
@@ -63,7 +79,15 @@ public class MatrixGraph {
     public Vertex [] vertexarray;
     public int [][] adjacent;
     
-    //genera una matrix con un tamaño puesto por nosotros
+    /**
+     * Procedimiento MatrixGraph
+     * Crea una matriz de tamaño dado por nosotros
+     * @author Ulises,Andy,Hector
+     * @param vertices
+     * @param peso
+     * @param NodoId
+     * @param RealNum 
+     */
     public MatrixGraph(ListaVertex vertices,ListaSimple peso,int NodoId,int RealNum){
         try{
             
@@ -85,6 +109,12 @@ public class MatrixGraph {
         }
     }
     
+    /**
+     * Procedimiento pntAllelmnt
+     * Imprime los elementos de la matriz
+     * @author Ulises,Andy,Hector
+     */
+    
      public void pntAllelmnt(){
         
         for(int i=0; i<realnumNodo;i++){
@@ -94,6 +124,13 @@ public class MatrixGraph {
         }
     }
     
+    /**
+      * Procedimiento newVertex
+      * Crea el vertice de la matriz
+      * @author Ulises,Andy,Hector
+      * @param vertice
+      */
+     
     public void newVertex(Vertex vertice){
         boolean isfound =returnIfVxFounded(vertice.getName());
         if(!isfound){
@@ -101,7 +138,16 @@ public class MatrixGraph {
         }
                 
     }
- //Devuelve verdadero o falso dependiendo si encuentra o no el elemento
+    
+    /**
+     * Funcion returnIfVxFounded
+     * Devuelve verdadero si se encuentra el vertice en la matriz, falso
+     si no se consigue
+     * @author Ulises,Hector,Andy
+     * @param vertice
+     * @return boolean
+     */
+    
     public boolean returnIfVxFounded(String vertice){
        for(int i=0;i<realnumNodo;i++){
             if (vertice.equals(vertexarray[i].getName())){
@@ -111,6 +157,14 @@ public class MatrixGraph {
         return false;
     }
            
+    /**
+     * Funcion getIndex
+     * Se obtiene el indice de un elemento en la matriz
+     * @author Andy,Hector,Ulises
+     * @param v
+     * @return int
+     */
+    
     public int getIndex(String v){
         for(int i =0; i<realnumNodo;i++){
            if(v.equals(vertexarray[i].getName())){
@@ -121,6 +175,13 @@ public class MatrixGraph {
         return-1;
     }
     
+    /**
+     * Funcion getVertex
+     * Se obtiene el indice pero sin el numero del vertice
+     * @param v
+     * @return int
+     */
+    
     public int getVertex(Vertex v){
         for(int i =0; i<realnumNodo;i++){
            if(v.getName().equals(vertexarray[i].getName())){
@@ -130,6 +191,15 @@ public class MatrixGraph {
         }
         return-1;
     }
+    
+    /**
+     * Procedimiento newArc
+     * Se crea un arco
+     * @author Ulises,Andy,Hector
+     * @param origen
+     * @param destino
+     * @param weight 
+     */
     
     public void newArc(String origen, String destino, int weight){
         boolean founded =returnIfVxFounded(origen);
@@ -142,12 +212,24 @@ public class MatrixGraph {
     }
     
     
+    /**
+     * Funcion adyacentebynum
+     * Se devuelve el arco buscado
+     * @author Ulises,Andy,Hector
+     * @param i
+     * @param k
+     * @return int
+     */
+    
     public int adyacentebynum(int i,int k){
         return adjacent[i][k];
     }
 
     /**
-     * @return the realnumNodo
+     * Funcion RetornarMatriz
+     * Se imprime la matriz
+     * @author Andy,Hector,Ulises
+     * @return 
      */
   
     public String RetornarMatriz()
@@ -166,6 +248,13 @@ public class MatrixGraph {
                 
     }
     
+    /**
+     * Funcion MotrarGraph
+     * Crea graficamente el grafo
+     * @author Ulises,Andy,Hector
+     * @return Graph
+     */
+    
     public Graph MotrarGraph()
     {
         System.setProperty("org.graphstream.ui", "swing");
@@ -179,10 +268,29 @@ public class MatrixGraph {
         
     }
     
+    /**
+     * Funcion getVerbyint
+     * Se obtiene el vertex buscado al pasar el indice
+     * @author Ulises,Hector,Andy
+     * @param index
+     * @return Vertex
+     */
+    
     public Vertex getVerbyint(int index){
         Vertex s=this.vertexarray[index];
         return s;
     }
+    
+    /**
+     * Funcion IndividualEdge
+     * Se utiliza para poder mostrar el grafo
+     * @author Ulises,Andy,Hector
+     * @param graph
+     * @param peso
+     * @param ver1
+     * @param ver2
+     * @return Graph
+     */
     
     public Graph IndividualEdge(Graph graph, int peso,String ver1,String ver2){
         
@@ -193,6 +301,14 @@ public class MatrixGraph {
     }
     
 
+    /**
+     * Funcion IndividualNode
+     * Se utiliza para poder mostrar el grafo
+     * @author Ulises,Andy,Hector
+     * @param graph
+     * @param cualquiera
+     * @return 
+     */
     
     public Graph IndividualNode(Graph graph, Vertex cualquiera){
        Node aux = graph.addNode(""+cualquiera.getName());
@@ -200,6 +316,14 @@ public class MatrixGraph {
        aux.setAttribute("ui.color", cualquiera.getName());
        return graph;
     }
+    
+    /**
+     * Funcion CrearNodes
+     * Se crea el nodo
+     * @author Ulises,Andy,Hector
+     * @param grafico
+     * @return Graph
+     */
     
     public Graph CrearNodes(Graph grafico){
         if (!this.vertices.IsEmpty()) 
@@ -218,6 +342,14 @@ public class MatrixGraph {
         return grafico;        
     }
 
+    /**
+     * Funcion CrearEdges
+     * Se crean los arcos
+     * @author Ulises,Andy,Hector
+     * @param grafico
+     * @return Graph
+     */
+    
     public Graph CrearEdges(Graph grafico){
         
         if (!this.peso.IsEmpty()) 
